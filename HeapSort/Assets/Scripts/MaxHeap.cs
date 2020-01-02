@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class MaxHeap : MonoBehaviour {
 
-    public class HeapSort {
+    /* Ablauf des Algorithmus:
+     * 1. Max-Heap bilden -> Vaterknoten >= Kindknoten (von Blatt zur Wurzel hocharbeiten)
+     * 2. letztes Element speichern, Wurzelwert an letzte Stelle schreiben, dann von oben nach unten gehen und immer größten Wert nach oben schreiben
+     * und an unterster Stelle Element wieder einfügen; nochmal mit Elternknoten vergleichen und ggf. tauschen
+     * 4. Array-Länge um 1 verringern und 2. wiederholen, bis ganzes Array sortiert ist (Größe des Heaps = 0)
+     */
 
-        /* Ablauf des Algorithmus:
-         * 1. Max-Heap bilden -> Vaterknoten >= Kindknoten && linker Kindknoten >= rechter Kindknoten (von Blatt zur Wurzel vorarbeiten)
-         * 2. letztes Element speichern, Wurzelwert an letzte Stelle schreiben, dann von oben nach unten gehen und immer größten Wert nach oben schreiben
-         * und an unterster Stelle Element wieder einfügen
-         * 3. Max-Heap bilden (von eingefügtem Element nach oben arbeiten, Rest ist schon sortiert)
-         * 4. Wiederhole 2. und 3., bis ganzes Array sortiert ist (Größe des Heaps = 0)
-         */
-
-        public static int[] arrayToSort;
+    public static int[] arrayToSort;
         public static int arrayLength, root;
 
         // Start is called before the first frame update
@@ -25,8 +22,7 @@ public class MaxHeap : MonoBehaviour {
 
         public void Update() {
 
-            Debug.Log("Hallo");
-            if (Input.GetKeyDown(KeyCode.Space)) {
+           if (Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("Unsorted Array: " + arrayToString());
 
                 buildHeap();
@@ -56,14 +52,13 @@ public class MaxHeap : MonoBehaviour {
             root = 0;
         }
 
-        // 1. Max-Heap bilden -> ersten nicht Blattknoten suchen, dann Kinder untersuchen, ggf. tauschen. 
+        // Max-Heap bilden -> ersten nicht Blattknoten suchen, dann Kinder untersuchen, ggf. tauschen. 
         // dann zum nächsten Vaterknoten übergehen.
         public static void buildHeap() {
 
             for (int parent = arrayLength / 2 - 1; parent >= 0; parent--) {
 
                 heapify(parent);
-                //System.out.println(arrayToString());
             }
         }
 
@@ -75,7 +70,6 @@ public class MaxHeap : MonoBehaviour {
             // Solange Kindknoten existieren ...
             while (child < arrayLength) {
 
-                //System.out.println("parent: " + arrayToSort[parent] + " kind1: " + arrayToSort[child] + " kind2: " + arrayToSort[child + 1] + " ArrayLänge: " + arrayLength);
                 // Wenn es rechten Kindknoten gibt und dieses größer ist als das linke, dann wird dieses weiter betrachtet.
                 if (child + 1 < arrayLength) if (arrayToSort[child + 1] > arrayToSort[child]) child++;
 
@@ -88,13 +82,13 @@ public class MaxHeap : MonoBehaviour {
             }
         }
 
-        // Methode beginnt bei der Wurzel und tauscht das größte Kind (rechts, wenn vorhanden) nach oben an die freie Stelle.
+        // Methode beginnt bei der Wurzel und tauscht das größte Kind nach oben an die freie Stelle.
         // Dabei entsteht an einem der unteren Knoten eine freie Stelle, die später befüllt wird.
         public static int downHeap(int parent) {
 
             int child = parent * 2 + 1;
 
-            // Da rechtes Kind größer ist als linkes, wird bevorzugt dieses betrachtet.
+            // So lange es rechte Kindknoten gibt, werden die Kinder miteinander verglichen und das kleinere mit Elternknoten verglichen.
             while (child + 1 < arrayLength) {
 
                 if (arrayToSort[child + 1] > arrayToSort[child]) child++;
@@ -103,14 +97,14 @@ public class MaxHeap : MonoBehaviour {
                 parent = child;
                 child = parent * 2 + 1;
             }
-            // Fall, dass kein rechtes aber ein linkes Kind existiert.
-            if (child < arrayLength) {
+        // Fall, dass kein rechtes aber ein linkes Kind existiert.
+        if (child < arrayLength) {
 
-                arrayToSort[parent] = arrayToSort[child];
-                parent = child;
-            }
+            arrayToSort[parent] = arrayToSort[child];
+            parent = child;
+        }
 
-            return parent;
+        return parent;
         }
 
         // Fügt fehlendes Element an freier Stelle ein und sortiert dann von unten nach oben, bis Max-Heap-Struktur wieder eingehalten.
@@ -148,7 +142,7 @@ public class MaxHeap : MonoBehaviour {
 
             return array;
         }
-    }
+    
 
 
 }
