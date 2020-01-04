@@ -14,21 +14,22 @@ public class MaxHeap : MonoBehaviour {
      * 4. Wiederhole 2. und 3., bis ganzes Array sortiert ist (Größe des Heaps = 0)
      */
 
-    public static int[] arrayToSort;
-    public static int arrayLength, root;
+    public int[] arrayToSort;
+    public int arrayLength, root;
+    public GetNumberInput inputArray;
+    public bool started;
 
-    // Start is called before the first frame update
-    public void Start()
-    {
+    public void Start() {
 
-        createArray(new int[] { 10, 20, 5, 14, 7, 3, 1, 9, 24 });
-
+        started = false;
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (started)
         {
+            started = false;
+
             ManipulateProtocolTextFile.clearTextFile();
             ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
             
@@ -56,12 +57,29 @@ public class MaxHeap : MonoBehaviour {
 
             ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
             ManipulateProtocolTextFile.printOutProtocolContent();
+
+            Debug.Log(arrayToString());
             
         }
     }
 
+    // Wenn der Benutzer den "Bestätigen" Button drückt, startet der Algorithmus
+    public void startAlgorithm() {
+
+
+        Debug.Log("Hi");
+        string heapArray = "";
+        foreach (int i in inputArray.getListForHeap()) {
+
+            heapArray += i + ",";
+        }
+        Debug.Log(heapArray);
+        createArray(inputArray.getListForHeap().ToArray());
+        started = true;
+    }
+
     // Inizialisierung des zu sortierenden Arrays, sowie Speicherung von dessen Länge.
-    public static void createArray(int[] array)
+    public void createArray(int[] array)
     {
 
         arrayToSort = array;
@@ -71,7 +89,7 @@ public class MaxHeap : MonoBehaviour {
 
     // 1. Max-Heap bilden -> ersten nicht Blattknoten suchen, dann Kinder untersuchen, ggf. tauschen. 
     // dann zum nächsten Vaterknoten übergehen.
-    public static void buildHeap()
+    public void buildHeap()
     {
 
         for (int parent = arrayLength / 2 - 1; parent >= 0; parent--)
@@ -83,7 +101,7 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // Elemente im Array in Heapstruktur bringen.
-    public static void heapify(int parent)
+    public void heapify(int parent)
     {
         
         int child = parent * 2 + 1;
@@ -131,7 +149,7 @@ public class MaxHeap : MonoBehaviour {
 
     // Methode beginnt bei der Wurzel und tauscht das größte Kind (rechts, wenn vorhanden) nach oben an die freie Stelle.
     // Dabei entsteht an einem der unteren Knoten eine freie Stelle, die später befüllt wird.
-    public static int downHeap(int parent)
+    public int downHeap(int parent)
     {
 
         int child = parent * 2 + 1;
@@ -168,7 +186,7 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // Fügt fehlendes Element an freier Stelle ein und sortiert dann von unten nach oben, bis Max-Heap-Struktur wieder eingehalten.
-    public static void upHeap(int child, int missingElement)
+    public void upHeap(int child, int missingElement)
     {
 
         int parent;
@@ -189,7 +207,7 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // Tauscht Wert an Index-Stelle a und b miteinander.
-    public static void changePosition(int a, int b)
+    public void changePosition(int a, int b)
     {
         ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b] + ".   !");
         int help = arrayToSort[a];
@@ -199,7 +217,7 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.addParameterToWriteList(arrayToString() + "  #");
     }
 
-    public static string arrayToString()
+    public string arrayToString()
     {
 
         string array = "";

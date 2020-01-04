@@ -9,6 +9,7 @@ public class GetNumberInput : MonoBehaviour
     List<int> listForHeap = new List<int>();
 
     public List<int> getListForHeap() {
+
         return listForHeap;
     }
 
@@ -16,18 +17,20 @@ public class GetNumberInput : MonoBehaviour
     {
         foreach (TMPro.TMP_InputField iField in inFields)
         {
+            
             iField.onEndEdit.AddListener(SubmitNumber);
         }
     }
     
     private void SubmitNumber(string num)
     {
-        Debug.Log(num);
+        Debug.Log("It's me: " + num);
     }
+
 
     public void printOutInputFields()
     {
-        
+
         foreach(TMPro.TMP_InputField i in inFields)
         {
             
@@ -35,6 +38,7 @@ public class GetNumberInput : MonoBehaviour
             {
                 print(i.text);
                 int temp = 0;
+
                 if(int.TryParse(i.ToString(), out temp))
                 {
                     if(temp <101 && temp > -1)
