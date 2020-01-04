@@ -478,7 +478,7 @@ RectTransform:
   m_Children:
   - {fileID: 2130735155}
   m_Father: {fileID: 1409516224}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -527,7 +527,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 83969712}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1950386310}
+        m_MethodName: printOutInputFields
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &83969712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4966,7 +4977,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1384583729}
   - component: {fileID: 1384583728}
-  - component: {fileID: 1384583730}
   m_Layer: 0
   m_Name: HeapSortSript
   m_TagString: Untagged
@@ -5040,8 +5050,8 @@ RectTransform:
   - {fileID: 1291124712}
   - {fileID: 1123750881}
   - {fileID: 2043258310}
-  - {fileID: 83969710}
   - {fileID: 1621324342}
+  - {fileID: 83969710}
   m_Father: {fileID: 1950386309}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5975,7 +5985,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1409516224}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6965,6 +6975,7 @@ GameObject:
   - component: {fileID: 1950386308}
   - component: {fileID: 1950386307}
   - component: {fileID: 1950386306}
+  - component: {fileID: 1950386310}
   m_Layer: 5
   m_Name: InputCanvas
   m_TagString: Untagged
@@ -7052,6 +7063,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1950386310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950386305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb9dd7ffa2e2544baf0110c50e2796e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inFields:
+  - {fileID: 117739433}
+  - {fileID: 392149139}
+  - {fileID: 45154743}
+  - {fileID: 1136937001}
+  - {fileID: 945139747}
+  - {fileID: 1479687265}
+  - {fileID: 1772582732}
+  - {fileID: 1512319337}
+  - {fileID: 571057745}
+  - {fileID: 2051696098}
 --- !u!1 &2043258309
 GameObject:
   m_ObjectHideFlags: 0
