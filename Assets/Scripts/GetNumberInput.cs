@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GetNumberInput : MonoBehaviour
 {
     [SerializeField] TMPro.TMP_InputField[] inFields;
-    List<int> listForHeap = new List<int>();
+    static List<int> listForHeap = new List<int>();
 
-    public List<int> getListForHeap() {
+    public static List<int> getListForHeap() {
         return listForHeap;
     }
 
@@ -33,11 +34,13 @@ public class GetNumberInput : MonoBehaviour
             
             if (!(i.text.Equals(string.Empty)))
             {
-                print(i.text);
+                
                 int temp = 0;
-                if(int.TryParse(i.ToString(), out temp))
+                if(Regex.IsMatch(i.text, @"^\d+$")/*int.TryParse(i.ToString(), out temp)*/)
                 {
-                    if(temp <101 && temp > -1)
+                    temp = int.Parse(i.text);
+                    print(temp);
+                    if (temp <101 && temp > -1)
                     {
                         print("temp: " + temp);
                         getListForHeap().Add(temp);
@@ -52,10 +55,14 @@ public class GetNumberInput : MonoBehaviour
 
     private void printOutList()
     {
+
+
         foreach (int i in getListForHeap())
         {
-            print(i + "    " + getListForHeap().Count);
+            print(i + "    " + getListForHeap().Count + "!");
         }
+
+        MaxHeap.startMaxHeapPerButtonPress();
     }
 
 }

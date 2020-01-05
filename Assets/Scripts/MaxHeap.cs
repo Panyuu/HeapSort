@@ -18,14 +18,49 @@ public class MaxHeap : MonoBehaviour {
     public static int arrayLength, root;
 
     // Start is called before the first frame update
-    public void Start()
+   /* public void Start()
     {
 
-        createArray(new int[] { 10, 20, 5, 14, 7, 3, 1, 9, 24 });
+        
 
+    }*/
+
+    public static void startMaxHeapPerButtonPress()
+    {
+        int[] intArr = GetNumberInput.getListForHeap().ToArray();
+        
+        createArray(intArr);
+
+        ManipulateProtocolTextFile.clearTextFile();
+        ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
+
+
+        buildHeap();
+
+        while (arrayLength > 0)
+        {
+
+            arrayLength--;
+            // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (größtes Element) an letzte Stelle schreiben.
+            // -> an Wurzelstelle wird Platz frei
+            int lastLeaf = arrayToSort[arrayLength];
+            arrayToSort[arrayLength] = arrayToSort[root];
+            // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
+            int free = downHeap(root);
+
+
+
+            // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
+            upHeap(free, lastLeaf);
+
+            ManipulateProtocolTextFile.addParameterToWriteList(arrayToString() + "  $");
+        }
+
+        ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
+        ManipulateProtocolTextFile.printOutProtocolContent();
     }
 
-    public void Update()
+    /*public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -58,7 +93,7 @@ public class MaxHeap : MonoBehaviour {
             ManipulateProtocolTextFile.printOutProtocolContent();
             
         }
-    }
+    } */
 
     // Inizialisierung des zu sortierenden Arrays, sowie Speicherung von dessen Länge.
     public static void createArray(int[] array)
