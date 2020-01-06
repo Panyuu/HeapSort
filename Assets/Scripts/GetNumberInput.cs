@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class GetNumberInput : MonoBehaviour
 {
+       // turn into list for dynmic inputfield generation
+       // per knopfdruck inputfields enablen und nicht im script generieren
     [SerializeField] TMPro.TMP_InputField[] inFields;
+
+    //list that saves converted input from input canvas
     static List<int> listForHeap = new List<int>();
 
+    //getter method for listForHeap
     public static List<int> getListForHeap() {
         return listForHeap;
     }
@@ -17,14 +22,17 @@ public class GetNumberInput : MonoBehaviour
     {
         foreach (TMPro.TMP_InputField iField in inFields)
         {
+            // method that happens when input is entered
             iField.onEndEdit.AddListener(SubmitNumber);
         }
     }
     
+    // method that's called when something has been entered into an input field
     private void SubmitNumber(string num)
     {
         Debug.Log(num);
     }
+
 
     public void printOutInputFields()
     {
@@ -36,7 +44,7 @@ public class GetNumberInput : MonoBehaviour
             {
                 
                 int temp = 0;
-                if(Regex.IsMatch(i.text, @"^\d+$")/*int.TryParse(i.ToString(), out temp)*/)
+                if(Regex.IsMatch(i.text, @"^\d+$"))
                 {
                     temp = int.Parse(i.text);
                     print(temp);
