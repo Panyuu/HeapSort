@@ -529,7 +529,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1950386310}
-        m_MethodName: printOutInputFields
+        m_MethodName: printOutListMax
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1139,7 +1139,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1950386310}
-        m_MethodName: printOutInputFields
+        m_MethodName: printOutListMin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Geben Sie Zahlen ein! Diese d\xFCrfen zwischen 1 und 100 liegen."
+  m_text: "Geben Sie Zahlen ein! Diese d\xFCrfen zwischen -1 und 101 liegen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2640,7 +2640,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 601078928}
-    characterCount: 61
+    characterCount: 62
     spriteCount: 0
     spaceCount: 10
     wordCount: 11

@@ -14,38 +14,35 @@ public class MinHeap : MonoBehaviour {
     public static int[] arrayToSort;
     public static int arrayLength, root;
 
- 
-    public void Start() {
+    public static void startMinHeapPerButtonPress()
+    {
+        int[] intArr = GetNumberInput.getListForHeap().ToArray();
 
-        createArray(new int[] { 10, 20, 5, 14, 7, 3, 1, 9, 24 });
-    }
+        createArray(intArr);
 
-    public void Update() {
+        ManipulateProtocolTextFile.clearTextFile();
+        ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            ManipulateProtocolTextFile.clearTextFile();
-            ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
-  
-            buildHeap();
+        buildHeap();
 
-            while (arrayLength > 0)
-            {
-                arrayLength--;
-                // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (kleinstes Element) an letzte Stelle schreiben.
-                // -> an Wurzelstelle wird Platz frei
-                int lastLeaf = arrayToSort[arrayLength];
-                arrayToSort[arrayLength] = arrayToSort[root];
-                // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
-                int free = downHeap(root);
-                // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
-                upHeap(free, lastLeaf);
+        while (arrayLength > 0)
+        {
+            arrayLength--;
+            // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (kleinstes Element) an letzte Stelle schreiben.
+            // -> an Wurzelstelle wird Platz frei
+            int lastLeaf = arrayToSort[arrayLength];
+            arrayToSort[arrayLength] = arrayToSort[root];
+            // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
+            int free = downHeap(root);
+            // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
+            upHeap(free, lastLeaf);
 
-                ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
-            }
-            ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
-            ManipulateProtocolTextFile.printOutProtocolContent();
+            ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
+        ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
+        ManipulateProtocolTextFile.printOutProtocolContent();
     }
+
 
     // Inizialisierung des zu sortierenden Arrays, sowie Speicherung von dessen Länge.
     public static void createArray(int[] array)
