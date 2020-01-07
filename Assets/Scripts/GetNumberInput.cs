@@ -55,7 +55,7 @@ public class GetNumberInput : MonoBehaviour
                     // print out for console.log
                     print(temp);
                     // only allow numbers bewteen 0 & 100
-                    if (temp <101 && temp > -1)
+                    if (temp <100 && temp > -1)
                     {
                         // print out for console.log
                         print("temp: " + temp);
