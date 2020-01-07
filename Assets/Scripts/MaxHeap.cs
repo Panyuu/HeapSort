@@ -49,7 +49,6 @@ public class MaxHeap : MonoBehaviour {
     // Inizialisierung des zu sortierenden Arrays, sowie Speicherung von dessen Länge.
     public static void createArray(int[] array)
     {
-
         arrayToSort = array;
         arrayLength = arrayToSort.Length;
         root = 0;
@@ -59,10 +58,8 @@ public class MaxHeap : MonoBehaviour {
     // dann zum nächsten Vaterknoten übergehen.
     public static void buildHeap()
     {
-
         for (int parent = arrayLength / 2 - 1; parent >= 0; parent--)
         {
-
             heapify(parent);
             //ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
@@ -71,13 +68,11 @@ public class MaxHeap : MonoBehaviour {
     // Elemente im Array in Heapstruktur bringen.
     public static void heapify(int parent)
     {
-        
         int child = parent * 2 + 1;
 
         // Solange Kindknoten existieren ...
         while (child < arrayLength)
         {
-
             // Wenn es rechten Kindknoten gibt und dieses größer ist als das linke, dann wird dieses weiter betrachtet.
             if (child + 1 < arrayLength)
             {
@@ -96,7 +91,6 @@ public class MaxHeap : MonoBehaviour {
             } else
             {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    ArrayLänge: " + arrayLength);
-
             }
 
 
@@ -115,8 +109,6 @@ public class MaxHeap : MonoBehaviour {
                 parent = child;
                 child = parent * 2 + 1;
             }
-
-            
         }
     }
 
@@ -124,7 +116,6 @@ public class MaxHeap : MonoBehaviour {
     // Dabei entsteht an einem der unteren Knoten eine freie Stelle, die später befüllt wird.
     public static int downHeap(int parent)
     {
-
         int child = parent * 2 + 1;
 
         // Da rechtes Kind größer ist als linkes, wird bevorzugt dieses betrachtet.
@@ -135,8 +126,7 @@ public class MaxHeap : MonoBehaviour {
             {
                 ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1]);
                 child++;
-            }
-            else
+            } else
             {
                 ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1]);
             }
@@ -161,13 +151,11 @@ public class MaxHeap : MonoBehaviour {
     // Fügt fehlendes Element an freier Stelle ein und sortiert dann von unten nach oben, bis Max-Heap-Struktur wieder eingehalten.
     public static void upHeap(int child, int missingElement)
     {
-
         int parent;
         arrayToSort[child] = missingElement;
 
         while (child > root)
         {
-            
             parent = (child - 1) / 2;
             if (arrayToSort[parent] >= arrayToSort[child]) {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child]);
@@ -187,12 +175,11 @@ public class MaxHeap : MonoBehaviour {
         arrayToSort[a] = arrayToSort[b];
         arrayToSort[b] = help;
         
-        ManipulateProtocolTextFile.addParameterToWriteList(arrayToString() + "  #");
+        ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
     }
 
     public static string arrayToString()
     {
-
         string array = "";
 
         for (int i = 0; i < arrayToSort.Length; i++)
@@ -203,7 +190,4 @@ public class MaxHeap : MonoBehaviour {
 
         return array;
     }
-
-
-
 }
