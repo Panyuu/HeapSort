@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GetNumberInput : MonoBehaviour
 {
+    [SerializeField] GameObject inputCanvas;
+
        // turn into list for dynmic inputfield generation
        // per knopfdruck inputfields enablen und nicht im script generieren
     [SerializeField] TMPro.TMP_InputField[] inFields;
@@ -77,6 +79,7 @@ public class GetNumberInput : MonoBehaviour
         }
         //starts the max Heap
         MaxHeap.startMaxHeapPerButtonPress();
+        inputCanvas.SetActive(false);
     }
 
 }

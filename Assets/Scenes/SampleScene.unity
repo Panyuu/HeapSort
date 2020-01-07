@@ -7075,6 +7075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb9dd7ffa2e2544baf0110c50e2796e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputCanvas: {fileID: 1950386305}
   inFields:
   - {fileID: 117739433}
   - {fileID: 392149139}
