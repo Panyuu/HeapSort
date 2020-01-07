@@ -33,43 +33,49 @@ public class GetNumberInput : MonoBehaviour
         Debug.Log(num);
     }
 
-
+    //more precise name would be 'extract infomation & forward'
+    // extract input from input fields and save it into listForHeap, which gets transfered to Heap Algorithm
     public void printOutInputFields()
     {
-        
+        //cycle through all the input fields
         foreach(TMPro.TMP_InputField i in inFields)
         {
-            
+            // are they empty?
             if (!(i.text.Equals(string.Empty)))
             {
-                
+                // temporal variable to save input into different data type
                 int temp = 0;
+                // use Regular expression to check if the string 
                 if(Regex.IsMatch(i.text, @"^\d+$"))
                 {
+                    // cast the string into int
                     temp = int.Parse(i.text);
+                    // print out for console.log
                     print(temp);
+                    // only allow numbers bewteen 0 & 100
                     if (temp <101 && temp > -1)
                     {
+                        // print out for console.log
                         print("temp: " + temp);
+                        // add the valid input to the heap list
                         getListForHeap().Add(temp);
                     }
-                    
                 }
             }
         }
-
+        // 
         printOutList();
     }
 
+    //final printout & start f algorithm
     private void printOutList()
     {
-
-
+        // prints out every element in list
         foreach (int i in getListForHeap())
         {
             print(i + "    " + getListForHeap().Count + "!");
         }
-
+        //starts the max Heap
         MaxHeap.startMaxHeapPerButtonPress();
     }
 
