@@ -10,23 +10,27 @@ public class ManipulateProtocolTextFile : MonoBehaviour
 
     //use Application.dataPath because on every device accessing the Asset folder can work differently (e.g. laptop, mobile) just to be sure
     public static string pathToAssetFolder = Application.dataPath;
+    // the path inside the AssetFolder to the Protocol text file
     public static string pathInsideAssetFolder = "/TextFile/";
+    // the name of the protocol text file
     public static string fileName = "Protocol.txt";
+    // the full path from root to the protocol text file
     public static string fullPath = pathToAssetFolder + pathInsideAssetFolder + fileName;
-
-    TextAsset protocol = new TextAsset(fullPath);
 
     //output from the file after reading it
     public static List<string> stringList = new List<string>();
     //what to write into the file
     public static List<string> writeList = new List<string>();
 
+    // how many lines are currently in the protocol text file
     public static int lineCount = 0;
+    //getter method for lineCount
     public static int getLineCount()
     {
         return lineCount;
     }
 
+    //setter method for lineCount
     public static void setLineCount(int num)
     {
         lineCount = num;
@@ -35,35 +39,40 @@ public class ManipulateProtocolTextFile : MonoBehaviour
     //read from file
     public static void readFile(string filePath)
     {
+        // open reading stream
         StreamReader sReader = new StreamReader(filePath);
+        // i the end isn't reached yet
         while(!sReader.EndOfStream)
         {
             //look for every line because we want to work with the individually
             string line = sReader.ReadLine();
 
-            //if we wanted the text as a whole
-            //string text = sReader.ReadToEnd();
-
+            // add line to the protocol
             stringList.Add(line);
         }
+        // close stream again to free up resources
         sReader.Close();
     }
 
     //erase everything previously written in the file
     public static void writeFile(string filePath, string content)
     {
+        //allocate writer stream
         StreamWriter sWriter;
+        // if the file we want to write into doesn't exist yet 
         if (!File.Exists(filePath))
         {
+            //make new file
             sWriter = File.CreateText(fullPath);
         }
         else 
         {
+            //write into existing file
             sWriter = new StreamWriter(filePath);
         }
-
+        //write line into file
         sWriter.WriteLine(content);
-        
+        // close stream again to free up resources
         sWriter.Close();
     }
 
@@ -88,9 +97,11 @@ public class ManipulateProtocolTextFile : MonoBehaviour
         sWriter.Close();
     }
 
+    //content of text file is ""
     public static void clearTextFile()
     {
         File.WriteAllText(fullPath, string.Empty);
+        // line count is independent of content is gets reset maunally
         setLineCount(0);
     }
 
@@ -119,7 +130,9 @@ public class ManipulateProtocolTextFile : MonoBehaviour
     //print out the whole text file to the console once the heap is finished
     public static void printOutProtocolContent()
     {
+        // add everything at once to file once all the lines are collected in list
         appendFile(fullPath);
+        // read from file into stringList
         readFile(fullPath);
         foreach(string s in stringList)
         {
