@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MaxHeap : MonoBehaviour {
 
-
-
     /* Ablauf des Algorithmus:
      * 1. Max-Heap bilden -> Vaterknoten >= Kindknoten && linker Kindknoten >= rechter Kindknoten (von Blatt zur Wurzel vorarbeiten)
      * 2. letztes Element speichern, Wurzelwert an letzte Stelle schreiben, dann von oben nach unten gehen und immer größten Wert nach oben schreiben
@@ -17,13 +15,6 @@ public class MaxHeap : MonoBehaviour {
     public static int[] arrayToSort;
     public static int arrayLength, root;
 
-    // Start is called before the first frame update
-   /* public void Start()
-    {
-
-        
-
-    }*/
 
     public static void startMaxHeapPerButtonPress()
     {
@@ -34,12 +25,10 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.clearTextFile();
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
 
-
         buildHeap();
 
         while (arrayLength > 0)
         {
-
             arrayLength--;
             // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (größtes Element) an letzte Stelle schreiben.
             // -> an Wurzelstelle wird Platz frei
@@ -47,53 +36,15 @@ public class MaxHeap : MonoBehaviour {
             arrayToSort[arrayLength] = arrayToSort[root];
             // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
             int free = downHeap(root);
-
-
-
             // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
             upHeap(free, lastLeaf);
 
-            ManipulateProtocolTextFile.addParameterToWriteList(arrayToString() + "  $");
+            ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
         ManipulateProtocolTextFile.printOutProtocolContent();
     }
-
-    /*public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ManipulateProtocolTextFile.clearTextFile();
-            ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
-            
-
-            buildHeap();
-
-            while (arrayLength > 0)
-            {
-
-                arrayLength--;
-                // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (größtes Element) an letzte Stelle schreiben.
-                // -> an Wurzelstelle wird Platz frei
-                int lastLeaf = arrayToSort[arrayLength];
-                arrayToSort[arrayLength] = arrayToSort[root];
-                // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
-                int free = downHeap(root);
-
-                
-
-                // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
-                upHeap(free, lastLeaf);
-
-                ManipulateProtocolTextFile.addParameterToWriteList(arrayToString() + "  $");
-            }
-
-            ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
-            ManipulateProtocolTextFile.printOutProtocolContent();
-            
-        }
-    } */
 
     // Inizialisierung des zu sortierenden Arrays, sowie Speicherung von dessen Länge.
     public static void createArray(int[] array)

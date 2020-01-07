@@ -14,7 +14,7 @@ public class MinHeap : MonoBehaviour {
     public static int[] arrayToSort;
     public static int arrayLength, root;
 
-    // Start is called before the first frame update
+ 
     public void Start() {
 
         createArray(new int[] { 10, 20, 5, 14, 7, 3, 1, 9, 24 });
@@ -23,12 +23,13 @@ public class MinHeap : MonoBehaviour {
     public void Update() {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("Unsorted Array: " + arrayToString());
-
+            ManipulateProtocolTextFile.clearTextFile();
+            ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
+  
             buildHeap();
 
-            while (arrayLength > 0) {
-
+            while (arrayLength > 0)
+            {
                 arrayLength--;
                 // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (kleinstes Element) an letzte Stelle schreiben.
                 // -> an Wurzelstelle wird Platz frei
@@ -38,9 +39,11 @@ public class MinHeap : MonoBehaviour {
                 int free = downHeap(root);
                 // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
                 upHeap(free, lastLeaf);
-            }
 
-            Debug.Log("Sorted Array: " + arrayToString());
+                ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
+            }
+            ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
+            ManipulateProtocolTextFile.printOutProtocolContent();
         }
     }
 

@@ -37,7 +37,7 @@ public class GetNumberInput : MonoBehaviour
 
     //more precise name would be 'extract infomation & forward'
     // extract input from input fields and save it into listForHeap, which gets transfered to Heap Algorithm
-    public void printOutInputFields()
+    public void extractInputForHeap()
     {
         //cycle through all the input fields
         foreach(TMPro.TMP_InputField i in inFields)
@@ -66,12 +66,14 @@ public class GetNumberInput : MonoBehaviour
             }
         }
         // 
-        printOutList();
+        
     }
 
-    //final printout & start f algorithm
-    private void printOutList()
+    //final printout & start max algorithm
+    private void printOutListMax()
     {
+        extractInputForHeap();
+
         // prints out every element in list
         foreach (int i in getListForHeap())
         {
@@ -81,6 +83,22 @@ public class GetNumberInput : MonoBehaviour
         MaxHeap.startMaxHeapPerButtonPress();
         inputCanvas.SetActive(false);
     }
+
+    //final printout & start min algorithm
+    private void printOutListMin()
+    {
+        extractInputForHeap();
+
+        // prints out every element in list
+        foreach (int i in getListForHeap())
+        {
+            print(i + "    " + getListForHeap().Count + "!");
+        }
+        //starts the max Heap
+        MinHeap.startMinHeapPerButtonPress();
+        inputCanvas.SetActive(false);
+    }
+
 
 }
 
