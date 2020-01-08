@@ -10,7 +10,7 @@ public class GetNumberInput : MonoBehaviour
 
        // turn into list for dynmic inputfield generation
        // per knopfdruck inputfields enablen und nicht im script generieren
-    [SerializeField] TMPro.TMP_InputField[] inFields;
+    [SerializeField] public TMPro.TMP_InputField[] inFields;
 
     //list that saves converted input from input canvas
     static List<int> listForHeap = new List<int>();
@@ -22,6 +22,7 @@ public class GetNumberInput : MonoBehaviour
 
     void Start()
     {
+
         foreach (TMPro.TMP_InputField iField in inFields)
         {
             // method that happens when input is entered
@@ -39,8 +40,10 @@ public class GetNumberInput : MonoBehaviour
     // extract input from input fields and save it into listForHeap, which gets transfered to Heap Algorithm
     private void extractInputForHeap()
     {
+        inFields = ButtonManager.inputFields.ToArray();
+
         //cycle through all the input fields
-        foreach(TMPro.TMP_InputField i in inFields)
+        foreach (TMPro.TMP_InputField i in inFields)
         {
             // are they empty?
             if (!(i.text.Equals(string.Empty)))
