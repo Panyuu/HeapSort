@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327076884944217011}
   - component: {fileID: -4907942424001119548}
+  - component: {fileID: 1538021125839883764}
   m_Layer: 0
   m_Name: schiffPlauschig
   m_TagString: Untagged
@@ -134,6 +135,79 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1538021125839883764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589816573534245280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d547e398d8c74d4fb3f954c4dc199bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSound:
+  - name: Move1
+    clip: {fileID: 8300000, guid: 0f484bac4c8338e4eb1a78161a86db28, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Move2
+    clip: {fileID: 8300000, guid: 84c35d1e946891145a78e484aa99e7a6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Move3
+    clip: {fileID: 8300000, guid: 549f918a7a030124faa02731fb5d4f29, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Move4
+    clip: {fileID: 8300000, guid: 2d7820d7e061f9c498032bf97d86b64b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Move5
+    clip: {fileID: 8300000, guid: c7278aefa3c76e94da59290954159757, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
 --- !u!1 &2529679966786640209
 GameObject:
   m_ObjectHideFlags: 0

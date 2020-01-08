@@ -120,6 +120,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13375961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1589816573534245280, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578577529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &13375962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13375961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d547e398d8c74d4fb3f954c4dc199bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSound: []
 --- !u!1001 &224059254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,6 +309,98 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &229611144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229611141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d547e398d8c74d4fb3f954c4dc199bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSound:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+--- !u!1 &496301298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1589816573534245280, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2026290015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &496301299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496301298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d547e398d8c74d4fb3f954c4dc199bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSound: []
 --- !u!1 &519985264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1499,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a82ad5cb0078140a69f0ae35ddf35d, type: 3}
+--- !u!1 &1427890151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1589816573534245280, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
+    type: 3}
+  m_PrefabInstance: {fileID: 224059254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1427890152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427890151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d547e398d8c74d4fb3f954c4dc199bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSound: []
+--- !u!1 &1445800799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1589816573534245280, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
+    type: 3}
+  m_PrefabInstance: {fileID: 612954155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1445800800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445800799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d547e398d8c74d4fb3f954c4dc199bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSound: []
 --- !u!1 &1454582578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,10 +2318,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0.1
+  - name: music
+    clip: {fileID: 8300000, guid: ab3b69df517ff7048974d0eb9cd015aa, type: 3}
+    volume: 0.82
+    pitch: 1
+    source: {fileID: 0}
+  - name: waves
+    clip: {fileID: 8300000, guid: 89f64a8cdefdd9b449ca327b8f4c7fc1, type: 3}
+    volume: 0.71
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &2093674752
 Transform:
   m_ObjectHideFlags: 0
