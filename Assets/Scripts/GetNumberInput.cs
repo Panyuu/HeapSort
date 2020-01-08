@@ -10,7 +10,7 @@ public class GetNumberInput : MonoBehaviour
 
        // turn into list for dynmic inputfield generation
        // per knopfdruck inputfields enablen und nicht im script generieren
-    [SerializeField] TMPro.TMP_InputField[] inFields;
+    [SerializeField] public TMPro.TMP_InputField[] inFields;
 
     //list that saves converted input from input canvas
     static List<int> listForHeap = new List<int>();
