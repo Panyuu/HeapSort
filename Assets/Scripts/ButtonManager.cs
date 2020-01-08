@@ -9,10 +9,16 @@ public class ButtonManager : MonoBehaviour
     public GameObject orientaField;
     public GameObject parent;
     public GameObject InputCanvas;
+    public static List<TMPro.TMP_InputField> inputFields;
 
     public float distance;
 
     private int fieldCount = 1;
+
+    private void Start() {
+
+        inputFields = new List<TMPro.TMP_InputField>();
+    }
     public void addField()
     {
         if (fieldCount < 7)
@@ -25,6 +31,9 @@ public class ButtonManager : MonoBehaviour
             help.transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = fieldCount.ToString();
             //InputCanvas.GetComponent<GetNumberInput>().inFields.SetValue(help,fieldCount);
 
+            // adds input fields to list 
+            inputFields.Add(help.transform.GetChild(0).GetComponent<TMP_InputField>());
+
             fieldCount++;
         }
     }
@@ -33,6 +42,8 @@ public class ButtonManager : MonoBehaviour
     {
         if (fieldCount>1)
         {
+            //deletes last element in list and destroys object
+            inputFields.RemoveAt(inputFields.Count - 1);
             Destroy(GameObject.Find("Nr" + --fieldCount));
         }
     }
