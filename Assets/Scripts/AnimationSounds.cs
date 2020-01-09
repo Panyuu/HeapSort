@@ -25,10 +25,12 @@ public class AnimationSounds : MonoBehaviour
         AudioManager.playThisNow(animationSound[2]);
     }
 
-    void playMove4()
+    public void PlayMove4()
     {
         //Schnelle Schiffsbewegung
-        AudioManager.playThisNow(animationSound[3]);
+        //AudioManager.playThisNow(animationSound[3]);
+        animationSound[3].source.Play();
+        Debug.Log("hey i work");
     }
 
     void playMove5()

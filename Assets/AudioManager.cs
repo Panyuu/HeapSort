@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sounds s in sounds)
         {
+            print("hi");
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
@@ -22,8 +23,8 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
            
         }
-        sounds[0].source.loop = true;
-        sounds[1].source.loop = true;
+        //sounds[0].source.loop = true;
+        //sounds[1].source.loop = true;
     }
 
    
