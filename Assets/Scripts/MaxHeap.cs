@@ -22,17 +22,18 @@ public class MaxHeap : MonoBehaviour {
 
         mh = this;
         animQueue = new Queue<IEnumerator>();
-        mh.StartCoroutine(startAnimation());
     }
 
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
         
         int[] intArr = GetNumberInput.getListForHeap().ToArray();
-        
+
+        mh.StartCoroutine(startAnimation());
+
         createArray(intArr);
 
-        animQueue.Enqueue(VisualHeap.positionShips(intArr));
+        animQueue.Enqueue(VisualHeap.positionShips(arrayToSort));
 
         //mh.StartCoroutine(VisualHeap.positionShips(intArr));
 
