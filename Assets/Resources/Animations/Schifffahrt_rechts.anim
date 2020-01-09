@@ -556,7 +556,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.9
+  - time: 1.6833333
     functionName: Playmove5
     data: 
     objectReferenceParameter: {fileID: 0}
