@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 public class AnimationSounds : MonoBehaviour
-{
-    [SerializeField] Sounds[] animationSound;
+{/*
+    [SerializeField] AudioClip[] animationSound;
 
     void playMove1()
     {
@@ -29,7 +29,7 @@ public class AnimationSounds : MonoBehaviour
     {
         //Schnelle Schiffsbewegung
         //AudioManager.playThisNow(animationSound[3]);
-        animationSound[3].source.Play();
+        animationSound[3].Play();
         Debug.Log("hey i work");
     }
 
@@ -79,5 +79,5 @@ public class AnimationSounds : MonoBehaviour
     {
         //Am Ende, wenn alles vollständig sortiert ist
         AudioManager.playThisNow(animationSound[11]);
-    }
+    }*/
 }

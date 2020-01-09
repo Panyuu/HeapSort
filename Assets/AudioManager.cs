@@ -36,12 +36,42 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("music");
-        Play("waves");
+       // Play("music");
+        //Play("waves");
     }
-
-    public static void playThisNow(Sounds s)
+    /*
+    public static void playThisNow(AnimationClip s)
     {
         s.source.Play();
     }
+    */
+
+    public void Playmove1()
+    {
+        Play("move1");
+    }
+
+    public void Playmove2()
+    {
+        Play("move2");
+    }
+
+
+    public void Playmove3()
+    {
+        Play("move3");
+    }
+
+    public void Playmove4()
+    {
+        Play("move4");
+    }
+
+    public void Playmove5()
+    {
+        Play("move5");
+    }
+
+
+
 }
