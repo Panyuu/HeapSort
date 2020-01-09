@@ -57,9 +57,9 @@ public class GetNumberInput : MonoBehaviour
                     // only allow numbers bewteen 0 & 100
                     if (temp <101 && temp > -1)
                     {
-                        // print out for console.log
-                        print("temp: " + temp);
-                        // add the valid input to the heap list
+                        //// print out for console.log
+                        //print("temp: " + temp);
+                        //// add the valid input to the heap list
                         getListForHeap().Add(temp);
                     }
                 }
@@ -75,12 +75,14 @@ public class GetNumberInput : MonoBehaviour
         extractInputForHeap();
 
         // prints out every element in list
-        foreach (int i in getListForHeap())
-        {
-            print(i + "    " + getListForHeap().Count + "!");
-        }
+        //foreach (int i in getListForHeap())
+        //{
+        //    print(i + "    " + getListForHeap().Count + "!");
+        //}
         //starts the max Heap
-        MaxHeap.startMaxHeapPerButtonPress();
+        StartCoroutine(MaxHeapVisual.startVisualMaxHeapPerButtonPress());
+        //MaxHeap.startMaxHeapPerButtonPress();
+        
         inputCanvas.SetActive(false);
     }
 
@@ -90,10 +92,10 @@ public class GetNumberInput : MonoBehaviour
         extractInputForHeap();
 
         // prints out every element in list
-        foreach (int i in getListForHeap())
-        {
-            print(i + "    " + getListForHeap().Count + "!");
-        }
+        //foreach (int i in getListForHeap())
+        //{
+        //    print(i + "    " + getListForHeap().Count + "!");
+        //}
         //starts the max Heap
         MinHeap.startMinHeapPerButtonPress();
         inputCanvas.SetActive(false);

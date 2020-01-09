@@ -42,14 +42,9 @@ public class VisualHeap : MonoBehaviour
 
         List<GameObject> ships = new List<GameObject>();
 
-        for (int i = 0; i < arrayToSort.Length; i++) {
+        for (int i = 0; i < arrayLength; i ++) {
 
-            Debug.Log("Visual Heap " + arrayToSort[i] + ", ");
-
-        }
-
-        for (int i = 0; i < arrayToSort.Length; i ++) {
-
+            Debug.Log("Schiff Ahoi");
             // Create Object Ship
             ships.Add(Instantiate(vh.shipPrefab, shipPosition[i], new Quaternion(0, 180, 0, 0)));
             // sets the number on the sail
@@ -62,14 +57,10 @@ public class VisualHeap : MonoBehaviour
             //anim[i] = ships[i].GetComponent<Animator>();
             
             //anim[i].SetBool("isSurfacing", true);
-            yield return new WaitForSeconds(0.5f);
             //anim[i].SetBool("isSurfacing", false);
-
-            
-            
-
         }
 
+        yield return new WaitForSeconds(0.5f);
         shipsToSort = ships.ToArray();
 
     }
