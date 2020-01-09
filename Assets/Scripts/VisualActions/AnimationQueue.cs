@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class AnimationQueue : MonoBehaviour
 {
-    //public static Queue<IEnumerator> animQueue;
+    public static Queue<IEnumerator> animQueue;
 
     public static AnimationQueue aq;
 
     private void Awake() {
 
         aq = this;
-        //animQueue = new Queue<IEnumerator>();
+        animQueue = new Queue<IEnumerator>();
     }
 
-    public static IEnumerator animate(Queue<IEnumerator> animQueue) {
+    public static IEnumerator startAnimation() {
+
+
+        int count = 0;
 
         while (true) {
-
             if (animQueue.Count != 0) {
 
-                IEnumerator play = animQueue.Dequeue();
+                Debug.Log(++count + "animations executed");
+                yield return aq.StartCoroutine(animQueue.Dequeue());
 
-                NewMethod(play);
+
             }
 
+            yield return new WaitForSeconds(2f);
         }
-    }
-
-    private static void NewMethod(IEnumerator play) {
-        aq.StartCoroutine(play);
     }
 }

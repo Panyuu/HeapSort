@@ -13,7 +13,7 @@ public class MaxHeap : MonoBehaviour {
      */
 
     public static int[] arrayToSort;
-    public static int arrayLength, root, free, child, parent;
+    public static int arrayLength, root, free;
     public static Queue<IEnumerator> animQueue;
 
     public static MaxHeap mh;
@@ -22,16 +22,19 @@ public class MaxHeap : MonoBehaviour {
 
         mh = this;
         animQueue = new Queue<IEnumerator>();
+        mh.StartCoroutine(startAnimation());
     }
 
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
         
         int[] intArr = GetNumberInput.getListForHeap().ToArray();
-
+        
         createArray(intArr);
 
-        animQueue.Enqueue(VisualHeap.positionShips(arrayToSort));
+        animQueue.Enqueue(VisualHeap.positionShips(intArr));
+
+        //mh.StartCoroutine(VisualHeap.positionShips(intArr));
 
         ManipulateProtocolTextFile.clearTextFile();
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
@@ -56,9 +59,6 @@ public class MaxHeap : MonoBehaviour {
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
-
-        mh.StartCoroutine(startAnimation());
-
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
         ManipulateProtocolTextFile.printOutProtocolContent();
     }
@@ -75,10 +75,12 @@ public class MaxHeap : MonoBehaviour {
     // dann zum nächsten Vaterknoten übergehen.
     public static void buildHeap()
     {
-        for (parent = arrayLength / 2 - 1; parent >= 0; parent--)
+        for (int parent = (arrayLength / 2 - 1); parent >= 0; parent--)
         {
-            heapify(parent);
             Debug.Log("Vater: " + parent + " = " + arrayToSort[parent]);
+            Debug.Log(arrayToString());
+            heapify(parent);
+            
             //ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
     }
@@ -86,7 +88,7 @@ public class MaxHeap : MonoBehaviour {
     // Elemente im Array in Heapstruktur bringen.
     public static void heapify(int parent)
     {
-        child = parent * 2 + 1;
+        int child = parent * 2 + 1;
 
         // Solange Kindknoten existieren ...
         while (child < arrayLength)
@@ -139,7 +141,7 @@ public class MaxHeap : MonoBehaviour {
     // Dabei entsteht an einem der unteren Knoten eine freie Stelle, die später befüllt wird.
     public static int downHeap(int parent)
     {
-        child = parent * 2 + 1;
+        int child = parent * 2 + 1;
 
         // Da rechtes Kind größer ist als linkes, wird bevorzugt dieses betrachtet.
         while (child + 1 < arrayLength)
@@ -229,8 +231,8 @@ public class MaxHeap : MonoBehaviour {
 
                 Debug.Log(++count + "animations executed");
                 yield return mh.StartCoroutine(animQueue.Dequeue());
-                
-                
+
+
             }
 
             yield return new WaitForSeconds(2f);

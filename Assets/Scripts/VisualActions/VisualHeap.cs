@@ -7,7 +7,7 @@ public class VisualHeap : MonoBehaviour
 
     public static VisualHeap vh;
     // Ship Prefab to instantiate
-    [SerializeField] GameObject shipPrefab;  
+    public GameObject shipPrefab;
     // positions of ships in heap
     static Vector3[] shipPosition;
     // stores information about the objects that are sorted
@@ -31,13 +31,21 @@ public class VisualHeap : MonoBehaviour
         shipPosition = new Vector3[] { new Vector3(0, 2.2f, 2), 
             new Vector3(-6, 0.2f, 1), new Vector3(6, 0.2f, 1), new Vector3(-8, -1.8f, -0.5f), 
             new Vector3(-3, -1.8f, -0.5f), new Vector3(3, -1.8f, -0.5f), new Vector3(8, -1.8f, -0.5f) };
-    }
 
+
+        cachePosition = new Vector3(-11, 2.2f, 2);
+    }
 
     // Creates the heap structure according to the array.
     public static IEnumerator positionShips(int[] arrayToSort) {
 
         List<GameObject> ships = new List<GameObject>();
+
+        for (int i = 0; i < arrayToSort.Length; i++) {
+
+            Debug.Log("Visual Heap " + arrayToSort[i] + ", ");
+
+        }
 
         for (int i = 0; i < arrayToSort.Length; i ++) {
 
@@ -69,6 +77,9 @@ public class VisualHeap : MonoBehaviour
     // changes complete ship object (position, rotation of sail, text on the ship)
     public static IEnumerator ChangeShipPosition(int a, int b) {
 
+
+        Debug.Log("Ships Position Changed");
+        
         // saves all necessary variables from a
         Vector3 positionShip = shipsToSort[a].transform.position;
         GameObject objectA = shipsToSort[a];
