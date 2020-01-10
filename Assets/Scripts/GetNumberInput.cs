@@ -80,8 +80,7 @@ public class GetNumberInput : MonoBehaviour
         //    print(i + "    " + getListForHeap().Count + "!");
         //}
         //starts the max Heap
-        StartCoroutine(MaxHeapVisual.startVisualMaxHeapPerButtonPress());
-        //MaxHeap.startMaxHeapPerButtonPress();
+        MaxHeap.startMaxHeapPerButtonPress();
         
         inputCanvas.SetActive(false);
     }

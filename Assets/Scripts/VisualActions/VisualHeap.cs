@@ -34,20 +34,21 @@ public class VisualHeap : MonoBehaviour
     void Start() {
 
         // positions for the ships in heap-structure
-        shipPosition = new Vector3[] { new Vector3(0, 2.2f, 2),
-            new Vector3(-6, 0.2f, 1), new Vector3(6, 0.2f, 1), new Vector3(-8, -1.8f, -0.5f),
-            new Vector3(-3, -1.8f, -0.5f), new Vector3(3, -1.8f, -0.5f), new Vector3(8, -1.8f, -0.5f) };
+        shipPosition = new Vector3[] { new Vector3(0, -1f, 3),
+            new Vector3(-6, -2.8f, 1), new Vector3(6, -2.8f, 1), new Vector3(-8, -4.8f, -0.5f),
+            new Vector3(-3, -4.8f, -0.5f), new Vector3(3, -4.8f, -0.5f), new Vector3(8, -4.8f, -0.5f) };
 
 
-        cachePosition = new Vector3(14, 2.2f, 2);
+        cachePosition = new Vector3(14, -1f, 2);
     }
 
     // Creates the heap structure according to the array.
     public static IEnumerator positionShips(int[] arrayToSort) {
 
         List<GameObject> ships = new List<GameObject>();
+        List<Animator> animators = new List<Animator>();
 
-        for (int i = 0; i < arrayLength; i ++) {
+        for (int i = 0; i < arrayToSort.Length; i ++) {
 
             Debug.Log("Schiff Ahoi");
             // Create Object Ship
@@ -59,14 +60,16 @@ public class VisualHeap : MonoBehaviour
             ships[i].name = "ShipIndex_" + i;
             
             
-            //anim[i] = ships[i].GetComponent<Animator>();
+            animators.Add(ships[i].GetComponent<Animator>());
             
-            //anim[i].SetBool("isSurfacing", true);
-            //anim[i].SetBool("isSurfacing", false);
+            animators[i].SetBool("isSurfacing", true);
+            yield return new WaitForSeconds(1f);
+            animators[i].SetBool("isSurfacing", false);
         }
 
         yield return new WaitForSeconds(0.5f);
         shipsToSort = ships.ToArray();
+        anim = animators.ToArray();
 
     }
 
@@ -77,35 +80,37 @@ public class VisualHeap : MonoBehaviour
         Debug.Log("Ships Position Changed");
         
         // saves all necessary variables from a
-        Vector3 positionShip = shipsToSort[a].transform.position;
         GameObject objectA = shipsToSort[a];
         //string textOnShip = shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text;
 
         // ships submerge
         //anim[a].SetBool("isSubmerging", true);
-        //yield return new WaitForSeconds(3.5f);
+        //yield return new WaitForSeconds(3f);
         //anim[a].SetBool("isSubmerging", false);
         //anim[b].SetBool("isSubmerging", true);
-        //yield return new WaitForSeconds(3.5f);
+        //yield return new WaitForSeconds(3f);
         //anim[b].SetBool("isSubmerging", false);
 
         // overwrites current values with the ones from other variable
         // saves values of b in a and changes index
-        shipsToSort[a].transform.position = shipsToSort[b].transform.position;
+        shipsToSort[a].transform.position = shipPosition[b];
         shipsToSort[a] = shipsToSort[b];
 
+        //Debug.Log("in Array gespeicherte Position: " + shipPosition[b].x + ", " + shipPosition[b].y +
+        //    ", aktuelle Position: " + shipsToSort[a].transform.position.x + ", " + shipsToSort[b].transform.position.y);
+
         // saves values of a in b and changes index
-        shipsToSort[b].transform.position = positionShip;
+        shipsToSort[b].transform.position = shipPosition[a];
         shipsToSort[b] = objectA;
 
         // lets ships surface on different position
         //anim[a].SetBool("isSurfacing", true);
-        //yield return new WaitForSeconds(4.5f);
+        //yield return new WaitForSeconds(3f);
         //anim[a].SetBool("isSurfacing", false);
         //anim[b].SetBool("isSurfacing", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
         //anim[b].SetBool("isSurfacing", false);
-    
+
     }
 
     // Separates last element from heap and switches position of root element to last element
