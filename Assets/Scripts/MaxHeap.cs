@@ -84,8 +84,8 @@ public class MaxHeap : MonoBehaviour {
     {
         for (int parent = (arrayLength / 2 - 1); parent >= 0; parent--)
         {
-            Debug.Log("Vater: " + parent + " = " + arrayToSort[parent]);
-            Debug.Log(arrayToString());
+            //Debug.Log("Vater: " + parent + " = " + arrayToSort[parent]);
+            //Debug.Log(arrayToString());
             heapify(parent);
             
             //ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
@@ -134,7 +134,7 @@ public class MaxHeap : MonoBehaviour {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child] + ".");
                 // ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " wechselt die Position mit Kindknoten: " + arrayToSort[child]);
 
-                Debug.Log("Parent at Index: " + parent + " = " + arrayToSort[parent] + " child at index: " + child + " = " + arrayToSort[child]);
+                //Debug.Log("Parent at Index: " + parent + " = " + arrayToSort[parent] + " child at index: " + child + " = " + arrayToSort[child]);
 
                 changePosition(parent, child);
                 parent = child;

@@ -12,6 +12,8 @@ public class VisualHeap : MonoBehaviour
     static Vector3[] shipPosition;
     // stores information about the objects that are sorted
     static GameObject[] shipsToSort;
+
+    public static int[] arrayToSort;
     // stores the position of the separated ship (currently not in heap)
     static Vector3 cachePosition;
     // cache
@@ -29,11 +31,11 @@ public class VisualHeap : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start() { 
+    void Start() {
 
         // positions for the ships in heap-structure
-        shipPosition = new Vector3[] { new Vector3(0, 2.2f, 2), 
-            new Vector3(-6, 0.2f, 1), new Vector3(6, 0.2f, 1), new Vector3(-8, -1.8f, -0.5f), 
+        shipPosition = new Vector3[] { new Vector3(0, 2.2f, 2),
+            new Vector3(-6, 0.2f, 1), new Vector3(6, 0.2f, 1), new Vector3(-8, -1.8f, -0.5f),
             new Vector3(-3, -1.8f, -0.5f), new Vector3(3, -1.8f, -0.5f), new Vector3(8, -1.8f, -0.5f) };
 
 
@@ -45,14 +47,9 @@ public class VisualHeap : MonoBehaviour
 
         List<GameObject> ships = new List<GameObject>();
 
-        for (int i = 0; i < arrayToSort.Length; i++) {
+        for (int i = 0; i < arrayLength; i ++) {
 
-            Debug.Log("Visual Heap " + arrayToSort[i] + ", ");
-
-        }
-
-        for (int i = 0; i < arrayToSort.Length; i ++) {
-
+            Debug.Log("Schiff Ahoi");
             // Create Object Ship
             ships.Add(Instantiate(vh.shipPrefab, shipPosition[i], new Quaternion(0, 180, 0, 0)));
             // sets the number on the sail
@@ -65,16 +62,11 @@ public class VisualHeap : MonoBehaviour
             //anim[i] = ships[i].GetComponent<Animator>();
             
             //anim[i].SetBool("isSurfacing", true);
-            yield return new WaitForSeconds(0.5f);
             //anim[i].SetBool("isSurfacing", false);
-
-            
-            
-
         }
 
+        yield return new WaitForSeconds(0.5f);
         shipsToSort = ships.ToArray();
-        Debug.Log(shipsToSort.Length);
 
     }
 
