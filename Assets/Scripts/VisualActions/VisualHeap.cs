@@ -19,9 +19,13 @@ public class VisualHeap : MonoBehaviour
     // animators of each object
     static Animator[] anim;
 
+
+    static int i;
+
     private void Awake() {
 
         vh = this;
+        i = 0;
     }
 
     // Start is called before the first frame update
@@ -33,7 +37,7 @@ public class VisualHeap : MonoBehaviour
             new Vector3(-3, -1.8f, -0.5f), new Vector3(3, -1.8f, -0.5f), new Vector3(8, -1.8f, -0.5f) };
 
 
-        cachePosition = new Vector3(-11, 2.2f, 2);
+        cachePosition = new Vector3(14, 2.2f, 2);
     }
 
     // Creates the heap structure according to the array.
@@ -115,7 +119,7 @@ public class VisualHeap : MonoBehaviour
     // Separates last element from heap and switches position of root element to last element
     public static IEnumerator WriteRootToLast(int root, int lastElement) {
 
-        Vector3 lastElementPosition = shipsToSort[lastElement].transform.position;
+        //Vector3 lastElementPosition = shipsToSort[lastElement].transform.position;
 
         // last element submerges
         //anim[lastElement].SetBool("isSubmerging", true);
@@ -131,13 +135,15 @@ public class VisualHeap : MonoBehaviour
         //yield return new WaitForSeconds(4.5f);
         //anim[lastElement].SetBool("isSurfacing", false);
 
+        yield return new WaitForSeconds(0.5f);
+
         // root element is submerging
         //anim[root].SetBool("isSubmerging", true);
         //yield return new WaitForSeconds(3.5f);
         //anim[root].SetBool("isSubmerging", false);
 
         // position of root element changed (index + ship position)
-        shipsToSort[root].transform.position = lastElementPosition;
+        shipsToSort[root].transform.position = shipPosition[lastElement];
         shipsToSort[lastElement] = shipsToSort[root];
 
         // root is surfacing at position of lastElement
@@ -165,6 +171,10 @@ public class VisualHeap : MonoBehaviour
         shipsToSort[child].transform.position = shipPosition[parent];
         shipsToSort[parent] = shipsToSort[child];
 
+        i++;
+
+        Debug.Log("moved Up" + i);
+
         // child surfaces at parents space
     //    anim[parent].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(0.5f);
@@ -180,8 +190,8 @@ public class VisualHeap : MonoBehaviour
         //cacheObject.GetComponent<Animator>().SetBool("isSubmerging", false);
 
         // change position of cacheObject back to free space in heap
-        //shipsToSort[free] = cacheObject;
-        //shipsToSort[free].transform.position = shipPosition[free];
+        shipsToSort[free] = cacheObject;
+        shipsToSort[free].transform.position = shipPosition[free];
 
     //    anim[free].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(0.5f);
