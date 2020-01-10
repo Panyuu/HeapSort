@@ -29,10 +29,13 @@ public class MaxHeap : MonoBehaviour {
 
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
-        
-        createArray(GetNumberInput.getListForHeap().ToArray());
 
-        animQueue.Enqueue(VisualHeap.positionShips(GetNumberInput.getListForHeap().ToArray()));
+        //createArray(GetNumberInput.getListForHeap().ToArray());
+        createArray(new int[] { 15, 12, 8, 74, 2, 54, 9 });
+
+        //animQueue.Enqueue(VisualHeap.positionShips(GetNumberInput.getListForHeap().ToArray()));
+        animQueue.Enqueue(VisualHeap.positionShips(new int[] { 15, 12, 8, 74, 2, 54, 9 }));
+
 
         //mh.StartCoroutine(VisualHeap.positionShips(intArr));
 
@@ -45,11 +48,11 @@ public class MaxHeap : MonoBehaviour {
             arrayLength--;
             // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (größtes Element) an letzte Stelle schreiben.
             // -> an Wurzelstelle wird Platz frei
-            if (arrayLength > 1) {
-                parameters.Enqueue(root);
-                parameters.Enqueue(arrayLength);
-                animQueue.Enqueue(VisualHeap.WriteRootToLast(parameters.Dequeue(), parameters.Dequeue()));
-            }
+            
+            parameters.Enqueue(root);
+            parameters.Enqueue(arrayLength);
+            animQueue.Enqueue(VisualHeap.WriteRootToLast(parameters.Dequeue(), parameters.Dequeue()));
+            
             //VisualHeap.writeRootToLast(root, arrayLength);
             int lastLeaf = arrayToSort[arrayLength];
             arrayToSort[arrayLength] = arrayToSort[root];
@@ -59,10 +62,10 @@ public class MaxHeap : MonoBehaviour {
             if (arrayLength > 1) {
                 parameters.Enqueue(free);
                 animQueue.Enqueue(VisualHeap.writeCacheBack(parameters.Dequeue()));
-            }
-            //VisualHeap.writeCacheBack(free);
-            upHeap(free, lastLeaf);
 
+                //VisualHeap.writeCacheBack(free);
+                upHeap(free, lastLeaf);
+            }
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
@@ -248,7 +251,7 @@ public class MaxHeap : MonoBehaviour {
 
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
         }
     }
 }
