@@ -646,6 +646,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1950386310}
+        m_MethodName: printOutListMin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &83969712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6829,6 +6840,7 @@ GameObject:
   - component: {fileID: 1384583729}
   - component: {fileID: 1384583728}
   - component: {fileID: 1384583730}
+  - component: {fileID: 1384583731}
   m_Layer: 0
   m_Name: HeapSortSript
   m_TagString: Untagged
@@ -6879,6 +6891,18 @@ MonoBehaviour:
   ring1: {fileID: 210744308}
   ring2: {fileID: 1638141206}
   loli: {fileID: 1046679067}
+--- !u!114 &1384583731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384583727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3247b6f28683046b6227c26e6a50bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1409516223
 GameObject:
   m_ObjectHideFlags: 0

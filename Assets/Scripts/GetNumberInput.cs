@@ -85,9 +85,8 @@ public class GetNumberInput : MonoBehaviour
         inputCanvas.SetActive(false);
     }
 
-    //final printout & start min algorithm
-    public void printOutListMin()
-    {
+    //final printout & start in algorithm
+    public void printOutListMin() {
         extractInputForHeap();
 
         // prints out every element in list
@@ -97,9 +96,8 @@ public class GetNumberInput : MonoBehaviour
         //}
         //starts the max Heap
         MinHeap.startMinHeapPerButtonPress();
+
         inputCanvas.SetActive(false);
     }
-
-
 }
 

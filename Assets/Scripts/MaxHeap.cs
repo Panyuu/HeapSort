@@ -4,37 +4,49 @@ using UnityEngine;
 
 public class MaxHeap : MonoBehaviour {
 
-    /* Ablauf des Algorithmus:
-     * 1. Max-Heap bilden -> Vaterknoten >= Kindknoten && linker Kindknoten >= rechter Kindknoten (von Blatt zur Wurzel vorarbeiten)
-     * 2. letztes Element speichern, Wurzelwert an letzte Stelle schreiben, dann von oben nach unten gehen und immer größten Wert nach oben schreiben
-     * und an unterster Stelle Element wieder einfügen
-     * 3. Max-Heap bilden (von eingefügtem Element nach oben arbeiten, Rest ist schon sortiert)
-     * 4. Wiederhole 2. und 3., bis ganzes Array sortiert ist (Größe des Heaps = 0)
+    /*
+     * algorithm procedure :
+     * 1. build max heap (heapify) -> parent element >= child elemets
+     * 2. save last element in cache variable, write root element to last position in array (creates empty/free space at root position)
+     * -> root element now in right position (no need to look at it anymore)
+     * 3. fill up empty space at root with largest child, do so until free space is at leaf-position
+     * 4. fill empty space with element in cache variable and build max-heap again (in general: check if cache element < parent element
+     * 5. decrease unsorted array length by one
+     * 6. repeat 2.-5. until array is completely sorted (arraylength = 0)
      */
 
+    // stores the array
     public static int[] arrayToSort;
+    // stores current length of array to be looked at, root element's position (0) and position of empty space in heap
     public static int arrayLength, root, free;
+
+    // needed for visual heap
     public static Queue<IEnumerator> animQueue;
     public static Queue<int> parameters;
 
+    // singleton
     public static MaxHeap mh;
 
     private void Awake() {
 
         mh = this;
+
+        // initialize queues
         animQueue = new Queue<IEnumerator>();
         parameters = new Queue<int>();
+
+        // starts visual heap coroutine
         mh.StartCoroutine(startAnimation());
     }
 
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
 
-        //createArray(GetNumberInput.getListForHeap().ToArray());
-        createArray( new int[] { 1, 3, 6, 4, 2, 5, 7 } );
+        createArray(GetNumberInput.getListForHeap().ToArray());
+        //createArray( new int[] { 1, 3, 6, 4, 2, 5, 7 } );
 
-        //animQueue.Enqueue(VisualHeap.positionShips(GetNumberInput.getListForHeap().ToArray()));
-        animQueue.Enqueue(VisualHeap.positionShips(new int[] { 1, 3, 6, 4, 2, 5, 7}));
+        animQueue.Enqueue(VisualHeap.positionShips(GetNumberInput.getListForHeap().ToArray()));
+        //animQueue.Enqueue(VisualHeap.positionShips(new int[] { 1, 3, 6, 4, 2, 5, 7}));
 
 
         //mh.StartCoroutine(VisualHeap.positionShips(intArr));
@@ -42,30 +54,26 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.clearTextFile();
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
 
+        // rearranges elements to max-heap (all parents > their children)
         buildHeap();
 
         while (arrayLength > 0) {
 
             arrayLength--;
-                        
-            // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (größtes Element) an letzte Stelle schreiben.
-            // -> an Wurzelstelle wird Platz frei
-            
+             
+            // save last element in cache, set root to last position -> free space at root
             parameters.Enqueue(root);
             parameters.Enqueue(arrayLength);
             animQueue.Enqueue(VisualHeap.WriteRootToLast(parameters.Dequeue(), parameters.Dequeue()));
-            
-            //VisualHeap.writeRootToLast(root, arrayLength);
             int lastLeaf = arrayToSort[arrayLength];
             arrayToSort[arrayLength] = arrayToSort[root];
-            // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
+
+            // moves up largest child to fill up free space, until free space is at leaf-position
             free = downHeap(root);
-            // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
-            
+
+            // insert cache element, reassure heap property (from bottom up)
             parameters.Enqueue(free);
             animQueue.Enqueue(VisualHeap.writeCacheBack(parameters.Dequeue()));
-
-            //VisualHeap.writeCacheBack(free);
             upHeap(free, lastLeaf);
             
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
@@ -75,7 +83,7 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.printOutProtocolContent();
     }
 
-    // Inizialisierung des zu sortierenden Arrays, sowie Speicherung von dessen Länge.
+    // initialize array to be sorted, asigns length to variable
     public static void createArray(int[] array)
     {
         arrayToSort = array;
@@ -83,29 +91,26 @@ public class MaxHeap : MonoBehaviour {
         root = 0;
     }
 
-    // 1. Max-Heap bilden -> ersten nicht Blattknoten suchen, dann Kinder untersuchen, ggf. tauschen. 
-    // dann zum nächsten Vaterknoten übergehen.
+    // build max heap -> find first parent element, then examine children. (if parent < child -> position change)
+    // then go to next parent element (reverse BFS)
     public static void buildHeap()
     {
         for (int parent = (arrayLength / 2 - 1); parent >= 0; parent--)
         {
-            //Debug.Log("Vater: " + parent + " = " + arrayToSort[parent]);
-            //Debug.Log(arrayToString());
+
             heapify(parent);
-            
-            //ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
     }
 
-    // Elemente im Array in Heapstruktur bringen.
+    // assort elements in max-heap structure
     public static void heapify(int parent)
     {
         int child = parent * 2 + 1;
 
-        // Solange Kindknoten existieren ...
+        // while child elements exist
         while (child < arrayLength)
         {
-            // Wenn es rechten Kindknoten gibt und dieses größer ist als das linke, dann wird dieses weiter betrachtet.
+            // if right child exists and it's larger than left -> use for comparison with parent
             if (child + 1 < arrayLength)
             {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    Kindknoten_2: " + arrayToSort[child + 1] + ";    ArrayLänge: " + arrayLength);
@@ -124,6 +129,7 @@ public class MaxHeap : MonoBehaviour {
                     
                     child++;
                 } 
+                // if not larger use use left one
                 else
                 {
                     // put rings around child objects (find larger)
@@ -135,15 +141,18 @@ public class MaxHeap : MonoBehaviour {
 
                     ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1]);
                 }
-            } else
+            } 
+            // if right doesn't exist use left child
+            else
             {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    ArrayLänge: " + arrayLength);
             }
 
-            // Wenn Kind größer ist als Elternknoten, dann Positionswechsel
+            // if child > parent -> position change
             ManipulateProtocolTextFile.addParameterToWriteList("Vergleich von Vaterknoten: " + arrayToSort[parent] + " mit Kindknoten: " + arrayToSort[child]);
             if (arrayToSort[parent] >= arrayToSort[child]) {
 
+                // puts rings around two elements -> here: no position change
                 parameters.Enqueue(parent);
                 parameters.Enqueue(child);
                 parameters.Enqueue(loliSpawnPoint(parent, child));
@@ -162,9 +171,6 @@ public class MaxHeap : MonoBehaviour {
             else {
                 
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child] + ".");
-                // ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " wechselt die Position mit Kindknoten: " + arrayToSort[child]);
-
-                //Debug.Log("Parent at Index: " + parent + " = " + arrayToSort[parent] + " child at index: " + child + " = " + arrayToSort[child]);
 
                 changePosition(parent, child);
                 parent = child;
@@ -173,18 +179,17 @@ public class MaxHeap : MonoBehaviour {
         }
     }
 
-    // Methode beginnt bei der Wurzel und tauscht das größte Kind (rechts, wenn vorhanden) nach oben an die freie Stelle.
-    // Dabei entsteht an einem der unteren Knoten eine freie Stelle, die später befüllt wird.
+    // moves up largest child element to empty space
     public static int downHeap(int parent)
     {
         int child = parent * 2 + 1;
 
-        // Da rechtes Kind größer ist als linkes, wird bevorzugt dieses betrachtet.
         while (child + 1 < arrayLength)
         {
 
             if (arrayToSort[child + 1] > arrayToSort[child])
             {
+                // build ring around compared objects
                 parameters.Enqueue(child + 1);
                 parameters.Enqueue(child);
                 parameters.Enqueue(loliSpawnPoint(child, child + 1));
@@ -195,6 +200,7 @@ public class MaxHeap : MonoBehaviour {
                 child++;
             } else
             {
+                // build ring around compared objects
                 parameters.Enqueue(child);
                 parameters.Enqueue(child + 1);
                 parameters.Enqueue(loliSpawnPoint(child, child + 1));
@@ -204,17 +210,19 @@ public class MaxHeap : MonoBehaviour {
                 ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1]);
             }
 
-
+            // move up largest child to it's parents position (free space)
             parameters.Enqueue(parent);
             parameters.Enqueue(child);
             animQueue.Enqueue(VisualHeap.moveUp(parameters.Dequeue(), parameters.Dequeue()));
-            //VisualHeap.moveUp(parent, child);
             arrayToSort[parent] = arrayToSort[child];
+
+            // continue with next child (if existant)
             parent = child;
             child = parent * 2 + 1;
+
             ManipulateProtocolTextFile.addParameterToWriteList("neuer Vaterknoten: " + arrayToSort[parent]);
         }
-        // Fall, dass kein rechtes aber ein linkes Kind existiert.
+        // case if there is only one child element
         if (child < arrayLength)
         {
             parameters.Enqueue(parent);
@@ -229,7 +237,7 @@ public class MaxHeap : MonoBehaviour {
         return parent;
     }
 
-    // Fügt fehlendes Element an freier Stelle ein und sortiert dann von unten nach oben, bis Max-Heap-Struktur wieder eingehalten.
+    // insert missing element (cache element) at free space and "sort up" -> compare with parent object, change if needed
     public static void upHeap(int child, int missingElement)
     {
         int parent;
@@ -260,9 +268,10 @@ public class MaxHeap : MonoBehaviour {
         }
     }
 
-    // Tauscht Wert an Index-Stelle a und b miteinander.
+    // change value of elements at position a and b
     public static void changePosition(int a, int b)
     {
+        // for rings and the compare sign
         parameters.Enqueue(a);
         parameters.Enqueue(b);
         parameters.Enqueue(loliSpawnPoint(a, b));
@@ -274,7 +283,6 @@ public class MaxHeap : MonoBehaviour {
             parameters.Enqueue(180);
         }
         animQueue.Enqueue(VisualHeap.ChangeShipPosition(parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue()));
-        //VisualHeap.changeShipPosition(a, b);
         ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b] + ".   !");
         int help = arrayToSort[a];
         arrayToSort[a] = arrayToSort[b];
@@ -283,7 +291,7 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
     }
 
-    // determines where the loli has to "spawn" -> depending on which subtree is inspected
+    // determines where the compare sign has to "spawn" -> depending on which subtree is inspected
     public static int loliSpawnPoint(int inspectedIndex1, int inspectedIndex2) {
 
         int loliPos = 1;
@@ -299,11 +307,10 @@ public class MaxHeap : MonoBehaviour {
             loliPos = 0;
         }
 
-        Debug.Log(loliPos);
-
         return loliPos;
     }
 
+    // testing purpose
     public static string arrayToString()
     {
         string array = "";
@@ -317,6 +324,7 @@ public class MaxHeap : MonoBehaviour {
         return array;
     }
 
+    // starts the visual heap-transformation
     public static IEnumerator startAnimation() {
 
 
@@ -325,7 +333,6 @@ public class MaxHeap : MonoBehaviour {
         while (true) {
             if (animQueue.Count != 0) {
 
-                Debug.Log(++count + "animations executed");
                 yield return mh.StartCoroutine(animQueue.Dequeue());
 
 
