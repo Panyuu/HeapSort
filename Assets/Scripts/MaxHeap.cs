@@ -31,10 +31,10 @@ public class MaxHeap : MonoBehaviour {
     public static void startMaxHeapPerButtonPress() {
 
         //createArray(GetNumberInput.getListForHeap().ToArray());
-        createArray(new int[] { 15, 12, 8, 74, 2, 54, 9 });
+        createArray( new int[] { 1, 3, 6, 4, 2, 5, 7 } );
 
         //animQueue.Enqueue(VisualHeap.positionShips(GetNumberInput.getListForHeap().ToArray()));
-        animQueue.Enqueue(VisualHeap.positionShips(new int[] { 15, 12, 8, 74, 2, 54, 9 }));
+        animQueue.Enqueue(VisualHeap.positionShips(new int[] { 1, 3, 6, 4, 2, 5, 7}));
 
 
         //mh.StartCoroutine(VisualHeap.positionShips(intArr));
@@ -45,7 +45,9 @@ public class MaxHeap : MonoBehaviour {
         buildHeap();
 
         while (arrayLength > 0) {
+
             arrayLength--;
+                        
             // Letztes Element merken (vorerst nicht im Array enthalten) und Wurzelelement (größtes Element) an letzte Stelle schreiben.
             // -> an Wurzelstelle wird Platz frei
             
@@ -59,13 +61,13 @@ public class MaxHeap : MonoBehaviour {
             // rückt Elemente nach und speichert sich Ort der freien Stelle (letzter freier Platz im übrigen Array).
             free = downHeap(root);
             // letztes Element, das vorher aus Array gelöscht wurde, wird wieder eingefügt und Heap-Eigenschaft wird wieder geprüft (von unten nach oben).
-            if (arrayLength > 1) {
-                parameters.Enqueue(free);
-                animQueue.Enqueue(VisualHeap.writeCacheBack(parameters.Dequeue()));
+            
+            parameters.Enqueue(free);
+            animQueue.Enqueue(VisualHeap.writeCacheBack(parameters.Dequeue()));
 
-                //VisualHeap.writeCacheBack(free);
-                upHeap(free, lastLeaf);
-            }
+            //VisualHeap.writeCacheBack(free);
+            upHeap(free, lastLeaf);
+            
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
@@ -114,7 +116,7 @@ public class MaxHeap : MonoBehaviour {
                     // put ring around child objects (find larger)
                     parameters.Enqueue(child + 1);
                     parameters.Enqueue(child);
-                    parameters.Enqueue(loliSpawnPoint(child + 1, child));
+                    parameters.Enqueue(loliSpawnPoint(child, child + 1));
                     parameters.Enqueue(180);
                     animQueue.Enqueue(VisualHeap.findLargerElement(parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue()));
 
@@ -185,7 +187,7 @@ public class MaxHeap : MonoBehaviour {
             {
                 parameters.Enqueue(child + 1);
                 parameters.Enqueue(child);
-                parameters.Enqueue(loliSpawnPoint(child + 1, child));
+                parameters.Enqueue(loliSpawnPoint(child, child + 1));
                 parameters.Enqueue(180);
                 animQueue.Enqueue(VisualHeap.findLargerElement(parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue()));
 
@@ -266,10 +268,10 @@ public class MaxHeap : MonoBehaviour {
         parameters.Enqueue(loliSpawnPoint(a, b));
         if (a * 2 + 1 == b) {
 
-            parameters.Enqueue(180);
+            parameters.Enqueue(0);
         }
         else {
-            parameters.Enqueue(0);
+            parameters.Enqueue(180);
         }
         animQueue.Enqueue(VisualHeap.ChangeShipPosition(parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue(), parameters.Dequeue()));
         //VisualHeap.changeShipPosition(a, b);
@@ -284,17 +286,17 @@ public class MaxHeap : MonoBehaviour {
     // determines where the loli has to "spawn" -> depending on which subtree is inspected
     public static int loliSpawnPoint(int inspectedIndex1, int inspectedIndex2) {
 
-        int loliPos = 0;
+        int loliPos = 1;
 
         // right sub tree
         if (inspectedIndex1 == 2 || inspectedIndex1 == 5 && inspectedIndex2 == 6) {
 
-            loliPos = 0;
+            loliPos = 2;
         }
         // left sub tree
-        else if (inspectedIndex1 == 3 && inspectedIndex2 == 4 || inspectedIndex1 == 1 && inspectedIndex2 != 2) {
+        else if (inspectedIndex1 == 0 || inspectedIndex1 == 1 && inspectedIndex2 == 2) {
 
-            loliPos = 1;
+            loliPos = 0;
         }
 
         Debug.Log(loliPos);

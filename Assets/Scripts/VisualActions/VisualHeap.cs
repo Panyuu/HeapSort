@@ -15,7 +15,7 @@ public class VisualHeap : MonoBehaviour
     // animators of each object
     static Animator[] anim;
     // stores information about the objects that are sorted
-    static GameObject[] shipsToSort;
+    public static GameObject[] shipsToSort;
     // set back rotation to default
     static Quaternion rotation;
 
@@ -48,7 +48,7 @@ public class VisualHeap : MonoBehaviour
             new Vector3(-3.2f, 1.6f, -5), new Vector3(3, 1.6f, -5), new Vector3(-4.9f, 0.6f, -5), 
             new Vector3(-1.9f, 0.6f, -5), new Vector3(1.6f, 0.6f, -5), new Vector3(4.6f, 0.6f, -5) };
 
-        loliPosition = new Vector3[] { new Vector3(0, -4, 1), new Vector3(-5.5f, -5.5f, -1), new Vector3(5f, -5.5f, -1) };
+        loliPosition = new Vector3[] { new Vector3(0, -9, 1), new Vector3(-5.5f, -10.5f, -1), new Vector3(5f, -10.5f, -1) };
 
         rotation = new Quaternion(0, 180, 0, 0);
         cachePosition = new Vector3(14, -1f, 2);
@@ -88,7 +88,7 @@ public class VisualHeap : MonoBehaviour
     // changes complete ship object (position, rotation of sail, text on the ship)
     public static IEnumerator ChangeShipPosition(int a, int b, int loliPos, int loliRot) {
 
-        Debug.Log("loliPos: " + loliPos);
+        Debug.Log("Parent Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text + " Child Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text);
 
         // set position to children's position
         vh.ring1.transform.position = ringPosition[a];
@@ -164,6 +164,8 @@ public class VisualHeap : MonoBehaviour
     // Separates last element from heap and switches position of root element to last element
     public static IEnumerator WriteRootToLast(int root, int lastElement) {
 
+
+
         // last element submerges
         anim[lastElement].SetBool("isSubmerging", true);
         yield return new WaitForSeconds(3.5f);
@@ -174,7 +176,7 @@ public class VisualHeap : MonoBehaviour
         shipsToSort[lastElement].transform.rotation = rotation;
         cacheAnimator = anim[lastElement];
         cacheObject = shipsToSort[lastElement];
-        
+
 
         // ship from last position now surfacing outside of heap, root element is submerging
         cacheAnimator.SetBool("isSurfacing", true);
@@ -182,7 +184,7 @@ public class VisualHeap : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         cacheAnimator.SetBool("isSurfacing", false);
         anim[root].SetBool("isSubmerging", false);
-        
+
 
         // save animator of root object
         Animator rootAnimator = shipsToSort[root].GetComponent<Animator>();
@@ -197,17 +199,19 @@ public class VisualHeap : MonoBehaviour
         // write back to root object for future
         anim[root] = rootAnimator;
 
+
         // root is surfacing at position of lastElement
         anim[lastElement].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(3.5f);
         anim[lastElement].SetBool("isSurfacing", false);
+               
 
         // Element leaves the scene / screen
         anim[lastElement].SetBool("isMovingOutOfScene", true);
         yield return new WaitForSeconds(5f);
 
         // gets destroyed afterwards
-        Destroy(shipsToSort[lastElement], 0);
+        //Destroy(shipsToSort[lastElement], 0);
     }
 
     // moves largest child upwards to fill the heap back up
@@ -228,6 +232,8 @@ public class VisualHeap : MonoBehaviour
         anim[parent].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(1f);
         anim[parent].SetBool("isSurfacing", false);
+
+        Destroy(shipsToSort[shipsToSort.Length - 1]);
     }
 
     // writes the cache element back to the free space
