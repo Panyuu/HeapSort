@@ -3355,8 +3355,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482481050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0, y: 16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 780471638}
   - {fileID: 1834806875}
@@ -3375,9 +3375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437df689d27076a49b51bd35d99725be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 0}
-  boxParent: {fileID: 9116328310273433787, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9,
-    type: 3}
+  box: {fileID: 9116328310273433787, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9, type: 3}
+  boxParent: {fileID: 1482481050}
   boxSortedSprite: {fileID: 21300000, guid: 4edf62e78bbf7bc43b9b0e415e4a09f6, type: 3}
 --- !u!1 &1495609025
 GameObject:
@@ -5870,12 +5869,12 @@ PrefabInstance:
     - target: {fileID: 7759659344492016983, guid: a1bc01492b3579f448a029d16aa2eb8d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7759659344492016983, guid: a1bc01492b3579f448a029d16aa2eb8d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 7759659344492016983, guid: a1bc01492b3579f448a029d16aa2eb8d,
         type: 3}
@@ -6231,7 +6230,7 @@ PrefabInstance:
     - target: {fileID: 9116328310273433784, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 9116328310273433784, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9,
         type: 3}
@@ -6276,6 +6275,16 @@ PrefabInstance:
     - target: {fileID: 9116328310273433784, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116328310543280410, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9,
+        type: 3}
+      propertyPath: m_Text
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116328310543280410, guid: 74adfa9c0b9e4ca498bf0c09aa3c41e9,
+        type: 3}
+      propertyPath: m_Alignment
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -78,6 +78,7 @@ public class MaxHeap : MonoBehaviour {
             }
             upHeap(free, lastLeaf);
 
+
             animQueue.Enqueue(VisualHeap.destroySortedShips(arrayLength));
             
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
