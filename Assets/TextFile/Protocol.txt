@@ -1,27 +1,27 @@
-1. Ungeordnetes Array: 22, 21, 20, 6, 
-2. Vaterknoten: 21;    Kindknoten_1: 6;    ArrayLänge: 4
-3. Vergleich von Vaterknoten: 21 mit Kindknoten: 6
-4. Vaterknoten: 21 >= Kindknoten: 6.
-5. Kein Tausch hat stattgefunden zwischen Vaterknoten: 21 und Kindknoten: 6.
-6. Vaterknoten: 22;    Kindknoten_1: 21;    Kindknoten_2: 20;    ArrayLänge: 4
-7. Vergleich von Kindknoten_1: 21 mit Kindknoten_2: 20
-8. Kindknoten_1: 21 >= Kindknoten_2: 20
-9. Vergleich von Vaterknoten: 22 mit Kindknoten: 21
-10. Vaterknoten: 22 >= Kindknoten: 21.
-11. Kein Tausch hat stattgefunden zwischen Vaterknoten: 22 und Kindknoten: 21.
-12. Kindknoten_1: 21 >= Kindknoten_2: 20
-13. neuer Vaterknoten: 21
-14. Der jetzt zu betrachtende Vaterknoten: 21
-15. Vaterknoten: 21 >= Kindknoten: 6
-16. 21, 6, 20, 22, 
-17. neuer Vaterknoten: 6.
-18. Der jetzt zu betrachtende Vaterknoten: 6
-19. Vaterknoten: 6 < Kindknoten: 20
-20. Vaterknoten: 6 wechselt die Position mit Kindknoten: 20.   !
-21. 20, 6, 21, 22, 
-22. 20, 6, 21, 22, 
-23. Der jetzt zu betrachtende Vaterknoten: 20
-24. 6, 20, 21, 22, 
-25. Der jetzt zu betrachtende Vaterknoten: 6
-26. 6, 20, 21, 22, 
-27. Geordnetes Array: 6, 20, 21, 22, 
+1. Ungeordnetes Array: 21, 20, 19, 8, 
+2. Vaterknoten: 20;    Kindknoten_1: 8;    ArrayLänge: 4
+3. Vergleich von Vaterknoten: 20 mit Kindknoten: 8
+4. Vaterknoten: 20 >= Kindknoten: 8.
+5. Kein Tausch hat stattgefunden zwischen Vaterknoten: 20 und Kindknoten: 8.
+6. Vaterknoten: 21;    Kindknoten_1: 20;    Kindknoten_2: 19;    ArrayLänge: 4
+7. Vergleich von Kindknoten_1: 20 mit Kindknoten_2: 19
+8. Kindknoten_1: 20 >= Kindknoten_2: 19
+9. Vergleich von Vaterknoten: 21 mit Kindknoten: 20
+10. Vaterknoten: 21 >= Kindknoten: 20.
+11. Kein Tausch hat stattgefunden zwischen Vaterknoten: 21 und Kindknoten: 20.
+12. Kindknoten_1: 20 >= Kindknoten_2: 19
+13. neuer Vaterknoten: 20
+14. Der jetzt zu betrachtende Vaterknoten: 20
+15. Vaterknoten: 20 >= Kindknoten: 8
+16. 20, 8, 19, 21, 
+17. neuer Vaterknoten: 8.
+18. Der jetzt zu betrachtende Vaterknoten: 8
+19. Vaterknoten: 8 < Kindknoten: 19
+20. Vaterknoten: 8 wechselt die Position mit Kindknoten: 19.   !
+21. 19, 8, 20, 21, 
+22. 19, 8, 20, 21, 
+23. Der jetzt zu betrachtende Vaterknoten: 19
+24. 8, 19, 20, 21, 
+25. Der jetzt zu betrachtende Vaterknoten: 8
+26. 8, 19, 20, 21, 
+27. Geordnetes Array: 8, 19, 20, 21, 
