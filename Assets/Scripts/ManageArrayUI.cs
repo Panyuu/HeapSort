@@ -96,6 +96,11 @@ public class ManageArrayUI : MonoBehaviour
         getPrefabList()[child].transform.Translate(new Vector3(0, +MAUI.arrBoxDelta / 15, 0));
     }
     
+    //call wenn number sorted switch out sprite
+    public static void changeSpriteOnceSorted(int index)
+    {
+        // change sprite
+        getPrefabList()[index].GetComponent<SpriteRenderer>().sprite = MAUI.boxSortedSprite;
 
     public static IEnumerator changeText(int parent, int child)
     {
