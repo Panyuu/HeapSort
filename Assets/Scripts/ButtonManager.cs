@@ -18,6 +18,8 @@ public class ButtonManager : MonoBehaviour
     private void Start() {
 
         inputFields = new List<TMPro.TMP_InputField>();
+        inputFields.Add(GameObject.Find("Nr0").gameObject.transform.GetChild(0).GetComponent<TMP_InputField>());
+
     }
     public void addField()
     {
