@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class GetNumberInput : MonoBehaviour
 {
     [SerializeField] GameObject inputCanvas;
-
-       // turn into list for dynmic inputfield generation
-       // per knopfdruck inputfields enablen und nicht im script generieren
+    [SerializeField] GameObject buttonCanvas;
+    // turn into list for dynmic inputfield generation
+    // per knopfdruck inputfields enablen und nicht im script generieren
     [SerializeField] TMPro.TMP_InputField[] inFields;
 
     //list that saves converted input from input canvas
@@ -83,6 +83,7 @@ public class GetNumberInput : MonoBehaviour
         MaxHeap.startMaxHeapPerButtonPress();
         
         inputCanvas.SetActive(false);
+        buttonCanvas.SetActive(true);
     }
 
     //final printout & start in algorithm
@@ -98,6 +99,7 @@ public class GetNumberInput : MonoBehaviour
         MinHeap.startMinHeapPerButtonPress();
 
         inputCanvas.SetActive(false);
+        buttonCanvas.SetActive(true);
     }
 }
 

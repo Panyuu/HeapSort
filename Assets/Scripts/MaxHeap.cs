@@ -23,6 +23,7 @@ public class MaxHeap : MonoBehaviour {
     // needed for visual heap
     public static Queue<IEnumerator> animQueue;
     public static Queue<int> parameters;
+    public static bool playAnimation = true;
 
     // singleton
     public static MaxHeap mh;
@@ -325,12 +326,13 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // starts the visual heap-transformation
-    public static IEnumerator startAnimation() {
+    public static IEnumerator startAnimation() 
+    {
 
 
         int count = 0;
 
-        while (true) {
+        while (playAnimation) {
             if (animQueue.Count != 0) {
 
                 yield return mh.StartCoroutine(animQueue.Dequeue());
@@ -341,4 +343,15 @@ public class MaxHeap : MonoBehaviour {
             yield return new WaitForSeconds(4f);
         }
     }
+
+    public static bool getPlayAnimation()
+    {
+        return playAnimation;
+    }
+
+    public static void setPlayAnimation(bool value)
+    {
+        playAnimation = value;
+    }
+
 }
