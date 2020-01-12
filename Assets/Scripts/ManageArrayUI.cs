@@ -96,16 +96,11 @@ public class ManageArrayUI : MonoBehaviour
         getPrefabList()[child].transform.Translate(new Vector3(0, +MAUI.arrBoxDelta / 15, 0));
     }
     
-    //call wenn number sorted switch out sprite
-    public static void changeSpriteOnceSorted(int index)
-    {
-        // change sprite
-        getPrefabList()[index].GetComponent<SpriteRenderer>().sprite = MAUI.boxSortedSprite;
 
     public static IEnumerator changeText(int parent, int child)
     {
         // up fully
-        for (byte i = 0; i < 60; i++)
+        for (byte i = 0; i < 62; i++)
         {
             moveBoxUpABit(parent, child);
             yield return new WaitForSeconds(quickFrameDelta);
@@ -124,7 +119,7 @@ public class ManageArrayUI : MonoBehaviour
 
         yield return new WaitForSeconds(.3f);
 
-        for (byte i = 0; i < 60; i++)
+        for (byte i = 0; i < 62; i++)
         {
             yield return new WaitForSeconds(quickFrameDelta);
             moveBoxDown(parent, child);
