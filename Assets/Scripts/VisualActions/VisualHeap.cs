@@ -183,7 +183,9 @@ public class VisualHeap : MonoBehaviour
             // ship from last position now surfacing outside of heap, root element is submerging
             cacheAnimator.SetBool("isSurfacing", true);
             anim[root].SetBool("isSubmerging", true);
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(1.5f);
+            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
+            yield return new WaitForSeconds(2f);
             cacheAnimator.SetBool("isSurfacing", false);
             anim[root].SetBool("isSubmerging", false);
 
@@ -196,8 +198,6 @@ public class VisualHeap : MonoBehaviour
             shipsToSort[root].transform.rotation = rotation;
             anim[lastElement] = anim[root];
             shipsToSort[lastElement] = shipsToSort[root];
-
-            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
 
             // write back to root object for future
             anim[root] = rootAnimator;
@@ -217,7 +217,7 @@ public class VisualHeap : MonoBehaviour
         anim[lastElement].SetBool("isMovingOutOfScene", true);
 
         // switch the Array Box sprite to "sorted"
-        ManageArrayUI.changeSpriteOnceSorted(lastElement);
+        ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeSpriteOnceSorted(lastElement));
 
         yield return new WaitForSeconds(5f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
@@ -234,7 +234,9 @@ public class VisualHeap : MonoBehaviour
 
         // child submerges
         anim[child].SetBool("isSubmerging", true);
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(1.5f);
+        ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(parent, child));
+        yield return new WaitForSeconds(2f);
         anim[child].SetBool("isSubmerging", false);
 
         // change position on screen and in array
@@ -242,6 +244,8 @@ public class VisualHeap : MonoBehaviour
         shipsToSort[child].transform.rotation = rotation;
         anim[parent] = anim[child];
         shipsToSort[parent] = shipsToSort[child];
+
+        
 
         // child surfaces at parents space
         anim[parent].SetBool("isSurfacing", true);
