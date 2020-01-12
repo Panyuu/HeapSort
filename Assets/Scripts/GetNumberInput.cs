@@ -87,7 +87,8 @@ public class GetNumberInput : MonoBehaviour
     }
 
     //final printout & start in algorithm
-    public void printOutListMin() {
+    public void printOutListMin() 
+    {
         extractInputForHeap();
 
         // prints out every element in list

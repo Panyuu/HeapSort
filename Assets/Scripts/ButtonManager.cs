@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class ButtonManager : MonoBehaviour
 {
     public GameObject heapHolder;
 
-
+    public GameObject Protobutton;
 
     public GameObject pauseButton;
     public GameObject startButton;
@@ -61,6 +61,13 @@ public class ButtonManager : MonoBehaviour
             protoShown = true;
         }
 
+    }
+
+    public void protofill(string content)
+    {
+        
+        
+       // GameObject.Find("Scroll Holder").transform.parent
     }
 
 }

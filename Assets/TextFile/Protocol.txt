@@ -1,27 +1,26 @@
-1. Ungeordnetes Array: 14, 2, 17, 3, 
-2. Vaterknoten: 2;    Kindknoten_1: 3;    ArrayLänge: 4
-3. Vergleich von Vaterknoten: 2 mit Kindknoten: 3
-4. Vaterknoten: 2 < Kindknoten: 3.
-5. Vaterknoten: 2 wechselt die Position mit Kindknoten: 3.   !
-6. 14, 3, 17, 2, 
-7. Vaterknoten: 14;    Kindknoten_1: 3;    Kindknoten_2: 17;    ArrayLänge: 4
-8. Vergleich von Kindknoten_1: 3 mit Kindknoten_2: 17
-9. Kindknoten_1: 3 < Kindknoten_2: 17
-10. Vergleich von Vaterknoten: 14 mit Kindknoten: 17
-11. Vaterknoten: 14 < Kindknoten: 17.
-12. Vaterknoten: 14 wechselt die Position mit Kindknoten: 17.   !
-13. 17, 3, 14, 2, 
-14. Kindknoten_1: 3 < Kindknoten_2: 14
-15. neuer Vaterknoten: 14
-16. Der jetzt zu betrachtende Vaterknoten: 14
-17. Vaterknoten: 14 >= Kindknoten: 2
-18. 14, 3, 2, 17, 
-19. neuer Vaterknoten: 3.
-20. Der jetzt zu betrachtende Vaterknoten: 3
-21. Vaterknoten: 3 >= Kindknoten: 2
-22. 3, 2, 14, 17, 
-23. Der jetzt zu betrachtende Vaterknoten: 3
-24. 2, 3, 14, 17, 
-25. Der jetzt zu betrachtende Vaterknoten: 2
-26. 2, 3, 14, 17, 
-27. Geordnetes Array: 2, 3, 14, 17, 
+1. Ungeordnetes Array: 23, 7, 96, 4, 
+2. Vaterknoten: 7;    Kindknoten_1: 4;    ArrayLänge: 4
+3. Vergleich von Vaterknoten: 7 mit Kindknoten: 4
+4. Vaterknoten: 7 >= Kindknoten: 4.
+5. Kein Tausch hat stattgefunden zwischen Vaterknoten: 7 und Kindknoten: 4.
+6. Vaterknoten: 23;    Kindknoten_1: 7;    Kindknoten_2: 96;    ArrayLänge: 4
+7. Vergleich von Kindknoten_1: 7 mit Kindknoten_2: 96
+8. Kindknoten_1: 7 < Kindknoten_2: 96
+9. Vergleich von Vaterknoten: 23 mit Kindknoten: 96
+10. Vaterknoten: 23 < Kindknoten: 96.
+11. Vaterknoten: 23 wechselt die Position mit Kindknoten: 96.   !
+12. 96, 7, 23, 4, 
+13. Kindknoten_1: 7 < Kindknoten_2: 23
+14. neuer Vaterknoten: 23
+15. Der jetzt zu betrachtende Vaterknoten: 23
+16. Vaterknoten: 23 >= Kindknoten: 4
+17. 23, 7, 4, 96, 
+18. neuer Vaterknoten: 7.
+19. Der jetzt zu betrachtende Vaterknoten: 7
+20. Vaterknoten: 7 >= Kindknoten: 4
+21. 7, 4, 23, 96, 
+22. Der jetzt zu betrachtende Vaterknoten: 7
+23. 4, 7, 23, 96, 
+24. Der jetzt zu betrachtende Vaterknoten: 4
+25. 4, 7, 23, 96, 
+26. Geordnetes Array: 4, 7, 23, 96, 
