@@ -22,7 +22,7 @@ public class AnimationQueue : MonoBehaviour
         while (true) {
             if (animQueue.Count != 0) {
 
-                Debug.Log(++count + "animations executed");
+                Debug.Log(++count + " animations executed");
                 yield return aq.StartCoroutine(animQueue.Dequeue());
 
 

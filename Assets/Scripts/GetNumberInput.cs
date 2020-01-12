@@ -69,6 +69,7 @@ public class GetNumberInput : MonoBehaviour
             }
         }
         // 
+        ManageArrayUI.setArrList(getListForHeap());
         
     }
 
