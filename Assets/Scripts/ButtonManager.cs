@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     public GameObject heapHolder;
-    
-    
+
+
+
     public GameObject pauseButton;
     public GameObject startButton;
     public GameObject protoButton;
     public GameObject Proto;
 
     private bool protoShown;
+
+    [SerializeField] GameObject ships;
 
     public void animationMaxStop()
     {
@@ -22,6 +25,8 @@ public class ButtonManager : MonoBehaviour
             Debug.Log(playing);
             MaxHeap.setPlayAnimation(false);
             Debug.Log(playing);
+
+
 
         startButton.SetActive(true);
         protoButton.SetActive(true);
@@ -33,6 +38,7 @@ public class ButtonManager : MonoBehaviour
 
         Debug.Log(playing);
         MaxHeap.setPlayAnimation(true);
+        StartCoroutine(MaxHeap.startAnimation());
         Debug.Log(playing);
 
         pauseButton.SetActive(true);
