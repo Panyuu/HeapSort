@@ -23,6 +23,10 @@ public class ManageArrayUI : MonoBehaviour
 
     static List<int> arrList = new List<int>();
     static List<GameObject> prefabList = new List<GameObject>();
+    static List<GameObject> getPrefabList()
+    {
+        return prefabList;
+    }
   
     // get list content from submit button?
     public static void setArrList(List<int> heapList)
@@ -64,6 +68,10 @@ public class ManageArrayUI : MonoBehaviour
             prefabList.Add(Instantiate(MAUI.box, getBoxPosition()[i]/2, Quaternion.identity, MAUI.boxParent.transform));
             prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = getArrList()[i].ToString();
             prefabList[i].GetComponentsInChildren<TextMesh>()[1].text = i.ToString();
+
+            //reposition the text values because for some reason they shift more and more to the right 
+            prefabList[i].GetComponentsInChildren<TextMesh>()[0].transform.position -= new Vector3(0.21f*i, 0, 0);
+            prefabList[i].GetComponentsInChildren<TextMesh>()[1].transform.position -= new Vector3(0.21f * i, 0, 0);
         }
         
     }
@@ -73,15 +81,44 @@ public class ManageArrayUI : MonoBehaviour
     // make .text values = ""
     // switch their .text values
 
-    public static void changeText()
+    public static IEnumerator changeText(int parent, int child)
     {
+        getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].fontSize += 4;
+        getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].fontSize += 4;
+        yield return new WaitForSeconds(1f);
+        getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].fontSize -= 4;
+        getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].fontSize -= 4;
+        yield return new WaitForSeconds(1f);
 
+        getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].fontSize += 4;
+        getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].fontSize += 4;
+        yield return new WaitForSeconds(1f);
+        getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].fontSize -= 4;
+        getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].fontSize -= 4;
+        yield return new WaitForSeconds(1f);
+
+        string valueA = getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].text;
+        string valueB = getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].text;
+
+        getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].text = "";
+        getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].text = "";
+
+        yield return new WaitForSeconds(2f);
+        
+        getPrefabList()[parent].GetComponentsInChildren<TextMesh>()[0].text = valueB;
+        getPrefabList()[child].GetComponentsInChildren<TextMesh>()[0].text = valueA;
+
+        yield return null;
     }
     
-
-
     //call wenn number sorted switch out sprite
-    
+    public static void changeSpriteOnceSorted(int index)
+    {
+        // change sprite
+        getPrefabList()[index].GetComponent<SpriteRenderer>().sprite = MAUI.boxSortedSprite;
+
+        // list.count--
+    }
 
 
 }

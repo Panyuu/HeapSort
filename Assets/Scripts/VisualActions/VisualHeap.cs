@@ -115,7 +115,9 @@ public class VisualHeap : MonoBehaviour
         vh.ring2.transform.GetChild(1).gameObject.SetActive(true);
 
         Debug.Log("Ships Position Changed");
-        
+        // change array ui
+        ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(a, b));
+
         // saves all necessary variables from a
         GameObject objectA = shipsToSort[a];
         Animator animatorA = anim[a];
@@ -135,6 +137,7 @@ public class VisualHeap : MonoBehaviour
         anim[a] = anim[b];
         shipsToSort[a].transform.position = shipPosition[b];
         shipsToSort[a] = shipsToSort[b];
+        
 
 
         // saves values of a in b and changes index
@@ -194,6 +197,7 @@ public class VisualHeap : MonoBehaviour
             anim[lastElement] = anim[root];
             shipsToSort[lastElement] = shipsToSort[root];
 
+            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
 
             // write back to root object for future
             anim[root] = rootAnimator;
@@ -211,6 +215,10 @@ public class VisualHeap : MonoBehaviour
         }
         // Element leaves the scene / screen
         anim[lastElement].SetBool("isMovingOutOfScene", true);
+
+        // switch the Array Box sprite to "sorted"
+        ManageArrayUI.changeSpriteOnceSorted(lastElement);
+
         yield return new WaitForSeconds(5f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
 
