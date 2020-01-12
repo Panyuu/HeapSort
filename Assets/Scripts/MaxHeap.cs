@@ -72,9 +72,13 @@ public class MaxHeap : MonoBehaviour {
             free = downHeap(root);
 
             // insert cache element, reassure heap property (from bottom up)
-            parameters.Enqueue(free);
-            animQueue.Enqueue(VisualHeap.writeCacheBack(parameters.Dequeue()));
+            if (arrayLength != 0) {
+                parameters.Enqueue(free);
+                animQueue.Enqueue(VisualHeap.writeCacheBack(parameters.Dequeue()));
+            }
             upHeap(free, lastLeaf);
+
+            animQueue.Enqueue(VisualHeap.destroySortedShips(arrayLength));
             
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
@@ -326,9 +330,6 @@ public class MaxHeap : MonoBehaviour {
 
     // starts the visual heap-transformation
     public static IEnumerator startAnimation() {
-
-
-        int count = 0;
 
         while (true) {
             if (animQueue.Count != 0) {

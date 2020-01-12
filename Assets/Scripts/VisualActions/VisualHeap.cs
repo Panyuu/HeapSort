@@ -82,7 +82,6 @@ public class VisualHeap : MonoBehaviour
         //yield return new WaitForSeconds(0.5f);
         shipsToSort = ships.ToArray();
         anim = animators.ToArray();
-
     }
 
     // changes complete ship object (position, rotation of sail, text on the ship)
@@ -164,54 +163,62 @@ public class VisualHeap : MonoBehaviour
     // Separates last element from heap and switches position of root element to last element
     public static IEnumerator WriteRootToLast(int root, int lastElement) {
 
+        if (lastElement != 0) {
+
+            // last element submerges
+            anim[lastElement].SetBool("isSubmerging", true);
+            yield return new WaitForSeconds(3.5f);
+            anim[lastElement].SetBool("isSubmerging", false);
+
+            // write into cacheObject + adjust components
+            shipsToSort[lastElement].transform.position = cachePosition;
+            shipsToSort[lastElement].transform.rotation = rotation;
+            cacheAnimator = anim[lastElement];
+            cacheObject = shipsToSort[lastElement];
 
 
-        // last element submerges
-        anim[lastElement].SetBool("isSubmerging", true);
-        yield return new WaitForSeconds(3.5f);
-        anim[lastElement].SetBool("isSubmerging", false);
-
-        // write into cacheObject + adjust components
-        shipsToSort[lastElement].transform.position = cachePosition;
-        shipsToSort[lastElement].transform.rotation = rotation;
-        cacheAnimator = anim[lastElement];
-        cacheObject = shipsToSort[lastElement];
+            // ship from last position now surfacing outside of heap, root element is submerging
+            cacheAnimator.SetBool("isSurfacing", true);
+            anim[root].SetBool("isSubmerging", true);
+            yield return new WaitForSeconds(3.5f);
+            cacheAnimator.SetBool("isSurfacing", false);
+            anim[root].SetBool("isSubmerging", false);
 
 
-        // ship from last position now surfacing outside of heap, root element is submerging
-        cacheAnimator.SetBool("isSurfacing", true);
-        anim[root].SetBool("isSubmerging", true);
-        yield return new WaitForSeconds(3.5f);
-        cacheAnimator.SetBool("isSurfacing", false);
-        anim[root].SetBool("isSubmerging", false);
+            // save animator of root object
+            Animator rootAnimator = shipsToSort[root].GetComponent<Animator>();
+
+            // overwrite lastElement with rootElement
+            shipsToSort[root].transform.position = shipPosition[lastElement];
+            shipsToSort[root].transform.rotation = rotation;
+            anim[lastElement] = anim[root];
+            shipsToSort[lastElement] = shipsToSort[root];
 
 
-        // save animator of root object
-        Animator rootAnimator = shipsToSort[root].GetComponent<Animator>();
-
-        // overwrite lastElement with rootElement
-        shipsToSort[root].transform.position = shipPosition[lastElement];
-        shipsToSort[root].transform.rotation = rotation;
-        anim[lastElement] = anim[root];
-        shipsToSort[lastElement] = shipsToSort[root];
+            // write back to root object for future
+            anim[root] = rootAnimator;
 
 
-        // write back to root object for future
-        anim[root] = rootAnimator;
+            // root is surfacing at position of lastElement
+            anim[lastElement].SetBool("isSurfacing", true);
+            yield return new WaitForSeconds(3.5f);
+            anim[lastElement].SetBool("isSurfacing", false);
 
+        }
+        else {
 
-        // root is surfacing at position of lastElement
-        anim[lastElement].SetBool("isSurfacing", true);
-        yield return new WaitForSeconds(3.5f);
-        anim[lastElement].SetBool("isSurfacing", false);
-               
-
+            anim[lastElement].transform.rotation = rotation;
+        }
         // Element leaves the scene / screen
         anim[lastElement].SetBool("isMovingOutOfScene", true);
         yield return new WaitForSeconds(5f);
+        anim[lastElement].SetBool("isMovingOutOfScene", false);
 
-        // gets destroyed afterwards
-        //Destroy(shipsToSort[lastElement], 0);
+        //if (lastElement == 0) {
+
+        //    destroySortedShips(lastElement);
+        //}
+
     }
 
     // moves largest child upwards to fill the heap back up
@@ -233,7 +240,6 @@ public class VisualHeap : MonoBehaviour
         yield return new WaitForSeconds(1f);
         anim[parent].SetBool("isSurfacing", false);
 
-        Destroy(shipsToSort[shipsToSort.Length - 1]);
     }
 
     // writes the cache element back to the free space
@@ -340,6 +346,13 @@ public class VisualHeap : MonoBehaviour
         // deactivate rings
         vh.ring1.transform.GetChild(0).gameObject.SetActive(false);
         vh.ring2.transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public static IEnumerator destroySortedShips(int last) {
+
+        // gets destroyed afterwards
+        Destroy(shipsToSort[last], 0);
+        yield return new WaitForSeconds(1f);
     }
 
 }
