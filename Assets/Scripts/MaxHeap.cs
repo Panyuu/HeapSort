@@ -426,7 +426,7 @@ public class MaxHeap : MonoBehaviour {
     public static void protoClick()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
-        indexAni = int.Parse(name.Split(' ')[0]);
+        indexAni = int.Parse(name);
     }
 
 }

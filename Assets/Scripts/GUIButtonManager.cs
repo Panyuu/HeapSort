@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 
 public class GUIButtonManager : MonoBehaviour
@@ -9,11 +10,25 @@ public class GUIButtonManager : MonoBehaviour
     public GameObject pauseButton;
     public GameObject startButton;
     public GameObject protoButton;
+    public GameObject homeButton;
     public GameObject Proto;
 
     private bool protoShown;
-    
 
+    public void Update()
+    {
+        if(Input.GetKeyDown("space"))
+        {
+            if(pauseButton.activeInHierarchy)
+            {
+                animationMaxStop();
+            }
+            else if(startButton.activeInHierarchy)
+            {
+                animationMaxStart();
+            }
+        }
+    }
     public void animationMaxStop()
     {
         bool playing = MaxHeap.getPlayAnimation();
@@ -26,6 +41,7 @@ public class GUIButtonManager : MonoBehaviour
 
         startButton.SetActive(true);
         protoButton.SetActive(true);
+        homeButton.SetActive(true);
         pauseButton.SetActive(false);
     }
     public void animationMaxStart()
@@ -39,6 +55,7 @@ public class GUIButtonManager : MonoBehaviour
             //Debug.Log(playing);
 
             pauseButton.SetActive(true);
+            homeButton.SetActive(false);
             protoButton.SetActive(false);
             startButton.SetActive(false);
         }
@@ -58,6 +75,11 @@ public class GUIButtonManager : MonoBehaviour
             protoShown = true;
         }
 
+    }
+
+    public void returnHome()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
