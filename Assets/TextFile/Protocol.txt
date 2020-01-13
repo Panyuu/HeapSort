@@ -1,17 +1,33 @@
-1. Ungeordnetes Array: 3, 4, 2, 
-2. Vaterknoten: 3;    Kindknoten_1: 4;    Kindknoten_2: 2;    ArrayLänge: 3
-3. Vergleich von Kindknoten_1: 4 mit Kindknoten_2: 2
-4. Kindknoten_1: 4 >= Kindknoten_2: 2
-5. Vergleich von Vaterknoten: 3 mit Kindknoten: 4
-6. Vaterknoten: 3 < Kindknoten: 4.
-7. Vaterknoten: 3 wechselt die Position mit Kindknoten: 4.   !
-8. 4, 3, 2, 
-9. neuer Vaterknoten: 4.
-10. Der jetzt zu betrachtende Vaterknoten: 3
-11. Vaterknoten: 3 >= Kindknoten: 2
-12. 3, 2, 4, 
-13. Der jetzt zu betrachtende Vaterknoten: 3
-14. 2, 3, 4, 
-15. Der jetzt zu betrachtende Vaterknoten: 2
-16. 2, 3, 4, 
-17. Geordnetes Array: 2, 3, 4, 
+1. Ungeordnetes Array: 78, 76, 3, 9, 7, 
+2. Vaterknoten: 76;    Kindknoten_1: 9;    Kindknoten_2: 7;    ArrayLänge: 5
+3. Vergleich von Kindknoten_1: 9 mit Kindknoten_2: 7
+4. Kindknoten_1: 9 >= Kindknoten_2: 7
+5. Vergleich von Vaterknoten: 76 mit Kindknoten: 9
+6. Vaterknoten: 76 >= Kindknoten: 9.
+7. Kein Tausch hat stattgefunden zwischen Vaterknoten: 76 und Kindknoten: 9.
+8. Vaterknoten: 78;    Kindknoten_1: 76;    Kindknoten_2: 3;    ArrayLänge: 5
+9. Vergleich von Kindknoten_1: 76 mit Kindknoten_2: 3
+10. Kindknoten_1: 76 >= Kindknoten_2: 3
+11. Vergleich von Vaterknoten: 78 mit Kindknoten: 76
+12. Vaterknoten: 78 >= Kindknoten: 76.
+13. Kein Tausch hat stattgefunden zwischen Vaterknoten: 78 und Kindknoten: 76.
+14. Kindknoten_1: 76 >= Kindknoten_2: 3
+15. neuer Vaterknoten: 76
+16. neuer Vaterknoten: 76.
+17. Der jetzt zu betrachtende Vaterknoten: 9
+18. Vaterknoten: 9 >= Kindknoten: 7
+19. 76, 9, 3, 7, 78, 
+20. Kindknoten_1: 9 >= Kindknoten_2: 3
+21. neuer Vaterknoten: 9
+22. Der jetzt zu betrachtende Vaterknoten: 9
+23. Vaterknoten: 9 >= Kindknoten: 7
+24. 9, 7, 3, 76, 78, 
+25. neuer Vaterknoten: 9.
+26. Der jetzt zu betrachtende Vaterknoten: 7
+27. Vaterknoten: 7 >= Kindknoten: 3
+28. 7, 3, 9, 76, 78, 
+29. Der jetzt zu betrachtende Vaterknoten: 7
+30. 3, 7, 9, 76, 78, 
+31. Der jetzt zu betrachtende Vaterknoten: 3
+32. 3, 7, 9, 76, 78, 
+33. Geordnetes Array: 3, 7, 9, 76, 78, 

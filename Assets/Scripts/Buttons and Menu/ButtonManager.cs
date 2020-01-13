@@ -29,8 +29,8 @@ public class ButtonManager : MonoBehaviour
             help.transform.SetParent(parent.transform, false);
             help.name = "Nr" + fieldCount;
             help.transform.GetChild(0).name = "Number" + fieldCount;
-            help.transform.GetComponent<TextMeshProUGUI>().SetText("Nr " + (fieldCount+1));
-            help.transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = fieldCount.ToString();
+            help.transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().SetText("Nr " + (fieldCount+1));   
+            help.transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = fieldCount.ToString();
             //InputCanvas.GetComponent<GetNumberInput>().inFields.SetValue(help,fieldCount);
 
             // adds input fields to list 
