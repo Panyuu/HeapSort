@@ -91,10 +91,12 @@ public class MaxHeap : MonoBehaviour {
             free = downHeap(root);
 
             // insert cache element, reassure heap property (from bottom up)
+            if (arrayLength != 0) {
             parameters.Add(free);
             animQueue.Add(VisualHeap.writeCacheBack(parameters[indexAni++]));
+            }
             upHeap(free, lastLeaf);
-
+            animQueue.Enqueue(VisualHeap.destroySortedShips(arrayLength));
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
