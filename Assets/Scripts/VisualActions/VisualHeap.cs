@@ -51,7 +51,7 @@ public class VisualHeap : MonoBehaviour
         loliPosition = new Vector3[] { new Vector3(0, -9, 1), new Vector3(-5.5f, -10.5f, -1), new Vector3(5f, -10.5f, -1) };
 
         rotation = new Quaternion(0, 180, 0, 0);
-        cachePosition = new Vector3(14, -1f, 2);
+        cachePosition = new Vector3(11, -1f, 2);
     }
 
     // Creates the heap structure according to the array.

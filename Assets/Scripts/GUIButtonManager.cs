@@ -6,17 +6,12 @@ using UnityEngine.UI;
 
 public class GUIButtonManager : MonoBehaviour
 {
-    public GameObject heapHolder;
-
-    public GameObject protoText;
-    public GameObject textHolder;
     public GameObject pauseButton;
     public GameObject startButton;
     public GameObject protoButton;
     public GameObject Proto;
 
     private bool protoShown;
-    private int protoCount = 0;
     
 
     public void animationMaxStop()
@@ -35,17 +30,18 @@ public class GUIButtonManager : MonoBehaviour
     }
     public void animationMaxStart()
     {
-        bool playing = MaxHeap.getPlayAnimation();
+        //bool playing = MaxHeap.playAnimation; //MaxHeap.getPlayAnimation();
 
-        Debug.Log(playing);
-        MaxHeap.setPlayAnimation(true);
-        StartCoroutine(MaxHeap.startAnimation());
-        Debug.Log(playing);
+        //Debug.Log(playing);
+        if (MaxHeap.startPossible) {
+            MaxHeap.playAnimation = true;
+            StartCoroutine(MaxHeap.startAnimation());
+            //Debug.Log(playing);
 
-        pauseButton.SetActive(true);
-        protoButton.SetActive(false);
-        startButton.SetActive(false);
-        
+            pauseButton.SetActive(true);
+            protoButton.SetActive(false);
+            startButton.SetActive(false);
+        }
     }
 
     public void protocolShow()
@@ -62,16 +58,6 @@ public class GUIButtonManager : MonoBehaviour
             protoShown = true;
         }
 
-    }
-
-    public void protofill(string content)
-    {
-        Debug.Log("FILL IT UP BOBBY!!");
-        GameObject help = Instantiate(GameObject.Find("Proto_Prefab"), new Vector3(protoText.transform.localPosition.x, protoText.transform.localPosition.y + 50 * protoCount, protoText.transform.localPosition.z), Quaternion.identity);
-        help.transform.SetParent(GameObject.Find("Textholder").transform, false);
-        help.name = "Schritt" + protoCount;
-        help.GetComponent<Text>().text = content;
-        
     }
 
 }

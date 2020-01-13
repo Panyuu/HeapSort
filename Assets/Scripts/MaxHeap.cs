@@ -22,21 +22,19 @@ public class MaxHeap : MonoBehaviour {
     // stores current length of array to be looked at, root element's position (0) and position of empty space in heap
     public static int arrayLength, root, free;
 
-    public GameObject protoText;
-    public GameObject textHolder;
+    public GameObject protoText, textHolder;
     public static int protoCount;
 
     // needed for visual heap
     public static List<IEnumerator> animQueue;
-    public static List<int> parameters;
-    public static List<int> stindex;
-    public static bool playAnimation;
+    public static List<int> parameters, stindex;
+    public static bool playAnimation, startPossible;
     public static int indexAni, testIndexAni;
-
-    
 
     // singleton
     public static MaxHeap mh;
+
+
     //public static ButtonManager bm; 
     private void Awake() {
 
@@ -92,11 +90,16 @@ public class MaxHeap : MonoBehaviour {
 
             // insert cache element, reassure heap property (from bottom up)
             if (arrayLength != 0) {
-            parameters.Add(free);
-            animQueue.Add(VisualHeap.writeCacheBack(parameters[indexAni++]));
+
+                stindex.Add(indexAni);
+                parameters.Add(free);
+                animQueue.Add(VisualHeap.writeCacheBack(parameters[indexAni++]));
             }
             upHeap(free, lastLeaf);
-            animQueue.Enqueue(VisualHeap.destroySortedShips(arrayLength));
+
+            stindex.Add(indexAni);
+            parameters.Add(arrayLength);
+            animQueue.Add(VisualHeap.destroySortedShips(parameters[indexAni++]));
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
@@ -382,13 +385,20 @@ public class MaxHeap : MonoBehaviour {
 
         while (playAnimation) {
             Debug.Log("ANIMATION ANIMATION ANIMATION");
+            
+            
             if (testIndexAni < animQueue.Count)
             {
+
+                startPossible = false;
+
                 indexAni = stindex[testIndexAni];
                 yield return mh.StartCoroutine(animQueue[testIndexAni++]);
             }
 
             yield return new WaitForSeconds(4f);
+
+            startPossible = true;
         }
     }
 
