@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ButtonManager : MonoBehaviour
 {
     public GameObject heapHolder;
 
-    public GameObject Protobutton;
-
+    public GameObject protoText;
+    public GameObject textHolder;
     public GameObject pauseButton;
     public GameObject startButton;
     public GameObject protoButton;
     public GameObject Proto;
 
     private bool protoShown;
-
-    [SerializeField] GameObject ships;
+    private int protoCount = 0;
+    
 
     public void animationMaxStop()
     {
@@ -65,9 +66,12 @@ public class ButtonManager : MonoBehaviour
 
     public void protofill(string content)
     {
+        Debug.Log("FILL IT UP BOBBY!!");
+        GameObject help = Instantiate(GameObject.Find("Proto_Prefab"), new Vector3(protoText.transform.localPosition.x, protoText.transform.localPosition.y + 50 * protoCount, protoText.transform.localPosition.z), Quaternion.identity);
+        help.transform.SetParent(GameObject.Find("Textholder").transform, false);
+        help.name = "Schritt" + protoCount;
+        help.GetComponent<Text>().text = content;
         
-        
-       // GameObject.Find("Scroll Holder").transform.parent
     }
 
 }
