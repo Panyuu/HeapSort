@@ -1,59 +1,17 @@
-1. Ungeordnetes Array: 21, 22, 78, 11, 21, 6, 3, 
-2. Vaterknoten: 78;    Kindknoten_1: 6;    Kindknoten_2: 3;    ArrayLänge: 7
-3. Vergleich von Kindknoten_1: 6 mit Kindknoten_2: 3
-4. Kindknoten_1: 6 >= Kindknoten_2: 3
-5. Vergleich von Vaterknoten: 78 mit Kindknoten: 6
-6. Vaterknoten: 78 >= Kindknoten: 6.
-7. Kein Tausch hat stattgefunden zwischen Vaterknoten: 78 und Kindknoten: 6.
-8. Vaterknoten: 22;    Kindknoten_1: 11;    Kindknoten_2: 21;    ArrayLänge: 7
-9. Vergleich von Kindknoten_1: 11 mit Kindknoten_2: 21
-10. Kindknoten_1: 11 < Kindknoten_2: 21
-11. Vergleich von Vaterknoten: 22 mit Kindknoten: 21
-12. Vaterknoten: 22 >= Kindknoten: 21.
-13. Kein Tausch hat stattgefunden zwischen Vaterknoten: 22 und Kindknoten: 21.
-14. Vaterknoten: 21;    Kindknoten_1: 22;    Kindknoten_2: 78;    ArrayLänge: 7
-15. Vergleich von Kindknoten_1: 22 mit Kindknoten_2: 78
-16. Kindknoten_1: 22 < Kindknoten_2: 78
-17. Vergleich von Vaterknoten: 21 mit Kindknoten: 78
-18. Vaterknoten: 21 < Kindknoten: 78.
-19. Vaterknoten: 21 wechselt die Position mit Kindknoten: 78.   !
-20. 78, 22, 21, 11, 21, 6, 3, 
-21. Vaterknoten: 21;    Kindknoten_1: 6;    Kindknoten_2: 3;    ArrayLänge: 7
-22. Vergleich von Kindknoten_1: 6 mit Kindknoten_2: 3
-23. Kindknoten_1: 6 >= Kindknoten_2: 3
-24. Vergleich von Vaterknoten: 21 mit Kindknoten: 6
-25. Vaterknoten: 21 >= Kindknoten: 6.
-26. Kein Tausch hat stattgefunden zwischen Vaterknoten: 21 und Kindknoten: 6.
-27. Kindknoten_1: 22 >= Kindknoten_2: 21
-28. neuer Vaterknoten: 22
-29. Kindknoten_1: 11 < Kindknoten_2: 21
-30. neuer Vaterknoten: 21
-31. Der jetzt zu betrachtende Vaterknoten: 21
-32. Vaterknoten: 21 >= Kindknoten: 3
-33. 22, 21, 21, 11, 3, 6, 78, 
-34. Kindknoten_1: 21 >= Kindknoten_2: 21
-35. neuer Vaterknoten: 21
-36. Kindknoten_1: 11 >= Kindknoten_2: 3
-37. neuer Vaterknoten: 11
-38. Der jetzt zu betrachtende Vaterknoten: 11
-39. Vaterknoten: 11 >= Kindknoten: 6
-40. 21, 11, 21, 6, 3, 22, 78, 
-41. Kindknoten_1: 11 < Kindknoten_2: 21
-42. neuer Vaterknoten: 21
-43. Der jetzt zu betrachtende Vaterknoten: 21
-44. Vaterknoten: 21 >= Kindknoten: 3
-45. 21, 11, 3, 6, 21, 22, 78, 
-46. Kindknoten_1: 11 >= Kindknoten_2: 3
-47. neuer Vaterknoten: 11
-48. Der jetzt zu betrachtende Vaterknoten: 11
-49. Vaterknoten: 11 >= Kindknoten: 6
-50. 11, 6, 3, 21, 21, 22, 78, 
-51. neuer Vaterknoten: 11.
-52. Der jetzt zu betrachtende Vaterknoten: 6
-53. Vaterknoten: 6 >= Kindknoten: 3
-54. 6, 3, 11, 21, 21, 22, 78, 
-55. Der jetzt zu betrachtende Vaterknoten: 6
-56. 3, 6, 11, 21, 21, 22, 78, 
-57. Der jetzt zu betrachtende Vaterknoten: 3
-58. 3, 6, 11, 21, 21, 22, 78, 
-59. Geordnetes Array: 3, 6, 11, 21, 21, 22, 78, 
+1. Ungeordnetes Array: 3, 4, 2, 
+2. Vaterknoten: 3;    Kindknoten_1: 4;    Kindknoten_2: 2;    ArrayLänge: 3
+3. Vergleich von Kindknoten_1: 4 mit Kindknoten_2: 2
+4. Kindknoten_1: 4 >= Kindknoten_2: 2
+5. Vergleich von Vaterknoten: 3 mit Kindknoten: 4
+6. Vaterknoten: 3 < Kindknoten: 4.
+7. Vaterknoten: 3 wechselt die Position mit Kindknoten: 4.   !
+8. 4, 3, 2, 
+9. neuer Vaterknoten: 4.
+10. Der jetzt zu betrachtende Vaterknoten: 3
+11. Vaterknoten: 3 >= Kindknoten: 2
+12. 3, 2, 4, 
+13. Der jetzt zu betrachtende Vaterknoten: 3
+14. 2, 3, 4, 
+15. Der jetzt zu betrachtende Vaterknoten: 2
+16. 2, 3, 4, 
+17. Geordnetes Array: 2, 3, 4, 

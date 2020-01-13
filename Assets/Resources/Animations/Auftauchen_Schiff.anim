@@ -460,7 +460,8 @@ AnimationClip:
   - time: 0.55
     functionName: Playmove3
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 0c9cca83e46eae6429e6ff1cda0e9511,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
