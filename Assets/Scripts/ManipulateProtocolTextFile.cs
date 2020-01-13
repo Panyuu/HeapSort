@@ -116,6 +116,7 @@ public class ManipulateProtocolTextFile : MonoBehaviour
             lineCount++;
         }
         sReader.Close();
+
         return lineCount;
     }
 
