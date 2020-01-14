@@ -37,7 +37,7 @@ public class MaxHeap : MonoBehaviour {
 
     //public static ButtonManager bm; 
     private void Awake() {
-
+        //getValueForStatistic.StartTime =  System.DateTime.Now.Millisecond;
         mh = this;
 
 
