@@ -64,6 +64,7 @@ public class GetNumberInput : MonoBehaviour
                         //print("temp: " + temp);
                         //// add the valid input to the heap list
                         getListForHeap().Add(temp);
+                        GetValueForStatistic.OwnArr.Add(temp);
                     }
                 }
             }

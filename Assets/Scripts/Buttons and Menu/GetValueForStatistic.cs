@@ -10,7 +10,8 @@ public class GetValueForStatistic : MonoBehaviour
 
     [SerializeField] TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
     // for prefab
-    [SerializeField] GameObject original;
+    //[SerializeField] GameObject original;
+    [SerializeField] GameObject[] arrBoxes = new GameObject[7];
     static List<GameObject> prefabList = new List<GameObject>();
     static int comparison = 0;
     static int switches = 0;
@@ -41,18 +42,23 @@ public class GetValueForStatistic : MonoBehaviour
     public static void makeStatisticsTexts()
     {
         // write into labels
-        GVFS.labelComparisons.text = 
-            Comparison.ToString();
+        GVFS.labelComparisons.text = Comparison.ToString();
         GVFS.labelSwitches.text = Switches.ToString();
         GVFS.labelTimeDelta.text = (EndTime - StartTime).ToString() + " ms";
 
-        for(byte i = 0; i<OwnArr.Count; i++)
+        print(OwnArr.Count + "!!!");
+
+        for(byte i = 0; i < OwnArr.Count; i++)
         {
+            /*
             prefabList.Add(Instantiate(GVFS.original));
             prefabList[i].transform.position = new Vector3(prefabList[i].transform.position.x + (75*(i+1)), 0, 0);
             prefabList[i].name = "Nr"+(i-1);
-            prefabList[i].GetComponentsInChildren<TMPro.TextMeshPro>()[0].text = OwnArr[i].ToString();
+            prefabList[i].GetComponentInChildren<TextMeshProUGUI>().SetText(OwnArr[i].ToString());
+                */
 
+            GVFS.arrBoxes[i].SetActive(true);
+            GVFS.arrBoxes[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = OwnArr[i].ToString();
 
         }
         
