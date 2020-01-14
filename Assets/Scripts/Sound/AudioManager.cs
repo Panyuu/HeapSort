@@ -71,6 +71,10 @@ public class AudioManager : MonoBehaviour
         Play("move5");
     }
 
+    public void Playapplause()
+    {
+        Play("applause");
+    }
 
 
 }

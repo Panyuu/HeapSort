@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1. Ungeordnetes Array: 8, 4, 2, 
 2. Vaterknoten: 8;    Kindknoten_1: 4;    Kindknoten_2: 2;    ArrayLänge: 3
 3. Vergleich von Kindknoten_1: 4 mit Kindknoten_2: 2
@@ -14,3 +15,9 @@
 14. Der jetzt zu betrachtende Vaterknoten: 2
 15. 2, 4, 8, 
 16. Geordnetes Array: 2, 4, 8, 
+=======
+1. Ungeordnetes Array: 21, 
+2. Der jetzt zu betrachtende Vaterknoten: 21
+3. 21, 
+4. Geordnetes Array: 21, 
+>>>>>>> sound
