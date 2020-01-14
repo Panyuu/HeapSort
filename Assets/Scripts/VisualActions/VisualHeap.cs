@@ -7,8 +7,6 @@ public class VisualHeap : MonoBehaviour
     // singleton
     public static VisualHeap vh;
 
-
-    
     // Ship Prefab to instantiate + ring object
     public GameObject shipPrefab, ring1, ring2, loli;
     // positions of ships in heap and for rings
@@ -25,15 +23,16 @@ public class VisualHeap : MonoBehaviour
     static Vector3 cachePosition;
     // cache
     static GameObject cacheObject;
-    //// animator from cache
+    // animator from cache
     static Animator cacheAnimator;
 
-
-    [SerializeField] public GameObject audio;
+    // to play audio
+    public AudioManager audio;
 
     private void Awake() {
 
         vh = this;
+        audio = new AudioManager();
        
     }
 
@@ -223,6 +222,11 @@ public class VisualHeap : MonoBehaviour
         yield return new WaitForSeconds(5f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
 
+        if (lastElement == 0) {
+
+            vh.audio.Playapplause();
+        }
+
         //if (lastElement == 0) {
 
         //    destroySortedShips(lastElement);
@@ -366,7 +370,7 @@ public class VisualHeap : MonoBehaviour
         if (last == 0)
         {
             //FindObjectOfType<AudioManager>().Play("applause");
-            AudioManager.Playapplause();
+            
         }
 
         // gets destroyed afterwards

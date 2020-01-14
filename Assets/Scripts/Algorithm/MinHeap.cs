@@ -14,7 +14,7 @@ public class MinHeap : MonoBehaviour {
      * 5. decrease unsorted array length by one
      * 6. repeat 2.-5. until array is completely sorted (arraylength = 0)
      */
-
+    
     // stores the array
     public static int[] arrayToSort;
     // stores current length of array to be looked at, root element's position (0) and position of empty space in heap

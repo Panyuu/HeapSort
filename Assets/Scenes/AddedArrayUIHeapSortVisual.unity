@@ -4810,6 +4810,7 @@ MonoBehaviour:
   ring1: {fileID: 210744308}
   ring2: {fileID: 1638141206}
   loli: {fileID: 1046679067}
+  audio: {fileID: 0}
 --- !u!114 &1384583731
 MonoBehaviour:
   m_ObjectHideFlags: 0
