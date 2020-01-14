@@ -8,6 +8,7 @@ public class VisualHeap : MonoBehaviour
     public static VisualHeap vh;
 
 
+    
     // Ship Prefab to instantiate + ring object
     public GameObject shipPrefab, ring1, ring2, loli;
     // positions of ships in heap and for rings
@@ -28,7 +29,7 @@ public class VisualHeap : MonoBehaviour
     static Animator cacheAnimator;
 
 
-    
+    [SerializeField] public GameObject audio;
 
     private void Awake() {
 
@@ -361,6 +362,12 @@ public class VisualHeap : MonoBehaviour
     }
 
     public static IEnumerator destroySortedShips(int last) {
+
+        if (last == 0)
+        {
+            //FindObjectOfType<AudioManager>().Play("applause");
+            AudioManager.Playapplause();
+        }
 
         // gets destroyed afterwards
         Destroy(shipsToSort[last], 0);

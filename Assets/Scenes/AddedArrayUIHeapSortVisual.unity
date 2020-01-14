@@ -548,7 +548,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab3b69df517ff7048974d0eb9cd015aa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -988,15 +988,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: waves
+  - name: '-'
     clip: {fileID: 8300000, guid: 89f64a8cdefdd9b449ca327b8f4c7fc1, type: 3}
-    volume: 0.737
-    pitch: 1
+    volume: 0
+    pitch: 0.1
     source: {fileID: 0}
-  - name: music
+  - name: '-'
     clip: {fileID: 8300000, guid: ab3b69df517ff7048974d0eb9cd015aa, type: 3}
-    volume: 0.608
-    pitch: 1
+    volume: 0
+    pitch: 0.1
     source: {fileID: 0}
   - name: move1
     clip: {fileID: 8300000, guid: 0f484bac4c8338e4eb1a78161a86db28, type: 3}
@@ -1020,6 +1020,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: move5
     clip: {fileID: 8300000, guid: 4ee206d89d1e0bb408182c8ca0f510af, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: applause
+    clip: {fileID: 8300000, guid: f02bb958a701b444c91f2a6f6711afa8, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -5023,7 +5028,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 89f64a8cdefdd9b449ca327b8f4c7fc1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
