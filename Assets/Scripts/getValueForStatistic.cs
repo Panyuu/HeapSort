@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class getValueForStatistic : MonoBehaviour
 {
     public static getValueForStatistic GVFS;
 
-    [SerializeField] Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
+    [SerializeField] TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
     // for prefab
     [SerializeField] GameObject original;
     static int comparison = 0;
