@@ -11,6 +11,7 @@ public class getValueForStatistic : MonoBehaviour
     [SerializeField] TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
     // for prefab
     [SerializeField] GameObject original;
+    static List<GameObject> prefabList = new List<GameObject>();
     static int comparison = 0;
     static int switches = 0;
     static float startTime = 0;
@@ -44,11 +45,13 @@ public class getValueForStatistic : MonoBehaviour
         GVFS.labelSwitches.text = Switches.ToString();
         GVFS.labelTimeDelta.text = (StartTime - EndTime).ToString() + " ms";
 
-        for(byte i = 1; i<=OwnArr.Count; i++)
+        for(byte i = 0; i<OwnArr.Count; i++)
         {
-            //generate pefab 
-            // increment index
-            // write in value
+            prefabList.Add(Instantiate(GVFS.original));
+            prefabList[i].transform.position = new Vector3(prefabList[i].transform.position.x + (75*(i+1)), 0, 0);
+            prefabList[i].name = "Nr"+(i-1);
+
+
         }
         
         if(true)
