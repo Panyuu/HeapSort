@@ -365,6 +365,8 @@ public class VisualHeap : MonoBehaviour
         // gets destroyed afterwards
         Destroy(shipsToSort[last], 0);
         yield return new WaitForSeconds(1f);
+
+        
     }
 
 }

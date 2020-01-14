@@ -34,6 +34,11 @@ public class MaxHeap : MonoBehaviour {
     // singleton
     public static MaxHeap mh;
 
+    public static List<IEnumerator> getAnimQueue()
+    {
+        return animQueue;
+    }
+
 
     //public static ButtonManager bm; 
     private void Awake() {
@@ -106,6 +111,7 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
         protofill("Geordnetes Array: " + arrayToString(),indexAni);
         ManipulateProtocolTextFile.printOutProtocolContent();
+        CallStatistics.callStatisticAfterVisualization();
     }
 
     // initialize array to be sorted, asigns length to variable
@@ -397,9 +403,10 @@ public class MaxHeap : MonoBehaviour {
             }
 
             yield return new WaitForSeconds(4f);
-
+            
             startPossible = true;
         }
+        CallStatistics.callStatisticAfterVisualization();
     }
 
     public static bool getPlayAnimation()

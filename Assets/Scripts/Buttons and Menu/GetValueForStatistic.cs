@@ -44,13 +44,14 @@ public class GetValueForStatistic : MonoBehaviour
         GVFS.labelComparisons.text = 
             Comparison.ToString();
         GVFS.labelSwitches.text = Switches.ToString();
-        GVFS.labelTimeDelta.text = (StartTime - EndTime).ToString() + " ms";
+        GVFS.labelTimeDelta.text = (EndTime - StartTime).ToString() + " ms";
 
         for(byte i = 0; i<OwnArr.Count; i++)
         {
             prefabList.Add(Instantiate(GVFS.original));
             prefabList[i].transform.position = new Vector3(prefabList[i].transform.position.x + (75*(i+1)), 0, 0);
             prefabList[i].name = "Nr"+(i-1);
+            prefabList[i].GetComponentsInChildren<TMPro.TextMeshPro>()[0].text = OwnArr[i].ToString();
 
 
         }
