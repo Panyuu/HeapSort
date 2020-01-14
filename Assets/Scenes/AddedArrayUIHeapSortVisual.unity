@@ -4753,6 +4753,7 @@ GameObject:
   - component: {fileID: 1384583728}
   - component: {fileID: 1384583730}
   - component: {fileID: 1384583731}
+  - component: {fileID: 1384583732}
   m_Layer: 0
   m_Name: HeapSortSript
   m_TagString: Untagged
@@ -4815,6 +4816,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f3247b6f28683046b6227c26e6a50bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1384583732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384583727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11e6aa5622fda440823d419dde32b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1409516223

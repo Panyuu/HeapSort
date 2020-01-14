@@ -249,7 +249,7 @@ public class MaxHeap : MonoBehaviour {
                 protofill("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1],indexAni);
             }
             stindex.Add(indexAni);
-            // move up largest child to it's parents position (free space)
+            // move up largest child to its parents' position (free space)
             parameters.Add(parent);
             parameters.Add(child);
             animQueue.Add(VisualHeap.moveUp(parameters[indexAni++], parameters[indexAni++]));
