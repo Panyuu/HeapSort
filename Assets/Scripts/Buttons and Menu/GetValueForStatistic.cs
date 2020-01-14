@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class getValueForStatistic : MonoBehaviour
+public class GetValueForStatistic : MonoBehaviour
 {
-    public static getValueForStatistic GVFS;
+    public static GetValueForStatistic GVFS;
 
     [SerializeField] TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
     // for prefab
@@ -41,7 +41,8 @@ public class getValueForStatistic : MonoBehaviour
     public static void makeStatisticsTexts()
     {
         // write into labels
-        GVFS.labelComparisons.text = Comparison.ToString();
+        GVFS.labelComparisons.text = 
+            Comparison.ToString();
         GVFS.labelSwitches.text = Switches.ToString();
         GVFS.labelTimeDelta.text = (StartTime - EndTime).ToString() + " ms";
 
@@ -64,8 +65,7 @@ public class getValueForStatistic : MonoBehaviour
         
     }
 
-
-
+    
 
 
 

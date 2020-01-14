@@ -24,7 +24,7 @@ public class MaxHeapPlain : MonoBehaviour {
 
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
-        getValueForStatistic.StartTime = System.DateTime.Now.Millisecond;
+        GetValueForStatistic.StartTime = System.DateTime.Now.Millisecond;
         createArray(GetNumberInput.getListForHeap().ToArray());
 
         // rearranges elements to max-heap (all parents > their children)
@@ -46,8 +46,8 @@ public class MaxHeapPlain : MonoBehaviour {
         }
 
         //Debug.Log("Plain: " + arrayToString());
-        getValueForStatistic.EndTime = System.DateTime.Now.Millisecond;
-        getValueForStatistic.makeStatisticsTexts();
+        GetValueForStatistic.EndTime = System.DateTime.Now.Millisecond;
+        GetValueForStatistic.makeStatisticsTexts();
     }
 
     // initialize array to be sorted, asigns length to variable
@@ -74,12 +74,12 @@ public class MaxHeapPlain : MonoBehaviour {
         while (child < arrayLength) {
             // if right child exists and it's larger than left -> use for comparison with parent
             if (child + 1 < arrayLength) {
-                getValueForStatistic.Comparison++;
+                GetValueForStatistic.Comparison++;
 
                 if (arrayToSort[child + 1] > arrayToSort[child])
                 {
                     child++;
-                    getValueForStatistic.Comparison++;
+                    GetValueForStatistic.Comparison++;
                 }
                 
             }
@@ -87,7 +87,7 @@ public class MaxHeapPlain : MonoBehaviour {
             // if child > parent -> position change
             if (arrayToSort[parent] >= arrayToSort[child])
             {
-                getValueForStatistic.Comparison++;
+                GetValueForStatistic.Comparison++;
                 return;
             }
 
@@ -105,7 +105,7 @@ public class MaxHeapPlain : MonoBehaviour {
 
             if (arrayToSort[child + 1] > arrayToSort[child])
             {
-                getValueForStatistic.Comparison++;
+                GetValueForStatistic.Comparison++;
                 child++;
             }
             
@@ -135,7 +135,7 @@ public class MaxHeapPlain : MonoBehaviour {
 
         while (child > root) {
             parent = (child - 1) / 2;
-            getValueForStatistic.Comparison++;
+            GetValueForStatistic.Comparison++;
             if (arrayToSort[parent] >= arrayToSort[child])
             {
                 
@@ -153,7 +153,7 @@ public class MaxHeapPlain : MonoBehaviour {
         int help = arrayToSort[a];
         arrayToSort[a] = arrayToSort[b];
         arrayToSort[b] = help;
-        getValueForStatistic.Switches++;
+        GetValueForStatistic.Switches++;
     }
 
     // testing purpose

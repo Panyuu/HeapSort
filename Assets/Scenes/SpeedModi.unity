@@ -5018,7 +5018,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009284531}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -5034,7 +5034,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 0
+  m_padding: 1.25
   m_canvasRenderer: {fileID: 1009284534}
   m_TextComponent: {fileID: 601078928}
   m_materialReferenceIndex: 1
@@ -6211,14 +6211,13 @@ GameObject:
   - component: {fileID: 1272930207}
   - component: {fileID: 1272930206}
   - component: {fileID: 1272930205}
-  - component: {fileID: 1272930209}
   m_Layer: 5
   m_Name: StatisticsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1272930205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6299,23 +6298,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1272930209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272930204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08fb1c8d91af223408ebbedaac60bd58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  labelComparisons: {fileID: 1292250144}
-  labelSwitches: {fileID: 1337706295}
-  labelTimeDelta: {fileID: 682375842}
-  labelBestCaseJudge: {fileID: 26555143}
-  original: {fileID: 225717545}
 --- !u!1 &1282881342
 GameObject:
   m_ObjectHideFlags: 0
@@ -7237,6 +7219,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357945138}
+  - component: {fileID: 1357945139}
+  - component: {fileID: 1357945140}
   m_Layer: 0
   m_Name: TheaterScene
   m_TagString: Untagged
@@ -7264,6 +7248,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357945139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357945137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d8c9b8823daee4187fdd9d111b67fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statisticCanvas: {fileID: 1272930204}
+--- !u!114 &1357945140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357945137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fb1c8d91af223408ebbedaac60bd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelComparisons: {fileID: 1292250144}
+  labelSwitches: {fileID: 1337706295}
+  labelTimeDelta: {fileID: 682375842}
+  labelBestCaseJudge: {fileID: 26555143}
+  original: {fileID: 225717545}
 --- !u!1 &1379081065
 GameObject:
   m_ObjectHideFlags: 0
@@ -9527,7 +9541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1950386306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9656,7 +9670,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950386305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b931812c2fe01749b5ef3f32b220cae, type: 3}
+  m_Script: {fileID: 11500000, guid: d5810827fa0d2b8468cdce3b1b450d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   orientaField: {fileID: 1815691802}

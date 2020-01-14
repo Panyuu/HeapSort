@@ -22,7 +22,7 @@ public class MinHeapPlain : MonoBehaviour {
 
     // starts the algorithm when button was pressed
     public static void startMinHeapPerButtonPress() {
-        getValueForStatistic.StartTime = System.DateTime.Now.Millisecond;
+        GetValueForStatistic.StartTime = System.DateTime.Now.Millisecond;
         createArray(GetNumberInput.getListForHeap().ToArray());
 
         // rearranges elements to min-heap (all parents < their children)
@@ -43,8 +43,8 @@ public class MinHeapPlain : MonoBehaviour {
             upHeap(free, lastLeaf);
         }
 
-        getValueForStatistic.EndTime = System.DateTime.Now.Millisecond;
-        getValueForStatistic.makeStatisticsTexts();
+        GetValueForStatistic.EndTime = System.DateTime.Now.Millisecond;
+        GetValueForStatistic.makeStatisticsTexts();
     }
 
     // initialize array to be sorted, asigns length to variable
@@ -71,11 +71,11 @@ public class MinHeapPlain : MonoBehaviour {
         while (child < arrayLength) {
             // if right child exists and it's smaller than left -> use for comparison with parent
             if (child + 1 < arrayLength) {
-                getValueForStatistic.Comparison++;
+                GetValueForStatistic.Comparison++;
                 if (arrayToSort[child + 1] < arrayToSort[child])
                 {
                     child++;
-                    getValueForStatistic.Comparison++;
+                    GetValueForStatistic.Comparison++;
                 }
                 
             }
@@ -83,7 +83,7 @@ public class MinHeapPlain : MonoBehaviour {
             // if child < parent -> position change
             if (arrayToSort[parent] <= arrayToSort[child])
             {
-                getValueForStatistic.Comparison++;
+                GetValueForStatistic.Comparison++;
                 return;
             }
             
@@ -102,7 +102,7 @@ public class MinHeapPlain : MonoBehaviour {
 
             if (arrayToSort[child + 1] < arrayToSort[child])
             {
-                getValueForStatistic.Comparison++;
+                GetValueForStatistic.Comparison++;
                 child++;
             }
             
@@ -130,7 +130,7 @@ public class MinHeapPlain : MonoBehaviour {
 
         while (child > root) {
             parent = (child - 1) / 2;
-            getValueForStatistic.Comparison++;
+            GetValueForStatistic.Comparison++;
             if (arrayToSort[parent] <= arrayToSort[child])
             {
                 return;
@@ -147,7 +147,7 @@ public class MinHeapPlain : MonoBehaviour {
         int help = arrayToSort[a];
         arrayToSort[a] = arrayToSort[b];
         arrayToSort[b] = help;
-        getValueForStatistic.Switches++;
+        GetValueForStatistic.Switches++;
     }
 
     // testing purpose
