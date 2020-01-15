@@ -222,10 +222,11 @@ public class VisualHeap : MonoBehaviour
 
         // switch the Array Box sprite to "sorted"
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeSpriteOnceSorted(lastElement));
-        DisplayTextOnLowerBoard.setLowerText("Der Knoten is sortiert.");
+        DisplayTextOnLowerBoard.setLowerText("Der Knoten is sortiert...");
 
         yield return new WaitForSeconds(5f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
+        DisplayTextOnLowerBoard.setLowerText("Und fällt weg.");
 
         if (lastElement == 0) {
 
@@ -299,6 +300,8 @@ public class VisualHeap : MonoBehaviour
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(2).gameObject.SetActive(true);
 
+        DisplayTextOnLowerBoard.setLowerText("Vergleiche...");
+
         // position loli and play animation
         vh.loli.transform.position = loliPosition[loliPos];
         vh.loli.transform.rotation = new Quaternion(0, loliRot, 0, 0);
@@ -316,6 +319,8 @@ public class VisualHeap : MonoBehaviour
         // activate green ring for larger child / red ring for smaller child
         vh.ring1.transform.GetChild(1).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(0).gameObject.SetActive(true);
+
+       // DisplayTextOnLowerBoard.setLowerText("Ein Tausch!");
 
         // loli vanishes again
         vh.loli.GetComponent<Animator>().SetBool("moveDown", true);
@@ -343,6 +348,8 @@ public class VisualHeap : MonoBehaviour
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(2).gameObject.SetActive(true);
 
+        DisplayTextOnLowerBoard.setLowerText("Vergleiche...");
+
         // position loli and play animation
         vh.loli.transform.position = loliPosition[loliPos];
         vh.loli.transform.rotation = new Quaternion(0, loliRot, 0, 0);
@@ -360,6 +367,8 @@ public class VisualHeap : MonoBehaviour
         // put red ring around them
         vh.ring1.transform.GetChild(0).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(0).gameObject.SetActive(true);
+
+        DisplayTextOnLowerBoard.setLowerText("Kein Tausch!");
 
         // loli vanishes again
         vh.loli.GetComponent<Animator>().SetBool("moveDown", true);
