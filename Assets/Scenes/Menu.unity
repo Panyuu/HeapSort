@@ -132,6 +132,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star6
       objectReference: {fileID: 0}
+    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 272c1b4c1f8c2954d92f42611b594f9f,
+        type: 3}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,12 +193,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 272c1b4c1f8c2954d92f42611b594f9f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &17382900 stripped
@@ -216,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -356,14 +356,16 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Diese\r\nVerteilung findet solange statt, bis alle Zahlen des Arrays
-        als Baum-Struktur, bzw. als Schiffe\r\nauf unterschiedlichen Wellen-Ebenen
-        platziert wurden."
+      value: "Zuallererst werden die letzten beiden Kindelemente des bin\xE4ren Teilbaums
+        verglichen. Die gr\xF6\xDFere Zahl wird nun wiederum mit dem Elterknoten,
+        also der dar\xFCber liegenden Zahl verglichen. Abh\xE4ngig davon, ob sie gr\xF6\xDFer
+        oder kleiner ist, werden die beiden Schiffe getauscht, sodass der Elterknoten
+        jeweils den gr\xF6\xDFten Wert besitzt."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -566,6 +568,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star3
       objectReference: {fileID: 0}
+    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 272c1b4c1f8c2954d92f42611b594f9f,
+        type: 3}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -621,12 +629,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 272c1b4c1f8c2954d92f42611b594f9f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &273539748 stripped
@@ -1004,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1114,45 +1116,44 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
-        type: 3}
-      propertyPath: m_textInfo.materialCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
       propertyPath: m_text
-      value: "Jetzt werden Vaterelemente solange mit Kindelementen getauscht, bis
-        die Vaterelemente\r\nalle einen gr\xF6\xDFeren Wert als deren jeweilige Kindelemente
-        haben und somit Schiffe mit\r\nh\xF6heren Zahlenwerten weiter oben angeordnet
-        sind."
+      value: "Jetzt folgt der n\xE4chste Elterknoten, d.h. der n\xE4chst linke. Dieser
+        Vorgang setzt sich weiter fort, bis letztendlich das Root-Element, bzw. das
+        oberste Schiff, erreicht ist."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1970,39 +1971,45 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 289
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
-        type: 3}
-      propertyPath: m_textInfo.materialCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
       propertyPath: m_text
-      value: "Am Anfang wird die Heap-Baum-Struktur erzeugt. Daf\xFCr werden s\xE4mtliche
-        Zahlen aus dem\r\nArray als Schiffe mit den dazugeh\xF6rigen Nummerierungen
-        in derselben Reihenfolge auf die\r\nEbenen verteilt."
+      value: "Am Anfang wird die Heap-Baum-Struktur erzeugt. Das bedeutet, wir ordnen
+        das Array in einen bin\xE4ren, linkslastigen Baum an. \n\nDie erste Zahl wird
+        alleinstehend als Schiff auf der obersten Ebene platziert. Darunter verteilen
+        sich die restlichen immer bin\xE4r, und zwar von links nach rechts.\n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -2453,6 +2460,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7827138491860389412, guid: 3c0ea4fd58c60f647bb8cd04e87a86eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Second Wave
+      objectReference: {fileID: 0}
     - target: {fileID: 7827138491860389410, guid: 3c0ea4fd58c60f647bb8cd04e87a86eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2508,11 +2520,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7827138491860389412, guid: 3c0ea4fd58c60f647bb8cd04e87a86eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Second Wave
-      objectReference: {fileID: 0}
     - target: {fileID: 7827138492324174001, guid: 3c0ea4fd58c60f647bb8cd04e87a86eb,
         type: 3}
       propertyPath: m_Avatar
@@ -2532,6 +2539,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star1
       objectReference: {fileID: 0}
+    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b379d408c0bb1646be5b3ba44c8bd32,
+        type: 3}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2587,12 +2600,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9b379d408c0bb1646be5b3ba44c8bd32,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &613100810 stripped
@@ -3267,27 +3274,27 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 158
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -3297,11 +3304,17 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Die erste Zahl wird alleinstehend als Schiff auf der oberste Ebene platziert.\r\nDarunter
-        verteilen sich die restlichen Schiffe immer bin\xE4r und zwar von links nach
-        rechts,\r\nwodurch die zweite Zahl aus dem Array als erstes und die dritte
-        Zahl als zweites\r\nKind-Element des obersten Schiffs auf der zweiten Ebene
-        angeordnet werden."
+      value: 'Diese Verteilung findet solange statt, bis alle Zahlen des Arrays als
+        Baum-Struktur, bzw. als Schiffe, auf unterschiedlichen Wellen-Ebenen platziert
+        wurden.
+
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -4171,6 +4184,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5368209086730042772, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766058059239278605, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7773861338774048146, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
         type: 3}
       propertyPath: m_RootOrder
@@ -4185,16 +4208,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5368209086730042772, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6766058059239278605, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a82ad5cb0078140a69f0ae35ddf35d, type: 3}
@@ -4536,7 +4549,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -4683,7 +4696,7 @@ PrefabInstance:
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -4887,10 +4900,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 622921123044334388, guid: 136e615403e3a154493357544dab4fcf,
+    - target: {fileID: 622921123598956462, guid: 136e615403e3a154493357544dab4fcf,
         type: 3}
-      propertyPath: m_Avatar
-      value: 
+      propertyPath: m_Name
+      value: First Wave
       objectReference: {fileID: 0}
     - target: {fileID: 622921123598956448, guid: 136e615403e3a154493357544dab4fcf,
         type: 3}
@@ -4947,10 +4960,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 622921123598956462, guid: 136e615403e3a154493357544dab4fcf,
+    - target: {fileID: 622921123044334388, guid: 136e615403e3a154493357544dab4fcf,
         type: 3}
-      propertyPath: m_Name
-      value: First Wave
+      propertyPath: m_Avatar
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 622921123598956463, guid: 136e615403e3a154493357544dab4fcf,
         type: 3}
@@ -5505,6 +5518,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 338501481553683226, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
+        type: 3}
+      propertyPath: m_Name
+      value: Curtain
+      objectReference: {fileID: 0}
     - target: {fileID: 338501481553683224, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5564,11 +5582,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 338501481553683226, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
-        type: 3}
-      propertyPath: m_Name
-      value: Curtain
       objectReference: {fileID: 0}
     - target: {fileID: 338501481553683227, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
@@ -5703,6 +5716,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star5
       objectReference: {fileID: 0}
+    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b379d408c0bb1646be5b3ba44c8bd32,
+        type: 3}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5758,12 +5777,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9b379d408c0bb1646be5b3ba44c8bd32,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &1827473169 stripped
@@ -6610,6 +6623,34 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_text
+      value: "Als Heap-Sort wird das asymptotisch optimalste Sortierverfahren bezeichnet.
+        Dass hei\xDFt, f\xFCr\r Sortierungen per Vergleich gilt es mit einer optimalen
+        Laufzeit von O(n*log_2(n)) als das Schnellste.\n\nDabei werden im Beispiel
+        Schiffe mit\r Zahlenwerten nacheinander an- bzw. absteigend sortiert.\n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 291
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Enabled
@@ -6740,11 +6781,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 67.7
       objectReference: {fileID: 0}
-    - target: {fileID: 4867051431899766362, guid: b8126249c1232c745a11a6e41ebdc196,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7660384383851813910, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6788,6 +6824,11 @@ PrefabInstance:
     - target: {fileID: 2164509685764999629, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867051431899766362, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

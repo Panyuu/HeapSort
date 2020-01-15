@@ -869,9 +869,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Als Heapsort wird das asymptotisch optimalste Sortierverfahren bezeichnet,
-    das hei\xDFt f\xFCr\r\nSortierungen per Vergleich gilt es als das Schnellste.
-    Dabei werden im Beispiel Schiffe mit\r\nZahlenwerten nacheinander an-, bzw. absteigend
+  m_text: "Als Heap-Sort wird das asymptotisch optimalste Sortierverfahren bezeichnet.
+    Dass hei\xDFt, f\xFCr\r Sortierungen per Vergleich gilt es als das Schnellste.
+    Dabei werden im Beispiel Schiffe mit\r\nZahlenwerten nacheinander an- bzw. absteigend
     sortiert."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ca7f5a0b59fca449a48961dc615d27e, type: 2}
