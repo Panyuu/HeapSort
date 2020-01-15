@@ -13,7 +13,7 @@ public class GUIButtonManager : MonoBehaviour
     public GameObject homeButton;
     public GameObject Proto;
 
-    private bool protoShown;
+    private bool protoShown = false;
 
     public void Update()
     {
@@ -68,7 +68,6 @@ public class GUIButtonManager : MonoBehaviour
             Proto.SetActive(false);
             protoShown = false;
         }
-
         else
         {
             Proto.SetActive(true);
