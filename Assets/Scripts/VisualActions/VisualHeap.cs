@@ -184,14 +184,16 @@ public class VisualHeap : MonoBehaviour
 
             // ship from last position now surfacing outside of heap, root element is submerging
             cacheAnimator.SetBool("isSurfacing", true);
+            yield return new WaitForSeconds(1.5f);
+            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(lastElement + 1, lastElement));
+            yield return new WaitForSeconds(2f);
+            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
+            cacheAnimator.SetBool("isSurfacing", false);
+            
+
             anim[root].SetBool("isSubmerging", true);
             yield return new WaitForSeconds(1.5f);
-            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
-            yield return new WaitForSeconds(2f);
-            cacheAnimator.SetBool("isSurfacing", false);
             anim[root].SetBool("isSubmerging", false);
-
-
             // save animator of root object
             Animator rootAnimator = shipsToSort[root].GetComponent<Animator>();
 
