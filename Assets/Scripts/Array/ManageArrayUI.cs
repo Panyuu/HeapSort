@@ -26,6 +26,8 @@ public class ManageArrayUI : MonoBehaviour
     static float frameDelta = .1f;
     static float quickFrameDelta = .05f;
     static List<GameObject> prefabList = new List<GameObject>();
+
+
     static List<GameObject> getPrefabList()
     {
         return prefabList;
@@ -44,13 +46,14 @@ public class ManageArrayUI : MonoBehaviour
 
     static List<Vector3> boxPositions = new List<Vector3>
     {
-        new Vector3( -15, 16, 0),
+        new Vector3( -14, 16, 0),
         new Vector3( -10, 16, 0),
-        new Vector3(  -5, 16, 0),
-        new Vector3(   0, 16, 0),
-        new Vector3(   5, 16, 0),
+        new Vector3(  -6, 16, 0),
+        new Vector3(   -2, 16, 0),
+        new Vector3(   2, 16, 0),
+        new Vector3(  6, 16, 0),
         new Vector3(  10, 16, 0),
-        new Vector3(  15, 16, 0)
+        new Vector3(14, 16, 0)
     };
     static List<Vector3> getBoxPosition()
     {
@@ -66,16 +69,32 @@ public class ManageArrayUI : MonoBehaviour
     // let them swoop down into view from above 1 after another
     public static void generateBoxes()
     {
-        for(byte i = 0; i < getArrList().Count; i++)
+        for(byte i = 0; i <= getArrList().Count; i++)
         {
-            prefabList.Add(Instantiate(MAUI.box, getBoxPosition()[i]/2, Quaternion.identity, MAUI.boxParent.transform));
-            prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = getArrList()[i].ToString();
-            prefabList[i].GetComponentsInChildren<TextMesh>()[1].text = i.ToString();
 
-            //reposition the text values because for some reason they shift more and more to the right 
-            prefabList[i].GetComponentsInChildren<TextMesh>()[0].transform.position -= new Vector3(0.21f*i, 0, 0);
-            prefabList[i].GetComponentsInChildren<TextMesh>()[1].transform.position -= new Vector3(0.21f * i, 0, 0);
+            if (i == getArrList().Count) {
+
+                prefabList.Add(Instantiate(MAUI.box, getBoxPosition()[i] / 2, Quaternion.identity, MAUI.boxParent.transform));
+                prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = " ";
+                prefabList[i].GetComponentsInChildren<TextMesh>()[1].text = "Cache";
+
+                prefabList[i].GetComponentsInChildren<TextMesh>()[1].transform.position -= new Vector3(0.20f * i, 0.1f, 0);
+
+            }
+            else {
+
+                prefabList.Add(Instantiate(MAUI.box, getBoxPosition()[i] / 2, Quaternion.identity, MAUI.boxParent.transform));
+                prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = getArrList()[i].ToString();
+                prefabList[i].GetComponentsInChildren<TextMesh>()[1].text = i.ToString();
+
+                //reposition the text values because for some reason they shift more and more to the right 
+                prefabList[i].GetComponentsInChildren<TextMesh>()[0].transform.position -= new Vector3(0.11f * i, 0.1f, 0);
+                prefabList[i].GetComponentsInChildren<TextMesh>()[1].transform.position -= new Vector3(0.11f * i, 0.1f, 0);
+            }
+
         }
+
+        
         
     }
 
