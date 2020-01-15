@@ -104,6 +104,7 @@ public class GetNumberInput : MonoBehaviour
         //}
         //starts the max Heap
         MinHeap.startMinHeapPerButtonPress();
+        MinHeapPlain.startMinHeapPerButtonPress();
 
         inputCanvas.SetActive(false);
         buttonCanvas.SetActive(true);

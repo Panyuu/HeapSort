@@ -62,12 +62,15 @@ public class GetValueForStatistic : MonoBehaviour
 
         }
         
-        if(true)
+        if(Switches == 1)
         {
-            // try out optimal arr & get amount of switches as comparison
+            GVFS.labelBestCaseJudge.text = "BEST CASE!!!";
+        } else if (Switches == 4)
+        {
+            GVFS.labelBestCaseJudge.text = "WORST CASE!!!";
         } else
         {
-            // get worst case switch amount
+            GVFS.labelBestCaseJudge.text = "Durchschnitt...";
         }
         
     }
