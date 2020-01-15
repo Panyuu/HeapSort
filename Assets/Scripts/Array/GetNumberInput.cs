@@ -64,6 +64,7 @@ public class GetNumberInput : MonoBehaviour
                         //print("temp: " + temp);
                         //// add the valid input to the heap list
                         getListForHeap().Add(temp);
+                        GetValueForStatistic.OwnArr.Add(temp);
                     }
                 }
             }
@@ -76,7 +77,13 @@ public class GetNumberInput : MonoBehaviour
     //final printout & start max algorithm
     public void printOutListMax()
     {
+        
         extractInputForHeap();
+
+        if (getListForHeap().Count == 0)
+        {
+            CallStatistics.callStatisticAfterVisualization();
+        }
 
         // prints out every element in list
         //foreach (int i in getListForHeap())
@@ -85,6 +92,7 @@ public class GetNumberInput : MonoBehaviour
         //}
         //starts the max Heap
         MaxHeap.startMaxHeapPerButtonPress();
+        MaxHeapPlain.startMaxHeapPerButtonPress();
         
         inputCanvas.SetActive(false);
         buttonCanvas.SetActive(true);
@@ -93,7 +101,13 @@ public class GetNumberInput : MonoBehaviour
     //final printout & start in algorithm
     public void printOutListMin() 
     {
+        
         extractInputForHeap();
+
+        if (getListForHeap().Count == 0)
+        {
+            CallStatistics.callStatisticAfterVisualization();
+        }
 
         // prints out every element in list
         //foreach (int i in getListForHeap())
@@ -102,6 +116,7 @@ public class GetNumberInput : MonoBehaviour
         //}
         //starts the max Heap
         MinHeap.startMinHeapPerButtonPress();
+        MinHeapPlain.startMinHeapPerButtonPress();
 
         inputCanvas.SetActive(false);
         buttonCanvas.SetActive(true);
