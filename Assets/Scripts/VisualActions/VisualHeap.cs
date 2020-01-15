@@ -27,12 +27,12 @@ public class VisualHeap : MonoBehaviour
     static Animator cacheAnimator;
 
     // to play audio
-    public AudioManager audio;
+    //public AudioManager audio = null;
 
     private void Awake() {
 
         vh = this;
-        audio = new AudioManager();
+        //audio = new AudioManager();
        
     }
 
@@ -224,7 +224,7 @@ public class VisualHeap : MonoBehaviour
 
         if (lastElement == 0) {
 
-            vh.audio.Playapplause();
+            //vh.audio.Playapplause();
         }
 
         //if (lastElement == 0) {
@@ -370,7 +370,9 @@ public class VisualHeap : MonoBehaviour
         if (last == 0)
         {
             //FindObjectOfType<AudioManager>().Play("applause");
-            
+
+            CallStatistics.callStatisticAfterVisualization();
+
         }
 
         // gets destroyed afterwards

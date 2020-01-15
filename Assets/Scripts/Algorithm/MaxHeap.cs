@@ -73,7 +73,7 @@ public class MaxHeap : MonoBehaviour {
 
         ManipulateProtocolTextFile.clearTextFile();
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
-        protofill("Ungeordnetes Array: " + arrayToString(),indexAni);
+        protofill("Ungeordnetes Array: " + arrayToString() + ".",indexAni);
 
         // rearranges elements to max-heap (all parents > their children)
         buildHeap();
@@ -109,7 +109,7 @@ public class MaxHeap : MonoBehaviour {
         }
 
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
-        protofill("Geordnetes Array: " + arrayToString(),indexAni);
+        protofill("Geordnetes Array: " + arrayToString() + ".", indexAni);
         ManipulateProtocolTextFile.printOutProtocolContent();
         //CallStatistics.callStatisticAfterVisualization();
     }
@@ -146,9 +146,9 @@ public class MaxHeap : MonoBehaviour {
             {
                 stindex.Add(indexAni);
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    Kindknoten_2: " + arrayToSort[child + 1] + ";    ArrayLänge: " + arrayLength);
-                protofill("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    Kindknoten_2: " + arrayToSort[child + 1] + ";    ArrayLänge: " + arrayLength,indexAni);
+                protofill("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    Kindknoten_2: " + arrayToSort[child + 1] + ";    ArrayLänge: " + arrayLength + ".", indexAni);
                 ManipulateProtocolTextFile.addParameterToWriteList("Vergleich von Kindknoten_1: " + arrayToSort[child] + " mit Kindknoten_2: " + arrayToSort[child + 1]);
-                protofill("Vergleich von Kindknoten_1: " + arrayToSort[child] + " mit Kindknoten_2: " + arrayToSort[child + 1],indexAni);
+                protofill("Vergleich von Kindknoten_1: " + arrayToSort[child] + " mit Kindknoten_2: " + arrayToSort[child + 1] + ".", indexAni);
                 if (arrayToSort[child + 1] > arrayToSort[child])
                 {
 
@@ -160,7 +160,7 @@ public class MaxHeap : MonoBehaviour {
                     animQueue.Add(VisualHeap.findLargerElement(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
 
                     ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1]);
-                    protofill("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1],indexAni);
+                    protofill("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1] + ".", indexAni);
 
                     child++;
                 }
@@ -175,19 +175,19 @@ public class MaxHeap : MonoBehaviour {
                     animQueue.Add(VisualHeap.findLargerElement(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
 
                     ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1]);
-                    protofill("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1],indexAni);
+                    protofill("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1] + ".", indexAni);
                 }
             }
             // if right doesn't exist use left child
             else
             {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    ArrayLänge: " + arrayLength);
-                protofill("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    ArrayLänge: " + arrayLength,indexAni);
+                protofill("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    ArrayLänge: " + arrayLength + ".", indexAni);
             }
 
             // if child > parent -> position change
             ManipulateProtocolTextFile.addParameterToWriteList("Vergleich von Vaterknoten: " + arrayToSort[parent] + " mit Kindknoten: " + arrayToSort[child]);
-            protofill("Vergleich von Vaterknoten: " + arrayToSort[parent] + " mit Kindknoten: " + arrayToSort[child],indexAni);
+            protofill("Vergleich von Vaterknoten: " + arrayToSort[parent] + " mit Kindknoten: " + arrayToSort[child] + ".", indexAni);
             if (arrayToSort[parent] >= arrayToSort[child]) {
 
                 // puts rings around two elements -> here: no position change
@@ -240,7 +240,7 @@ public class MaxHeap : MonoBehaviour {
                 animQueue.Add(VisualHeap.findLargerElement(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
 
                 ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1]);
-                protofill("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1],indexAni);
+                protofill("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1] + ".", indexAni);
                 child++;
             } else
             {
@@ -252,7 +252,7 @@ public class MaxHeap : MonoBehaviour {
                 animQueue.Add(VisualHeap.findLargerElement(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
 
                 ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1]);
-                protofill("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1],indexAni);
+                protofill("Kindknoten_1: " + arrayToSort[child] + " >= Kindknoten_2: " + arrayToSort[child + 1] + ".", indexAni);
             }
             stindex.Add(indexAni);
             // move up largest child to its parents' position (free space)
@@ -266,7 +266,7 @@ public class MaxHeap : MonoBehaviour {
             child = parent * 2 + 1;
 
             ManipulateProtocolTextFile.addParameterToWriteList("neuer Vaterknoten: " + arrayToSort[parent]);
-            protofill("neuer Vaterknoten: " + arrayToSort[parent],indexAni);
+            protofill("neuer Vaterknoten: " + arrayToSort[parent] + ".", indexAni);
         }
         // case if there is only one child element
         if (child < arrayLength)
@@ -283,7 +283,7 @@ public class MaxHeap : MonoBehaviour {
         }
 
         ManipulateProtocolTextFile.addParameterToWriteList("Der jetzt zu betrachtende Vaterknoten: " + arrayToSort[parent]);
-        protofill("Der jetzt zu betrachtende Vaterknoten: " + arrayToSort[parent], indexAni);
+        protofill("Der jetzt zu betrachtende Vaterknoten: " + arrayToSort[parent] + ".", indexAni);
         return parent;
     }
 
@@ -311,12 +311,12 @@ public class MaxHeap : MonoBehaviour {
 
                 animQueue.Add(VisualHeap.noSwitchNecessary(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child]);
-                protofill("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child],indexAni);
+                protofill("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child] + ".", indexAni);
                 
                 return;
             }
             ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child]);
-            protofill("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child],indexAni);
+            protofill("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child] + ".", indexAni);
             changePosition(parent, child);
             child = parent;
         }
@@ -339,8 +339,8 @@ public class MaxHeap : MonoBehaviour {
         }
         animQueue.Add(VisualHeap.ChangeShipPosition(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
 
-        ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b] + ".   !");
-        protofill("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b] + ".   !",indexAni);
+        ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b]);
+        protofill("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b] + ".", indexAni);
         
         int help = arrayToSort[a];
         arrayToSort[a] = arrayToSort[b];
@@ -376,7 +376,12 @@ public class MaxHeap : MonoBehaviour {
         for (int i = 0; i < arrayToSort.Length; i++)
         {
 
-            array += arrayToSort[i] + ", ";
+            array += arrayToSort[i];
+            if (i+1 <arrayToSort.Length)
+            {
+                array += ", ";
+            }
+               
         }
 
         return array;
@@ -406,7 +411,8 @@ public class MaxHeap : MonoBehaviour {
             
             startPossible = true;
         }
-        CallStatistics.callStatisticAfterVisualization();
+        
+        
     }
 
     public static bool getPlayAnimation()

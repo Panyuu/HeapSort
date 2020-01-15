@@ -62,10 +62,10 @@ public class GetValueForStatistic : MonoBehaviour
 
         }
         
-        if(Switches == 1)
+        if(Switches <= 1)
         {
             GVFS.labelBestCaseJudge.text = "BEST CASE!!!";
-        } else if (Switches == 4)
+        } else if (Switches >= 7)
         {
             GVFS.labelBestCaseJudge.text = "WORST CASE!!!";
         } else
