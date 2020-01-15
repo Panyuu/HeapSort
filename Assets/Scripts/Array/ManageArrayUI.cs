@@ -138,6 +138,20 @@ public class ManageArrayUI : MonoBehaviour
         // list.count--
     }
 
+    public static IEnumerator childMoveUp()
+    {
+        // root goes to last place
+        //index 0 moves 
+
+        //child moves up
+        //index[child] goes up
+
+        //child moves up
+        //index[child] goes up
+
+        yield return new WaitForSeconds(1f);
+    }
+
 
 }
 
