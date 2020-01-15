@@ -77,7 +77,13 @@ public class GetNumberInput : MonoBehaviour
     //final printout & start max algorithm
     public void printOutListMax()
     {
+        
         extractInputForHeap();
+
+        if (getListForHeap().Count == 0)
+        {
+            CallStatistics.callStatisticAfterVisualization();
+        }
 
         // prints out every element in list
         //foreach (int i in getListForHeap())
@@ -95,7 +101,13 @@ public class GetNumberInput : MonoBehaviour
     //final printout & start in algorithm
     public void printOutListMin() 
     {
+        
         extractInputForHeap();
+
+        if (getListForHeap().Count == 0)
+        {
+            CallStatistics.callStatisticAfterVisualization();
+        }
 
         // prints out every element in list
         //foreach (int i in getListForHeap())
