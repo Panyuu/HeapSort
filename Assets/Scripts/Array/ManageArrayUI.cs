@@ -25,7 +25,7 @@ public class ManageArrayUI : MonoBehaviour
     float arrBoxDelta = 0.5f;
     static float frameDelta = .1f;
     static float quickFrameDelta = .05f;
-    static List<GameObject> prefabList = new List<GameObject>();
+    public static List<GameObject> prefabList = new List<GameObject>();
 
 
     static List<GameObject> getPrefabList()
@@ -78,6 +78,7 @@ public class ManageArrayUI : MonoBehaviour
                 prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = " ";
                 prefabList[i].GetComponentsInChildren<TextMesh>()[1].text = "Cache";
 
+                prefabList[i].GetComponentsInChildren<TextMesh>()[0].transform.position -= new Vector3(0.15f * i, 0.1f, 0);
                 prefabList[i].GetComponentsInChildren<TextMesh>()[1].transform.position -= new Vector3(0.20f * i, 0.1f, 0);
 
             }

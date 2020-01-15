@@ -13,7 +13,7 @@ public class GetNumberInput : MonoBehaviour
     // per knopfdruck inputfields enablen und nicht im script generieren
 
     //list that saves converted input from input canvas
-    static List<int> listForHeap = new List<int>();
+    public static List<int> listForHeap = new List<int>();
 
     //getter method for listForHeap
     public static List<int> getListForHeap() {
@@ -90,12 +90,14 @@ public class GetNumberInput : MonoBehaviour
         //{
         //    print(i + "    " + getListForHeap().Count + "!");
         //}
+        inputCanvas.SetActive(false);
+        buttonCanvas.SetActive(true);
+
         //starts the max Heap
         MaxHeap.startMaxHeapPerButtonPress();
         MaxHeapPlain.startMaxHeapPerButtonPress();
         
-        inputCanvas.SetActive(false);
-        buttonCanvas.SetActive(true);
+        
     }
 
     //final printout & start in algorithm

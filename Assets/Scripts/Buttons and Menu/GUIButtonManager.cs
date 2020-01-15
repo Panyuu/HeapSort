@@ -17,6 +17,7 @@ public class GUIButtonManager : MonoBehaviour
 
     public void Update()
     {
+
         if(Input.GetKeyDown("space"))
         {
             if(pauseButton.activeInHierarchy)
@@ -78,6 +79,8 @@ public class GUIButtonManager : MonoBehaviour
 
     public void returnHome()
     {
+        ManageArrayUI.prefabList.Clear();
+        GetNumberInput.listForHeap.Clear();
         SceneManager.LoadScene(0);
     }
 
