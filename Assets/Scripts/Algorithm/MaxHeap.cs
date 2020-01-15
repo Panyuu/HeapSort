@@ -61,6 +61,8 @@ public class MaxHeap : MonoBehaviour {
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
 
+        DisplayTextOnLowerBoard.activateDisplayParent();
+
         createArray(GetNumberInput.getListForHeap().ToArray());
         //createArray( new int[] { 1, 3, 6, 4, 2, 5, 7 } );
 
@@ -74,6 +76,7 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.clearTextFile();
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
         protofill("Ungeordnetes Array: " + arrayToString() + ".",indexAni);
+
 
         // rearranges elements to max-heap (all parents > their children)
         buildHeap();

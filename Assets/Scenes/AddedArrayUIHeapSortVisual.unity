@@ -2365,7 +2365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &496741501
 Transform:
   m_ObjectHideFlags: 0
@@ -2374,7 +2374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496741500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.2, z: -3.3}
+  m_LocalPosition: {x: 0, y: -2.25, z: -3.3}
   m_LocalScale: {x: 0.3, y: 0.2, z: 1}
   m_Children:
   - {fileID: 1860671663}
@@ -4058,7 +4058,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009284531}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -5663,6 +5663,7 @@ GameObject:
   - component: {fileID: 1357945138}
   - component: {fileID: 1357945140}
   - component: {fileID: 1357945139}
+  - component: {fileID: 1357945141}
   m_Layer: 0
   m_Name: TheaterScene
   m_TagString: Untagged
@@ -5733,6 +5734,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statisticCanvas: {fileID: 1394488041}
+--- !u!114 &1357945141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357945137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d40ebd81757898419a5157b8e8b4575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowerText: {fileID: 1691227080}
+  displayParent: {fileID: 496741500}
 --- !u!1 &1379081065
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,7 +7356,7 @@ GameObject:
   - component: {fileID: 1691227081}
   - component: {fileID: 1691227080}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7384,7 +7399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tausch von Elterknoten und Kindknoten.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94485c610e8ddd346b13debd1b428d2f, type: 2}
   m_sharedMaterial: {fileID: 1659372717664759799, guid: 94485c610e8ddd346b13debd1b428d2f,
@@ -7413,8 +7428,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7454,13 +7469,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1691227080}
-    characterCount: 38
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -8493,7 +8508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1950386306
 MonoBehaviour:
   m_ObjectHideFlags: 0

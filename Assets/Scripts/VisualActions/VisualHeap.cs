@@ -77,6 +77,7 @@ public class VisualHeap : MonoBehaviour
             animators[i].SetBool("isSurfacing", true);
             yield return new WaitForSeconds(1f);
             animators[i].SetBool("isSurfacing", false);
+            DisplayTextOnLowerBoard.setLowerText("Positionierung Schiffe!");
         }
 
         //yield return new WaitForSeconds(0.5f);
@@ -88,6 +89,7 @@ public class VisualHeap : MonoBehaviour
     public static IEnumerator ChangeShipPosition(int a, int b, int loliPos, int loliRot) {
 
         Debug.Log("Parent Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text + " Child Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text);
+        DisplayTextOnLowerBoard.setLowerText("Tausch der Knoten.");
 
         // set position to children's position
         vh.ring1.transform.position = ringPosition[a];
@@ -199,6 +201,8 @@ public class VisualHeap : MonoBehaviour
             anim[lastElement] = anim[root];
             shipsToSort[lastElement] = shipsToSort[root];
 
+            DisplayTextOnLowerBoard.setLowerText("Root-Element wandert...");
+
             // write back to root object for future
             anim[root] = rootAnimator;
 
@@ -218,6 +222,7 @@ public class VisualHeap : MonoBehaviour
 
         // switch the Array Box sprite to "sorted"
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeSpriteOnceSorted(lastElement));
+        DisplayTextOnLowerBoard.setLowerText("Der Knoten is sortiert.");
 
         yield return new WaitForSeconds(5f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
@@ -236,6 +241,7 @@ public class VisualHeap : MonoBehaviour
 
     // moves largest child upwards to fill the heap back up
     public static IEnumerator moveUp(int parent, int child) {
+        DisplayTextOnLowerBoard.setLowerText("Knoten rücken auf...");
 
         // child submerges
         anim[child].SetBool("isSubmerging", true);

@@ -1,18 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DisplayTextOnLowerBoard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static DisplayTextOnLowerBoard DTOLB;
+
+    [SerializeField] TextMeshPro lowerText;
+    [SerializeField] GameObject displayParent;
+
+    private void Awake()
     {
-        
+        DTOLB = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        lowerText.text = "";
+    }
+
+    public static void activateDisplayParent()
+    {
+        DTOLB.displayParent.SetActive(true);
+    }
+
+    public static void setLowerText(string s)
+    {
+        DTOLB.lowerText.text = s;
     }
 }
