@@ -108,7 +108,7 @@ public class MinHeap : MonoBehaviour {
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
         protofill("Geordnetes Array: " + arrayToString(), indexAni);
         ManipulateProtocolTextFile.printOutProtocolContent();
-        CallStatistics.callStatisticAfterVisualization();
+        ///CallStatistics.callStatisticAfterVisualization();
     }
 
     // initialize array to be sorted, asigns length to variable
@@ -376,7 +376,7 @@ public class MinHeap : MonoBehaviour {
                 startPossible = false;
 
                 indexAni = stindex[testIndexAni];
-                yield return mh.StartCoroutine(animQueue[indexAni++]);
+                yield return mh.StartCoroutine(animQueue[testIndexAni++]);
             }
 
             yield return new WaitForSeconds(4f);

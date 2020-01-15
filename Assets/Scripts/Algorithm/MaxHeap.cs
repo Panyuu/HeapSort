@@ -111,7 +111,7 @@ public class MaxHeap : MonoBehaviour {
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
         protofill("Geordnetes Array: " + arrayToString(),indexAni);
         ManipulateProtocolTextFile.printOutProtocolContent();
-        CallStatistics.callStatisticAfterVisualization();
+        //CallStatistics.callStatisticAfterVisualization();
     }
 
     // initialize array to be sorted, asigns length to variable
