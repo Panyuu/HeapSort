@@ -127,11 +127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star6
-      objectReference: {fileID: 0}
     - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_Sprite
@@ -193,6 +188,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &17382900 stripped
@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (3)
+      value: Tutorial Text4
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -356,11 +356,11 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Zuallererst werden die letzten beiden Kindelemente des bin\xE4ren Teilbaums
-        verglichen. Die gr\xF6\xDFere Zahl wird nun wiederum mit dem Elterknoten,
-        also der dar\xFCber liegenden Zahl verglichen. Abh\xE4ngig davon, ob sie gr\xF6\xDFer
+      value: "Zuallererst werden die letzten beiden Kindelemente des binaeren Teilbaums
+        verglichen. Die groe\xDFere Zahl wird nun wiederum mit dem Elterknoten, also
+        der darueber liegenden Zahl verglichen. Abhaengig davon, ob sie groe\xDFer
         oder kleiner ist, werden die beiden Schiffe getauscht, sodass der Elterknoten
-        jeweils den gr\xF6\xDFten Wert besitzt."
+        jeweils den groe\xDFten Wert besitzt."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -563,11 +563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star3
-      objectReference: {fileID: 0}
     - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_Sprite
@@ -629,6 +624,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &273539748 stripped
@@ -647,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (9)
+      value: Tutorial Text10
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -792,10 +792,8 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Nun wird, nachdem die Kindelemente des Root-Elements untereinander verglichen
-        wurden,\r\ndas gr\xF6\xDFere von beiden mit dem Root-Element verglichen. Ist
-        der Zahlenwert des weiter\r\noben treibenden Schiffs h\xF6her, so findet ein
-        Tausch statt."
+      value: "Um die Luecke des nicht mehr vorhandenen Root-Elements aufzufuellen,
+        wird jeweils das groesste Kindelement nach oben\r\nnachgerueckt."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1001,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (4)
+      value: Tutorial Text5
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1146,9 +1144,14 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Jetzt folgt der n\xE4chste Elterknoten, d.h. der n\xE4chst linke. Dieser
+      value: "Jetzt folgt der naechste Elterknoten, d.h. der naechst linke. \nDieser
         Vorgang setzt sich weiter fort, bis letztendlich das Root-Element, bzw. das
         oberste Schiff, erreicht ist."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1509,7 +1512,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (10)
+      value: Tutorial Text11
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1654,8 +1657,12 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Teilb\xE4ume, welche durch diese Ver\xE4nderung beeinflusst wurden,
-        werden umgehend neu\r\ngeordnet, sodass die Heap-Struktur erhalten bleibt."
+      value: "Sobald sich unterhalb der freien Stelle kein Kind mehr befindet (Blatt)
+        kommt das vorerst gespeicherte\r\nElement von vorher zum Einsatz und wird
+        nun an der freien Stelle eingefuegt\r\nUm die Heap-Struktur zu ueberpruefen,
+        wird das eingefuegte Element mit seinem Elternknoten verglichen und ggf. getauscht.\r\nDiese
+        Prozedur wiederholt sich nun so lange, bis alle Elemente ihre richtige Position
+        im Array eingenommen haben. Dann ist das Array vollstaendig sortiert."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -1752,6 +1759,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1124635958}
     - target: {fileID: 4113373182871060180, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
@@ -1856,7 +1868,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (1)
+      value: Tutorial Text2
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -2002,9 +2014,9 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "Am Anfang wird die Heap-Baum-Struktur erzeugt. Das bedeutet, wir ordnen
-        das Array in einen bin\xE4ren, linkslastigen Baum an. \n\nDie erste Zahl wird
+        das Array in einen binaeren, linkslastigen Baum an. \n\nDie erste Zahl wird
         alleinstehend als Schiff auf der obersten Ebene platziert. Darunter verteilen
-        sich die restlichen immer bin\xE4r, und zwar von links nach rechts.\n\n"
+        sich die restlichen immer binaer, und zwar von links nach rechts.\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -2534,11 +2546,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star1
-      objectReference: {fileID: 0}
     - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_Sprite
@@ -2600,6 +2607,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &613100810 stripped
@@ -2650,7 +2662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: 10.5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.8, y: -89.4}
+  m_AnchoredPosition: {x: -90.6, y: -89.4}
   m_SizeDelta: {x: 182.44, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693313565
@@ -2750,11 +2762,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star2
-      objectReference: {fileID: 0}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2809,6 +2816,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
@@ -2919,6 +2931,7 @@ RectTransform:
   - {fileID: 1015828559}
   - {fileID: 294041232}
   - {fileID: 488527646}
+  - {fileID: 1124635957}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3159,7 +3172,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (2)
+      value: Tutorial Text3
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -3754,7 +3767,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (8)
+      value: Tutorial Text9
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -3899,9 +3912,10 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Zuallererst werden die letzten beiden Kindelemente des bin\xE4ren Teilbaums,
-        also die Schiffe,\r\nbzw. Ziffern, welche am weitesten unten rechts liegen
-        miteinander verglichen."
+      value: "Das letzte Schiff wird jetzt erst einmal aus dem\r\nBinaerbaum entfernt
+        und in einer Hilfsvariable gespeichert. \nDaraufhin nimmt das oberste Schiff
+        den Platz des letzten ein.\nSie kann als erste in das sortierte Array uebernommen
+        werden."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -4117,7 +4131,7 @@ PrefabInstance:
     - target: {fileID: 2327076884944217011, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.36
+      value: -8.74
       objectReference: {fileID: 0}
     - target: {fileID: 2327076884944217011, guid: a7a82ad5cb0078140a69f0ae35ddf35d,
         type: 3}
@@ -4355,7 +4369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86.9, y: -91.7}
+  m_AnchoredPosition: {x: 70.9, y: -91.7}
   m_SizeDelta: {x: 112, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117615687
@@ -4448,6 +4462,368 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117615685}
   m_CullTransparentMesh: 0
+--- !u!1001 &1124635956
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 751661065}
+    m_Modifications:
+    - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_Name
+      value: Tutorial Text12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_text
+      value: "Warum Bottom-Up-Heap-Sort?\r\nBei der Wiederherstellung der Baumstruktur
+        nach dem Tausch vom ersten mit dem letzten Element\r\nsind beim Bottom-Up-Heap
+        weniger Datenaustausche noetig, da lediglich das Kindelement nach oben, nicht\r\naber
+        das Elternelement nach unten getauscht wird. Durch diese Optimierung muss
+        nur noch die Haelfte der Datensatztauschs durchgefuehrt werden,\r\nwas vor
+        Allem bei gro\xDFen Arrays oder gro\xDFen Datensaetzen die Effizienz des Algorithmus
+        ma\xDFgeblich beeinflusst."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543301914333705468, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543301914333705468, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543301914333705468, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 91.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543301914333705468, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 98.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244172538162350606, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558490239446449827, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 67.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558490239446449827, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 83.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558490239446449827, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 934561939}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: nextCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1124635958}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549348098439868806, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113373182871060180, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113373182871060180, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113373182871060180, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113373182871060180, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113373182871060180, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425977745755780536, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 67.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660384383851813910, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 934561939}
+    - target: {fileID: 7660384383851813910, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: nextCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660384383851813910, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660384383851813910, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660384383851813910, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 488527647}
+    - target: {fileID: 2164509685764999629, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164509685764999629, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164509685764999629, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164509685764999629, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164509685764999629, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867051431899766362, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651829485245634264, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8126249c1232c745a11a6e41ebdc196, type: 3}
+--- !u!224 &1124635957 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6739717551272672947, guid: b8126249c1232c745a11a6e41ebdc196,
+    type: 3}
+  m_PrefabInstance: {fileID: 1124635956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1124635958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
+    type: 3}
+  m_PrefabInstance: {fileID: 1124635956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1125693403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
@@ -4544,7 +4920,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (5)
+      value: Tutorial Text6
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -4689,7 +5065,7 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Zuallererst werden die letzten beiden Kindelemente des bin\xE4ren Teilbaums,
+      value: "Zuallererst werden die letzten beiden Kindelemente des binaeren Teilbaums,
         also die Schiffe,\r\nbzw. Ziffern, welche am weitesten unten rechts liegen
         miteinander verglichen."
       objectReference: {fileID: 0}
@@ -5065,7 +5441,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (6)
+      value: Tutorial Text7
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -5210,10 +5586,10 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Die gr\xF6\xDFere Zahl wird nun wiederum mit dem Elternknoten, also
-        der dar\xFCber liegenden Zahl\r\nverglichen. Abh\xE4ngig davon, ob sie gr\xF6\xDFer
-        oder kleiner ist werden die beiden Schiffe\r\ngetauscht, sodass die h\xF6her
-        gelegene Zahl gr\xF6\xDFer ist."
+      value: "Das Schiff an letzter und erster Stelle wird vertauscht. Das nun and
+        er letzten Stelle stehende Element\r\nist sortiert und wird nicht laenger
+        betrachtet. Das an erster Stelle stehende Element wird nun mit den\r\nKindknoten
+        verglichen und nach unten durchgeschoben."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -5526,12 +5902,12 @@ PrefabInstance:
     - target: {fileID: 338501481553683224, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 338501481553683224, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 338501481553683224, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
@@ -5581,12 +5957,17 @@ PrefabInstance:
     - target: {fileID: 338501481553683224, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.95
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 338501481553683224, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 338501481553683227, guid: 5ba43a95c7771fa498dd35e84f1dc41e,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ba43a95c7771fa498dd35e84f1dc41e, type: 3}
@@ -5597,11 +5978,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star4
-      objectReference: {fileID: 0}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5656,6 +6032,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
@@ -5780,11 +6161,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star5
-      objectReference: {fileID: 0}
     - target: {fileID: 4527559313649853269, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_Sprite
@@ -5845,6 +6221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
@@ -5967,7 +6348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 273.9, y: -96.2}
+  m_AnchoredPosition: {x: 249.2, y: -96.2}
   m_SizeDelta: {x: 189.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921825838
@@ -6150,7 +6531,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial (7)
+      value: Tutorial Text8
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -6295,10 +6676,10 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_text
-      value: "Jetzt folgt der n\xE4chste Elternknoten, das hei\xDFt der n\xE4chst
-        linke. Erneut findet eine\r\n\xDCberpr\xFCfung der Zahlenwerte statt, wodurch
-        diese, entsprechend ihrer Gr\xF6\xDFe, h\xF6her oder\r\nniedriger angeordnet
-        werden. Dieser Vorgang setzt sich weiter fort, bis letztendlich das\r\nRoot-Element,
+      value: "Jetzt folgt der naechste Elternknoten, das hei\xDFt der naechst linke.
+        Erneut findet eine\r\nUeberpr\xFCfung der Zahlenwerte statt, wodurch diese,
+        entsprechend ihrer Groesse, h\xF6her oder\r\nniedriger angeordnet werden.
+        Dieser Vorgang setzt sich weiter fort, bis letztendlich das\r\nRoot-Element,
         bzw. das oberste Schiff erreicht ist."
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
@@ -6502,11 +6883,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1656287168}
     m_Modifications:
-    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Star0
-      objectReference: {fileID: 0}
     - target: {fileID: 5391146438928743077, guid: c32f9113a92e240449dedd0a6d03a3fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6562,6 +6938,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8107849595709745419, guid: c32f9113a92e240449dedd0a6d03a3fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Star0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32f9113a92e240449dedd0a6d03a3fc, type: 3}
 --- !u!4 &3128072657928021695 stripped
@@ -6580,7 +6961,7 @@ PrefabInstance:
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_Name
-      value: Tutorial
+      value: Tutorial Text1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717551272672944, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -6696,19 +7077,19 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "Als Heap-Sort wird das asymptotisch optimalste Sortierverfahren bezeichnet.
-        Dass hei\xDFt, f\xFCr\r Sortierungen per Vergleich gilt es mit einer optimalen
+        \nDass heisst, fuer\r \nSortierungen per Vergleich gilt es mit einer optimalen
         Laufzeit von O(n*log_2(n)) als das Schnellste.\n\nDabei werden im Beispiel
-        Schiffe mit\r Zahlenwerten nacheinander an- bzw. absteigend sortiert.\n\n"
+        \nSchiffe mit\r \nZahlenwerten nacheinander an- bzw. absteigend sortiert.\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 291
+      value: 297
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 39
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
@@ -6718,7 +7099,17 @@ PrefabInstance:
     - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 11
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 296
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739717552873032992, guid: b8126249c1232c745a11a6e41ebdc196,
+        type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6739717552776766596, guid: b8126249c1232c745a11a6e41ebdc196,
         type: 3}
