@@ -364,12 +364,7 @@ public class MinHeap : MonoBehaviour {
 
     // starts the visual heap-transformation
     public static IEnumerator startAnimation() {
-
-
-       // int count = 0;
-
         while (playAnimation) {
-            Debug.Log("ANIMATION ANIMATION ANIMATION");
 
             if (testIndexAni < animQueue.Count) {
 
@@ -398,13 +393,10 @@ public class MinHeap : MonoBehaviour {
 
     public static void protofill(string content, int index)
     {
-
         GameObject help = Instantiate(mh.protoText, new Vector2(mh.protoText.transform.localPosition.x, mh.protoText.transform.localPosition.y - 50 * protoCount), Quaternion.identity);
         help.transform.SetParent(mh.textHolder.transform, false);
         help.name = index.ToString();
         help.GetComponent<Text>().text = content;
-
-
     }
 
     public static void protoClick()

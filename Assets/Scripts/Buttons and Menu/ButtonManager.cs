@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
-
     public GameObject orientaField;
     public GameObject parent;
     public GameObject InputCanvas;
-    public static List<TMPro.TMP_InputField> inputFields;
+    public static List<TMP_InputField> inputFields;
 
     public float distance;
 
@@ -17,10 +15,11 @@ public class ButtonManager : MonoBehaviour
 
     private void Start() {
 
-        inputFields = new List<TMPro.TMP_InputField>();
+        inputFields = new List<TMP_InputField>();
         inputFields.Add(GameObject.Find("Nr0").gameObject.transform.GetChild(0).GetComponent<TMP_InputField>());
-
     }
+
+
     public void addField()
     {
         if (fieldCount < 7)
@@ -50,8 +49,4 @@ public class ButtonManager : MonoBehaviour
             Destroy(GameObject.Find("Nr" + --fieldCount));
         }
     }
-
-
-
-
 }

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GetValueForStatistic : MonoBehaviour
 {
@@ -46,8 +44,6 @@ public class GetValueForStatistic : MonoBehaviour
         GVFS.labelSwitches.text = Switches.ToString();
         GVFS.labelTimeDelta.text = (EndTime - StartTime).ToString() + " ms";
 
-        print(OwnArr.Count + "!!!");
-
         for(byte i = 0; i < OwnArr.Count; i++)
         {
             /*
@@ -71,14 +67,6 @@ public class GetValueForStatistic : MonoBehaviour
         } else
         {
             GVFS.labelBestCaseJudge.text = "Durchschnitt...";
-        }
-        
+        }  
     }
-
-    
-
-
-
-
-
 }

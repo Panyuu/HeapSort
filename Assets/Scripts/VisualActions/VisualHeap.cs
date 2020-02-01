@@ -10,14 +10,13 @@ public class VisualHeap : MonoBehaviour
     // Ship Prefab to instantiate + ring object
     public GameObject shipPrefab, ring1, ring2, loli;
     // positions of ships in heap and for rings
-    static Vector3[] shipPosition, ringPosition, loliPosition;
+    static Vector3[] shipPosition, ringPosition, ringSize, loliPosition;
     // animators of each object
     static Animator[] anim;
     // stores information about the objects that are sorted
     public static GameObject[] shipsToSort;
     // set back rotation to default
     static Quaternion rotation;
-
 
     // stores the position of the separated ship (currently not in heap)
     static Vector3 cachePosition;
@@ -26,29 +25,46 @@ public class VisualHeap : MonoBehaviour
     // animator from cache
     static Animator cacheAnimator;
 
-    // to play audio
-    //public AudioManager audio = null;
-
     private void Awake() {
 
-        vh = this;
-        //audio = new AudioManager();
-       
+        vh = this;  
     }
 
     // Start is called before the first frame update
     void Start() {
 
         // positions for the ships in heap-structure
-        shipPosition = new Vector3[] { new Vector3(0, -1f, 3),
-            new Vector3(-6, -2.8f, 1), new Vector3(6, -2.8f, 1), new Vector3(-8, -4.8f, -0.5f),
-            new Vector3(-3, -4.8f, -0.5f), new Vector3(3, -4.8f, -0.5f), new Vector3(8, -4.8f, -0.5f) };
+        shipPosition = new Vector3[] { 
+            new Vector3(0, -1f, 3),
+            new Vector3(-6, -2.5f, 1), 
+            new Vector3(6, -2.5f, 1), 
+            new Vector3(-8, -4.5f, -0.5f),
+            new Vector3(-3, -4.5f, -0.5f), 
+            new Vector3(3, -4.5f, -0.5f), 
+            new Vector3(8, -4.5f, -0.5f) };
 
-        ringPosition = new Vector3[] { new Vector3(0, 2.6f, -5f), 
-            new Vector3(-3.2f, 1.6f, -5), new Vector3(3, 1.6f, -5), new Vector3(-4.9f, 0.6f, -5), 
-            new Vector3(-1.9f, 0.6f, -5), new Vector3(1.6f, 0.6f, -5), new Vector3(4.6f, 0.6f, -5) };
+        ringPosition = new Vector3[] { 
+            new Vector3(0, 3.3f, 1f), 
+            new Vector3(-5.7f, 1.6f, 0), 
+            new Vector3(5.3f, 1.6f, 0), 
+            new Vector3(-6.3f, 0.3f, -3), 
+            new Vector3(-2.5f, 0.3f, -3), 
+            new Vector3(2.2f, 0.3f, -3), 
+            new Vector3(6.2f, 0.3f, -3) };
 
-        loliPosition = new Vector3[] { new Vector3(0, -9, 1), new Vector3(-5.5f, -10.5f, -1), new Vector3(5f, -10.5f, -1) };
+        ringSize = new Vector3[] { 
+            new Vector3(1.5f, 1.5f, 1.5f),
+            new Vector3(1.3f, 1.3f, 1.3f),
+            new Vector3(1.3f, 1.3f, 1.3f),
+            new Vector3(1f, 1f, 1f),
+            new Vector3(1f, 1f, 1f),
+            new Vector3(1f, 1f, 1f),
+            new Vector3(1f, 1f, 1f) };
+
+        loliPosition = new Vector3[] {
+            new Vector3(0, -9, 1),
+            new Vector3(-4.5f, -10.5f, -2.9f),
+            new Vector3(4, -10.5f, -2.9f) };
 
         rotation = new Quaternion(0, 180, 0, 0);
         cachePosition = new Vector3(11, -1f, 2);
@@ -62,7 +78,6 @@ public class VisualHeap : MonoBehaviour
 
         for (int i = 0; i < arrayToSort.Length; i ++) {
 
-            Debug.Log("Schiff Ahoi");
             // Create Object Ship
             ships.Add(Instantiate(vh.shipPrefab, shipPosition[i], rotation));
             // sets the number on the sail
@@ -70,8 +85,7 @@ public class VisualHeap : MonoBehaviour
             value.GetComponent<TextMesh>().text = arrayToSort[i].ToString();
             // Rename Object
             ships[i].name = "ShipIndex_" + i;
-            
-            
+
             animators.Add(ships[i].GetComponent<Animator>());
             
             animators[i].SetBool("isSurfacing", true);
@@ -79,8 +93,6 @@ public class VisualHeap : MonoBehaviour
             animators[i].SetBool("isSurfacing", false);
             DisplayTextOnLowerBoard.setLowerText("Positionierung Schiffe!");
         }
-
-        //yield return new WaitForSeconds(0.5f);
         shipsToSort = ships.ToArray();
         anim = animators.ToArray();
     }
@@ -93,7 +105,9 @@ public class VisualHeap : MonoBehaviour
 
         // set position to children's position
         vh.ring1.transform.position = ringPosition[a];
+        vh.ring1.transform.localScale = ringSize[a];
         vh.ring2.transform.position = ringPosition[b];
+        vh.ring2.transform.localScale = ringSize[b];
 
         // put yellow ring around them
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
@@ -103,10 +117,7 @@ public class VisualHeap : MonoBehaviour
         vh.loli.transform.position = loliPosition[loliPos];
         vh.loli.transform.rotation = new Quaternion(0, loliRot, 0, 0);
         vh.loli.GetComponent<Animator>().SetBool("popUp", true);
-
-        // wait one second
         yield return new WaitForSeconds(2f);
-
         vh.loli.GetComponent<Animator>().SetBool("popUp", false);
 
         // deactivate rings
@@ -130,17 +141,13 @@ public class VisualHeap : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         anim[a].SetBool("isSubmerging", false);
         anim[b].SetBool("isSubmerging", false);
-        //yield return new WaitForSeconds(5f);
         
-
         // overwrites current values with the ones from other variable
         // saves values of b in a and changes index
         shipsToSort[a].transform.rotation = rotation;
         anim[a] = anim[b];
         shipsToSort[a].transform.position = shipPosition[b];
         shipsToSort[a] = shipsToSort[b];
-        
-
 
         // saves values of a in b and changes index
         shipsToSort[b].transform.rotation = rotation;
@@ -170,6 +177,7 @@ public class VisualHeap : MonoBehaviour
 
         if (lastElement != 0) {
 
+            DisplayTextOnLowerBoard.setLowerText("Letztes Element in Cache zwischenspeichern.");
             // last element submerges
             anim[lastElement].SetBool("isSubmerging", true);
             yield return new WaitForSeconds(3.5f);
@@ -181,12 +189,12 @@ public class VisualHeap : MonoBehaviour
             cacheAnimator = anim[lastElement];
             cacheObject = shipsToSort[lastElement];
 
-
+            DisplayTextOnLowerBoard.setLowerText("Root-Element wandert nach unten...");
             // ship from last position now surfacing outside of heap, root element is submerging
             cacheAnimator.SetBool("isSurfacing", true);
             anim[root].SetBool("isSubmerging", true);
             yield return new WaitForSeconds(1.5f);
-            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(lastElement + 1, lastElement));
+            ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(ManageArrayUI.prefabList.Count - 1, lastElement));
             yield return new WaitForSeconds(2f);
             ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
             yield return new WaitForSeconds(1.5f);
@@ -202,17 +210,13 @@ public class VisualHeap : MonoBehaviour
             anim[lastElement] = anim[root];
             shipsToSort[lastElement] = shipsToSort[root];
 
-            DisplayTextOnLowerBoard.setLowerText("Root-Element wandert...");
-
             // write back to root object for future
             anim[root] = rootAnimator;
-
 
             // root is surfacing at position of lastElement
             anim[lastElement].SetBool("isSurfacing", true);
             yield return new WaitForSeconds(3.5f);
             anim[lastElement].SetBool("isSurfacing", false);
-
         }
         else {
 
@@ -228,17 +232,6 @@ public class VisualHeap : MonoBehaviour
         yield return new WaitForSeconds(5f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
         DisplayTextOnLowerBoard.setLowerText("Und fällt weg.");
-
-        if (lastElement == 0) {
-
-            //vh.audio.Playapplause();
-        }
-
-        //if (lastElement == 0) {
-
-        //    destroySortedShips(lastElement);
-        //}
-
     }
 
     // moves largest child upwards to fill the heap back up
@@ -258,8 +251,6 @@ public class VisualHeap : MonoBehaviour
         anim[parent] = anim[child];
         shipsToSort[parent] = shipsToSort[child];
 
-        
-
         // child surfaces at parents space
         anim[parent].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(1f);
@@ -270,9 +261,13 @@ public class VisualHeap : MonoBehaviour
     // writes the cache element back to the free space
     public static IEnumerator writeCacheBack(int free) {
 
+        DisplayTextOnLowerBoard.setLowerText("Cache Element wieder in Heap einfügen.");
+
         // cache Object is submerging
         cacheAnimator.SetBool("isSubmerging", true);
         yield return new WaitForSeconds(3.5f);
+        ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(free, ManageArrayUI.prefabList.Count - 1));
+        yield return new WaitForSeconds(2f);
         cacheAnimator.SetBool("isSubmerging", false);
 
         // change position of cacheObject back to free space in heap
@@ -281,7 +276,6 @@ public class VisualHeap : MonoBehaviour
         anim[free] = cacheAnimator;
         shipsToSort[free] = cacheObject;
         
-
         anim[free].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(1f);
         anim[free].SetBool("isSurfacing", false);
@@ -290,12 +284,12 @@ public class VisualHeap : MonoBehaviour
     // find larger child element
     public static IEnumerator findLargerElement(int larger, int smaller, int loliPos, int loliRot) {
 
-        Debug.Log("loli: " + loliPos);
-
         //selectTwoElements(larger, smaller);
         // set position to children's position
         vh.ring1.transform.position = ringPosition[larger];
+        vh.ring1.transform.localScale = ringSize[larger];
         vh.ring2.transform.position = ringPosition[smaller];
+        vh.ring2.transform.localScale = ringSize[smaller];
 
         // put yellow ring around them
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
@@ -331,19 +325,16 @@ public class VisualHeap : MonoBehaviour
         // deactivate the rings
         vh.ring1.transform.GetChild(1).gameObject.SetActive(false);
         vh.ring2.transform.GetChild(0).gameObject.SetActive(false);
-
-
     }
 
     // selects two elements with red ring -> no position change performed
     public static IEnumerator noSwitchNecessary(int a, int b, int loliPos, int loliRot) {
 
-        Debug.Log("loliPos: " + loliPos);
-
-        //selectTwoElements(a, b);
         // set position to children's position
         vh.ring1.transform.position = ringPosition[a];
+        vh.ring1.transform.localScale = ringSize[a];
         vh.ring2.transform.position = ringPosition[b];
+        vh.ring2.transform.localScale = ringSize[b];
 
         // put yellow ring around them
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
@@ -355,10 +346,7 @@ public class VisualHeap : MonoBehaviour
         vh.loli.transform.position = loliPosition[loliPos];
         vh.loli.transform.rotation = new Quaternion(0, loliRot, 0, 0);
         vh.loli.GetComponent<Animator>().SetBool("popUp", true);
-
-        // wait one second
         yield return new WaitForSeconds(2f);
-
         vh.loli.GetComponent<Animator>().SetBool("popUp", false);
 
         // deactivate rings
@@ -386,16 +374,11 @@ public class VisualHeap : MonoBehaviour
         if (last == 0)
         {
             //FindObjectOfType<AudioManager>().Play("applause");
-
             CallStatistics.callStatisticAfterVisualization();
-
         }
 
         // gets destroyed afterwards
         Destroy(shipsToSort[last], 0);
-        yield return new WaitForSeconds(1f);
-
-        
+        yield return new WaitForSeconds(1f); 
     }
-
 }

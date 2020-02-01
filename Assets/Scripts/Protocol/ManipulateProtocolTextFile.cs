@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
 public class ManipulateProtocolTextFile : MonoBehaviour
 {
     public static ManipulateProtocolTextFile MPTF;
-
 
     //use Application.dataPath because on every device accessing the Asset folder can work differently (e.g. laptop, mobile) just to be sure
     public static string pathToAssetFolder = Application.dataPath;
@@ -24,6 +22,7 @@ public class ManipulateProtocolTextFile : MonoBehaviour
 
     // how many lines are currently in the protocol text file
     public static int lineCount = 0;
+    
     //getter method for lineCount
     public static int getLineCount()
     {
@@ -135,9 +134,5 @@ public class ManipulateProtocolTextFile : MonoBehaviour
         appendFile(fullPath);
         // read from file into stringList
         readFile(fullPath);
-        foreach(string s in stringList)
-        {
-            print(s);
-        }
     }
 }

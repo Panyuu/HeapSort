@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
 
 public class GUIButtonManager : MonoBehaviour
 {
@@ -31,14 +27,8 @@ public class GUIButtonManager : MonoBehaviour
         }
     }
     public void animationMaxStop()
-    {
-        bool playing = MaxHeap.getPlayAnimation();
-        
-            Debug.Log(playing);
-            MaxHeap.setPlayAnimation(false);
-            Debug.Log(playing);
-
-
+    {  
+        MaxHeap.setPlayAnimation(false);
 
         startButton.SetActive(true);
         protoButton.SetActive(true);
@@ -47,13 +37,9 @@ public class GUIButtonManager : MonoBehaviour
     }
     public void animationMaxStart()
     {
-        //bool playing = MaxHeap.playAnimation; //MaxHeap.getPlayAnimation();
-
-        //Debug.Log(playing);
         if (MaxHeap.startPossible) {
             MaxHeap.playAnimation = true;
             StartCoroutine(MaxHeap.startAnimation());
-            //Debug.Log(playing);
 
             pauseButton.SetActive(true);
             homeButton.SetActive(false);
@@ -74,7 +60,6 @@ public class GUIButtonManager : MonoBehaviour
             Proto.SetActive(true);
             protoShown = true;
         }
-
     }
 
     public void returnHome()
@@ -83,5 +68,4 @@ public class GUIButtonManager : MonoBehaviour
         GetNumberInput.listForHeap.Clear();
         SceneManager.LoadScene(0);
     }
-
 }
