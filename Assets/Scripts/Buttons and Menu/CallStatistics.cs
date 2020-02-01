@@ -4,7 +4,7 @@ public class CallStatistics : MonoBehaviour
 {
     static CallStatistics CS;
 
-    [SerializeField] GameObject statisticCanvas;
+    public GameObject statisticCanvas;
 
     private void Awake()
     {

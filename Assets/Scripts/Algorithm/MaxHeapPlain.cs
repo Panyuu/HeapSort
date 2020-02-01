@@ -72,17 +72,15 @@ public class MaxHeapPlain : MonoBehaviour {
             if (child + 1 < arrayLength) {
                 GetValueForStatistic.Comparison++;
 
-                if (arrayToSort[child + 1] > arrayToSort[child])
-                {
+                if (arrayToSort[child + 1] > arrayToSort[child]) {
                     child++;
                     GetValueForStatistic.Comparison++;
                 }
-                
+
             }
 
             // if child > parent -> position change
-            if (arrayToSort[parent] >= arrayToSort[child])
-            {
+            if (arrayToSort[parent] >= arrayToSort[child]) {
                 GetValueForStatistic.Comparison++;
                 return;
             }
@@ -99,12 +97,11 @@ public class MaxHeapPlain : MonoBehaviour {
 
         while (child + 1 < arrayLength) {
 
-            if (arrayToSort[child + 1] > arrayToSort[child])
-            {
+            if (arrayToSort[child + 1] > arrayToSort[child]) {
                 GetValueForStatistic.Comparison++;
                 child++;
             }
-            
+
             // move up largest child to its parents' position (free space)
             arrayToSort[parent] = arrayToSort[child];
 
@@ -132,9 +129,8 @@ public class MaxHeapPlain : MonoBehaviour {
         while (child > root) {
             parent = (child - 1) / 2;
             GetValueForStatistic.Comparison++;
-            if (arrayToSort[parent] >= arrayToSort[child])
-            {
-                
+            if (arrayToSort[parent] >= arrayToSort[child]) {
+
                 return;
             }
 
@@ -152,15 +148,10 @@ public class MaxHeapPlain : MonoBehaviour {
         GetValueForStatistic.Switches++;
     }
 
-    // testing purpose
-    public static string arrayToString() {
-        string array = "";
+    // clear values
+    public static void setBackEverything() {
 
-        for (int i = 0; i < arrayToSort.Length; i++) {
-
-            array += arrayToSort[i] + ", ";
-        }
-
-        return array;
+        arrayToSort = null;
+        arrayLength = 0;
     }
 }

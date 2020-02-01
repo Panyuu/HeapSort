@@ -12,32 +12,28 @@ using UnityEngine;
  * 
  */
 
-public class ManageArrayUI : MonoBehaviour
-{
+public class ManageArrayUI : MonoBehaviour {
     public static ManageArrayUI MAUI;
 
-    [SerializeField] GameObject box;
-    [SerializeField] GameObject boxParent;
-    [SerializeField] Sprite boxSortedSprite;
+    public GameObject box;
+    public GameObject boxParent;
+    public Sprite boxSortedSprite;
 
     static List<int> arrList = new List<int>();
     float arrBoxDelta = 0.5f;
     static float quickFrameDelta = .05f;
     public static List<GameObject> prefabList = new List<GameObject>();
 
-    static List<GameObject> getPrefabList()
-    {
+    static List<GameObject> getPrefabList() {
         return prefabList;
     }
-  
+
     // get list content from submit button?
-    public static void setArrList(List<int> heapList)
-    {
+    public static void setArrList(List<int> heapList) {
         arrList = heapList;
         generateBoxes();
     }
-    static List<int> getArrList()
-    {
+    static List<int> getArrList() {
         return arrList;
     }
 
@@ -52,22 +48,18 @@ public class ManageArrayUI : MonoBehaviour
         new Vector3(  10, 16, 0),
         new Vector3(14, 16, 0)
     };
-    static List<Vector3> getBoxPosition()
-    {
+    static List<Vector3> getBoxPosition() {
         return boxPositions;
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         MAUI = this;
     }
 
     // generate boxes
     // let them swoop down into view from above 1 after another
-    public static void generateBoxes()
-    {
-        for(byte i = 0; i <= getArrList().Count; i++)
-        {
+    public static void generateBoxes() {
+        for (byte i = 0; i <= getArrList().Count; i++) {
             if (i == getArrList().Count) {
                 prefabList.Add(Instantiate(MAUI.box, getBoxPosition()[i] / 2, Quaternion.identity, MAUI.boxParent.transform));
                 prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = " ";
@@ -79,27 +71,24 @@ public class ManageArrayUI : MonoBehaviour
                 prefabList[i].GetComponentsInChildren<TextMesh>()[0].text = getArrList()[i].ToString();
                 prefabList[i].GetComponentsInChildren<TextMesh>()[1].text = i.ToString();
             }
-        }        
+        }
     }
 
     // call from changeMethod to change font scaling w/ IEnumerator up to same speed as normal animations
     // make .text values = ""
     // switch their .text values
-    public static void moveBoxDown(int parent, int child)
-    {
+    public static void moveBoxDown(int parent, int child) {
         getPrefabList()[parent].transform.Translate(new Vector3(0, -MAUI.arrBoxDelta / 15, 0));
         getPrefabList()[child].transform.Translate(new Vector3(0, -MAUI.arrBoxDelta / 15, 0));
     }
 
-    public static void moveBoxUpABit(int parent, int child)
-    {
+    public static void moveBoxUpABit(int parent, int child) {
         getPrefabList()[parent].transform.Translate(new Vector3(0, +MAUI.arrBoxDelta / 15, 0));
         getPrefabList()[child].transform.Translate(new Vector3(0, +MAUI.arrBoxDelta / 15, 0));
     }
-    
 
-    public static IEnumerator changeText(int parent, int child)
-    {
+
+    public static IEnumerator changeText(int parent, int child) {
         // up fully
         for (byte i = 0; i < 62; i++) {
             moveBoxUpABit(parent, child);
@@ -116,17 +105,15 @@ public class ManageArrayUI : MonoBehaviour
 
         for (byte i = 0; i < 62; i++) {
             yield return new WaitForSeconds(quickFrameDelta);
-            moveBoxDown(parent, child);   
+            moveBoxDown(parent, child);
         }
-        
+
         yield return null;
     }
-    
+
     //call wenn number sorted switch out sprite
-    public static IEnumerator changeSpriteOnceSorted(int index)
-    {
+    public static IEnumerator changeSpriteOnceSorted(int index) {
         yield return new WaitForSeconds(0.6f);
         getPrefabList()[index].GetComponent<SpriteRenderer>().sprite = MAUI.boxSortedSprite;
     }
 }
-

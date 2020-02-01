@@ -229,7 +229,7 @@ public class VisualHeap : MonoBehaviour
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeSpriteOnceSorted(lastElement));
         DisplayTextOnLowerBoard.setLowerText("Der Knoten is sortiert...");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
         DisplayTextOnLowerBoard.setLowerText("Und fällt weg.");
     }

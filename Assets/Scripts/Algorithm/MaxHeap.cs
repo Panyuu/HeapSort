@@ -34,8 +34,7 @@ public class MaxHeap : MonoBehaviour {
     // singleton
     public static MaxHeap mh;
 
-    public static List<IEnumerator> getAnimQueue()
-    {
+    public static List<IEnumerator> getAnimQueue() {
         return animQueue;
     }
 
@@ -68,7 +67,7 @@ public class MaxHeap : MonoBehaviour {
 
         ManipulateProtocolTextFile.clearTextFile();
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
-        protofill("Ungeordnetes Array: " + arrayToString() + ".",indexAni);
+        protofill("Ungeordnetes Array: " + arrayToString() + ".", indexAni);
 
         // rearranges elements to max-heap (all parents > their children)
         buildHeap();
@@ -110,8 +109,7 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // initialize array to be sorted, asigns length to variable
-    public static void createArray(int[] array)
-    {
+    public static void createArray(int[] array) {
         arrayToSort = array;
         arrayLength = arrayToSort.Length;
         root = 0;
@@ -119,17 +117,14 @@ public class MaxHeap : MonoBehaviour {
 
     // build max heap -> find first parent element, then examine children. (if parent < child -> position change)
     // then go to next parent element (reverse BFS)
-    public static void buildHeap()
-    {
-        for (int parent = (arrayLength / 2 - 1); parent >= 0; parent--)
-        {
+    public static void buildHeap() {
+        for (int parent = (arrayLength / 2 - 1); parent >= 0; parent--) {
             heapify(parent);
         }
     }
 
     // assort elements in max-heap structure
-    public static void heapify(int parent)
-    {
+    public static void heapify(int parent) {
         int child = parent * 2 + 1;
 
         // while child elements exist
@@ -193,14 +188,14 @@ public class MaxHeap : MonoBehaviour {
                 animQueue.Add(VisualHeap.noSwitchNecessary(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
 
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child] + ".");
-                protofill("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child] + ".",indexAni);
+                protofill("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child] + ".", indexAni);
                 ManipulateProtocolTextFile.addParameterToWriteList("Kein Tausch hat stattgefunden zwischen Vaterknoten: " + arrayToSort[parent] + " und Kindknoten: " + arrayToSort[child] + ".");
-                protofill("Kein Tausch hat stattgefunden zwischen Vaterknoten: " + arrayToSort[parent] + " und Kindknoten: " + arrayToSort[child] + ".",indexAni);
+                protofill("Kein Tausch hat stattgefunden zwischen Vaterknoten: " + arrayToSort[parent] + " und Kindknoten: " + arrayToSort[child] + ".", indexAni);
                 return;
             }
             else {
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child] + ".");
-                protofill("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child] + ".",indexAni);
+                protofill("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child] + ".", indexAni);
 
                 changePosition(parent, child);
                 parent = child;
@@ -210,8 +205,7 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // moves up largest child element to empty space
-    public static int downHeap(int parent)
-    {
+    public static int downHeap(int parent) {
         int child = parent * 2 + 1;
 
         while (child + 1 < arrayLength) {
@@ -227,7 +221,8 @@ public class MaxHeap : MonoBehaviour {
                 ManipulateProtocolTextFile.addParameterToWriteList("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1]);
                 protofill("Kindknoten_1: " + arrayToSort[child] + " < Kindknoten_2: " + arrayToSort[child + 1] + ".", indexAni);
                 child++;
-            } else {
+            }
+            else {
                 // build ring around compared objects
                 parameters.Add(child);
                 parameters.Add(child + 1);
@@ -253,8 +248,7 @@ public class MaxHeap : MonoBehaviour {
             protofill("neuer Vaterknoten: " + arrayToSort[parent] + ".", indexAni);
         }
         // case if there is only one child element
-        if (child < arrayLength)
-        {
+        if (child < arrayLength) {
             stindex.Add(indexAni);
             parameters.Add(parent);
             parameters.Add(child);
@@ -262,7 +256,7 @@ public class MaxHeap : MonoBehaviour {
             protofill("neuer Vaterknoten: " + arrayToSort[parent] + ".", indexAni);
             animQueue.Add(VisualHeap.moveUp(parameters[indexAni++], parameters[indexAni++]));
             arrayToSort[parent] = arrayToSort[child];
-            parent = child;           
+            parent = child;
         }
 
         ManipulateProtocolTextFile.addParameterToWriteList("Der jetzt zu betrachtende Vaterknoten: " + arrayToSort[parent]);
@@ -271,13 +265,11 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // insert missing element (cache element) at free space and "sort up" -> compare with parent object, change if needed
-    public static void upHeap(int child, int missingElement)
-    {
+    public static void upHeap(int child, int missingElement) {
         int parent;
         arrayToSort[child] = missingElement;
 
-        while (child > root)
-        {
+        while (child > root) {
             parent = (child - 1) / 2;
             if (arrayToSort[parent] >= arrayToSort[child]) {
                 stindex.Add(indexAni);
@@ -293,7 +285,7 @@ public class MaxHeap : MonoBehaviour {
                 animQueue.Add(VisualHeap.noSwitchNecessary(parameters[indexAni++], parameters[indexAni++], parameters[indexAni++], parameters[indexAni++]));
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child]);
                 protofill("Vaterknoten: " + arrayToSort[parent] + " >= Kindknoten: " + arrayToSort[child] + ".", indexAni);
-                
+
                 return;
             }
             ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + " < Kindknoten: " + arrayToSort[child]);
@@ -304,8 +296,7 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // change value of elements at position a and b
-    public static void changePosition(int a, int b)
-    {
+    public static void changePosition(int a, int b) {
         // for rings and the compare sign
         stindex.Add(indexAni);
         parameters.Add(a);
@@ -321,7 +312,7 @@ public class MaxHeap : MonoBehaviour {
 
         ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b]);
         protofill("Vaterknoten: " + arrayToSort[a] + " wechselt die Position mit Kindknoten: " + arrayToSort[b] + ".", indexAni);
-        
+
         int help = arrayToSort[a];
         arrayToSort[a] = arrayToSort[b];
         arrayToSort[b] = help;
@@ -348,24 +339,20 @@ public class MaxHeap : MonoBehaviour {
     }
 
     // saves current array in string
-    public static string arrayToString()
-    {
+    public static string arrayToString() {
         string array = "";
 
-        for (int i = 0; i < arrayToSort.Length; i++)
-        {
+        for (int i = 0; i < arrayToSort.Length; i++) {
             array += arrayToSort[i];
-            if (i+1 <arrayToSort.Length)
-            {
+            if (i + 1 < arrayToSort.Length) {
                 array += ", ";
-            }      
+            }
         }
         return array;
     }
 
     // starts the visual heap-transformation
-    public static IEnumerator startAnimation()
-    {
+    public static IEnumerator startAnimation() {
         //playAnimation = true;
         while (playAnimation) {
 
@@ -377,29 +364,40 @@ public class MaxHeap : MonoBehaviour {
             }
             yield return new WaitForSeconds(4f);
             startPossible = true;
-        }  
+        }
     }
 
-    public static bool getPlayAnimation()
-    {
+    public static bool getPlayAnimation() {
         return playAnimation;
     }
 
-    public static void setPlayAnimation(bool value)
-    {
+    public static void setPlayAnimation(bool value) {
         playAnimation = value;
     }
 
-    public static void protofill(string content, int index)
-    {
+    public static void protofill(string content, int index) {
         GameObject help = Instantiate(mh.protoText, new Vector2(mh.protoText.transform.localPosition.x, mh.protoText.transform.localPosition.y - 50 * protoCount), Quaternion.identity);
         help.transform.SetParent(mh.textHolder.transform, false);
         help.name = index.ToString();
         help.GetComponent<Text>().text = content;
     }
 
-    public static void protoClick()
-    {
+    public static void protoClick() {
         string name = EventSystem.current.currentSelectedGameObject.name;
+    }
+
+    // clear values
+    public static void setBackEverything() {
+
+        mh.StopAllCoroutines();
+        animQueue.Clear();
+        parameters.Clear();
+        stindex.Clear();
+
+        arrayToSort = null;
+        arrayLength = 0;
+
+        indexAni = 0;
+        testIndexAni = 0;
     }
 }

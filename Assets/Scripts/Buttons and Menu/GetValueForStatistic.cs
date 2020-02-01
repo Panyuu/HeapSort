@@ -6,9 +6,9 @@ public class GetValueForStatistic : MonoBehaviour
 {
     public static GetValueForStatistic GVFS;
 
-    [SerializeField] TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
-    [SerializeField] GameObject[] arrBoxes = new GameObject[7];
-    static List<GameObject> prefabList = new List<GameObject>();
+    public TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
+    public GameObject[] arrBoxes = new GameObject[7];
+    //static List<GameObject> prefabList = new List<GameObject>();
     static int comparison = 0;
     static int switches = 0;
     static float startTime = 0;
@@ -20,7 +20,7 @@ public class GetValueForStatistic : MonoBehaviour
     public static float EndTime { get => endTime; set => endTime = value; }
     public static List<int> OwnArr { get => ownArr; set => ownArr = value; }
 
-    static float bestTime = 0;
+    //static float bestTime = 0;
     static List<int> ownArr = new List<int>();
 
     private void Awake()
@@ -53,5 +53,15 @@ public class GetValueForStatistic : MonoBehaviour
         {
             GVFS.labelBestCaseJudge.text = "Durchschnitt...";
         }  
+    }
+
+    // clear values
+    public static void setBackEverything() {
+
+        ownArr.Clear();
+        Comparison = 0;
+        Switches = 0;
+        StartTime = 0;
+        EndTime = 0;
     }
 }

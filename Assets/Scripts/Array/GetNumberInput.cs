@@ -2,12 +2,11 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class GetNumberInput : MonoBehaviour
-{
-    [SerializeField] GameObject inputCanvas;
-    [SerializeField] GameObject buttonCanvas;
+public class GetNumberInput : MonoBehaviour {
+    public GameObject inputCanvas;
+    public GameObject buttonCanvas;
     // turn into list for dynmic inputfield generation
-    [SerializeField] TMPro.TMP_InputField[] inFields;
+    public TMPro.TMP_InputField[] inFields;
     // enable inputfields at button press, not in script
 
     //list that saves converted input from input canvas
@@ -20,8 +19,7 @@ public class GetNumberInput : MonoBehaviour
 
     //more precise name would be 'extract infomation & forward'
     // extract input from input fields and save it into listForHeap, which gets transfered to Heap Algorithm
-    private void extractInputForHeap()
-    {
+    private void extractInputForHeap() {
         inFields = ButtonManager.inputFields.ToArray();
 
         //cycle through all the input fields
@@ -43,16 +41,14 @@ public class GetNumberInput : MonoBehaviour
                 }
             }
         }
-        ManageArrayUI.setArrList(getListForHeap());    
+        ManageArrayUI.setArrList(getListForHeap());
     }
 
     //final printout & start max algorithm
-    public void printOutListMax()
-    {
+    public void printOutListMax() {
         extractInputForHeap();
 
-        if (getListForHeap().Count == 0)
-        {
+        if (getListForHeap().Count == 0) {
             CallStatistics.callStatisticAfterVisualization();
         }
         inputCanvas.SetActive(false);
@@ -60,16 +56,14 @@ public class GetNumberInput : MonoBehaviour
 
         //starts the max Heap
         MaxHeap.startMaxHeapPerButtonPress();
-        MaxHeapPlain.startMaxHeapPerButtonPress();  
+        MaxHeapPlain.startMaxHeapPerButtonPress();
     }
 
     //final printout & start in algorithm
-    public void printOutListMin() 
-    { 
+    public void printOutListMin() {
         extractInputForHeap();
 
-        if (getListForHeap().Count == 0)
-        {
+        if (getListForHeap().Count == 0) {
             CallStatistics.callStatisticAfterVisualization();
         }
         //starts the max Heap
@@ -79,5 +73,10 @@ public class GetNumberInput : MonoBehaviour
         inputCanvas.SetActive(false);
         buttonCanvas.SetActive(true);
     }
-}
 
+    // clear values
+    public static void setBackEverything() {
+
+        listForHeap.Clear();
+    }
+}

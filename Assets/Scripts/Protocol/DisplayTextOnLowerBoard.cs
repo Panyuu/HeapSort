@@ -5,8 +5,8 @@ public class DisplayTextOnLowerBoard : MonoBehaviour
 {
     public static DisplayTextOnLowerBoard DTOLB;
 
-    [SerializeField] TextMeshPro lowerText;
-    [SerializeField] GameObject displayParent;
+    public TextMeshPro lowerText;
+    public GameObject displayParent;
 
     private void Awake()
     {
