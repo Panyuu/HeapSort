@@ -2,8 +2,7 @@
 using UnityEngine;
 using System.IO;
 
-public class ManipulateProtocolTextFile : MonoBehaviour
-{
+public class ManipulateProtocolTextFile : MonoBehaviour {
     public static ManipulateProtocolTextFile MPTF;
 
     //use Application.dataPath because on every device accessing the Asset folder can work differently (e.g. laptop, mobile) just to be sure
@@ -22,27 +21,23 @@ public class ManipulateProtocolTextFile : MonoBehaviour
 
     // how many lines are currently in the protocol text file
     public static int lineCount = 0;
-    
+
     //getter method for lineCount
-    public static int getLineCount()
-    {
+    public static int getLineCount() {
         return lineCount;
     }
 
     //setter method for lineCount
-    public static void setLineCount(int num)
-    {
+    public static void setLineCount(int num) {
         lineCount = num;
     }
 
     //read from file
-    public static void readFile(string filePath)
-    {
+    public static void readFile(string filePath) {
         // open reading stream
         StreamReader sReader = new StreamReader(filePath);
         // i the end isn't reached yet
-        while(!sReader.EndOfStream)
-        {
+        while (!sReader.EndOfStream) {
             //look for every line because we want to work with the individually
             string line = sReader.ReadLine();
 
@@ -54,18 +49,15 @@ public class ManipulateProtocolTextFile : MonoBehaviour
     }
 
     //erase everything previously written in the file
-    public static void writeFile(string filePath, string content)
-    {
+    public static void writeFile(string filePath, string content) {
         //allocate writer stream
         StreamWriter sWriter;
         // if the file we want to write into doesn't exist yet 
-        if (!File.Exists(filePath))
-        {
+        if (!File.Exists(filePath)) {
             //make new file
             sWriter = File.CreateText(fullPath);
         }
-        else 
-        {
+        else {
             //write into existing file
             sWriter = new StreamWriter(filePath);
         }
@@ -76,20 +68,16 @@ public class ManipulateProtocolTextFile : MonoBehaviour
     }
 
     // add to the end of the file while leaving everything previously written intact
-    public static void appendFile(string filePath)
-    {
+    public static void appendFile(string filePath) {
         StreamWriter sWriter;
-        if(!File.Exists(filePath))
-        {
+        if (!File.Exists(filePath)) {
             sWriter = File.CreateText(fullPath);
         }
-        else
-        {
+        else {
             sWriter = new StreamWriter(filePath, append: true);
         }
 
-        for(int i = 0; i < writeList.Count; i++)
-        {
+        for (int i = 0; i < writeList.Count; i++) {
             sWriter.WriteLine(writeList[i]);
         }
 
@@ -97,20 +85,17 @@ public class ManipulateProtocolTextFile : MonoBehaviour
     }
 
     //content of text file is ""
-    public static void clearTextFile()
-    {
+    public static void clearTextFile() {
         File.WriteAllText(fullPath, string.Empty);
         // line count is independent of content is gets reset maunally
         setLineCount(0);
     }
 
     // get the current amount of lines in the file
-    public static int getLineCountOfFile(string filePath)
-    {
+    public static int getLineCountOfFile(string filePath) {
         int lineCount = 0;
         StreamReader sReader = new StreamReader(filePath);
-        while (!sReader.EndOfStream)
-        {
+        while (!sReader.EndOfStream) {
             sReader.ReadLine();
             lineCount++;
         }
@@ -120,16 +105,14 @@ public class ManipulateProtocolTextFile : MonoBehaviour
     }
 
     //add the parameter to the writeList and append it
-    public static void addParameterToWriteList(string lineToAdd)
-    {
+    public static void addParameterToWriteList(string lineToAdd) {
         setLineCount(getLineCount() + 1);
         writeList.Add(getLineCount() + ". " + lineToAdd);
-        
+
     }
 
     //print out the whole text file to the console once the heap is finished
-    public static void printOutProtocolContent()
-    {
+    public static void printOutProtocolContent() {
         // add everything at once to file once all the lines are collected in list
         appendFile(fullPath);
         // read from file into stringList

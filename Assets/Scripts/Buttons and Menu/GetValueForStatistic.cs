@@ -2,8 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-public class GetValueForStatistic : MonoBehaviour
-{
+public class GetValueForStatistic : MonoBehaviour {
     public static GetValueForStatistic GVFS;
 
     public TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
@@ -23,36 +22,32 @@ public class GetValueForStatistic : MonoBehaviour
     //static float bestTime = 0;
     static List<int> ownArr = new List<int>();
 
-    private void Awake()
-    {
+    private void Awake() {
         GVFS = this;
     }
 
     // run time start, finish, delta 
-    public static void makeStatisticsTexts()
-    {
+    public static void makeStatisticsTexts() {
         // write into labels
         GVFS.labelComparisons.text = Comparison.ToString();
         GVFS.labelSwitches.text = Switches.ToString();
         GVFS.labelTimeDelta.text = (EndTime - StartTime).ToString() + " ms";
 
-        for(byte i = 0; i < OwnArr.Count; i++)
-        {
+        for (byte i = 0; i < OwnArr.Count; i++) {
             GVFS.arrBoxes[i].SetActive(true);
             GVFS.arrBoxes[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = OwnArr[i].ToString();
 
         }
-        
-        if(Switches <= 1)
-        {
+
+        if (Switches <= 1) {
             GVFS.labelBestCaseJudge.text = "BEST CASE!!!";
-        } else if (Switches >= 7)
-        {
+        }
+        else if (Switches >= 7) {
             GVFS.labelBestCaseJudge.text = "WORST CASE!!!";
-        } else
-        {
+        }
+        else {
             GVFS.labelBestCaseJudge.text = "Durchschnitt...";
-        }  
+        }
     }
 
     // clear values

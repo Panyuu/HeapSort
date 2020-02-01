@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisualHeap : MonoBehaviour
-{
+public class VisualHeap : MonoBehaviour {
     // singleton
     public static VisualHeap vh;
 
@@ -27,32 +26,32 @@ public class VisualHeap : MonoBehaviour
 
     private void Awake() {
 
-        vh = this;  
+        vh = this;
     }
 
     // Start is called before the first frame update
     void Start() {
 
         // positions for the ships in heap-structure
-        shipPosition = new Vector3[] { 
+        shipPosition = new Vector3[] {
             new Vector3(0, -1f, 3),
-            new Vector3(-6, -2.5f, 1), 
-            new Vector3(6, -2.5f, 1), 
+            new Vector3(-6, -2.5f, 1),
+            new Vector3(6, -2.5f, 1),
             new Vector3(-8, -4.5f, -0.5f),
-            new Vector3(-3, -4.5f, -0.5f), 
-            new Vector3(3, -4.5f, -0.5f), 
+            new Vector3(-3, -4.5f, -0.5f),
+            new Vector3(3, -4.5f, -0.5f),
             new Vector3(8, -4.5f, -0.5f) };
 
-        ringPosition = new Vector3[] { 
-            new Vector3(0, 3.3f, 1f), 
-            new Vector3(-5.7f, 1.6f, 0), 
-            new Vector3(5.3f, 1.6f, 0), 
-            new Vector3(-6.3f, 0.3f, -3), 
-            new Vector3(-2.5f, 0.3f, -3), 
-            new Vector3(2.2f, 0.3f, -3), 
+        ringPosition = new Vector3[] {
+            new Vector3(0, 3.3f, 1f),
+            new Vector3(-5.7f, 1.6f, 0),
+            new Vector3(5.3f, 1.6f, 0),
+            new Vector3(-6.3f, 0.3f, -3),
+            new Vector3(-2.5f, 0.3f, -3),
+            new Vector3(2.2f, 0.3f, -3),
             new Vector3(6.2f, 0.3f, -3) };
 
-        ringSize = new Vector3[] { 
+        ringSize = new Vector3[] {
             new Vector3(1.5f, 1.5f, 1.5f),
             new Vector3(1.3f, 1.3f, 1.3f),
             new Vector3(1.3f, 1.3f, 1.3f),
@@ -76,7 +75,7 @@ public class VisualHeap : MonoBehaviour
         List<GameObject> ships = new List<GameObject>();
         List<Animator> animators = new List<Animator>();
 
-        for (int i = 0; i < arrayToSort.Length; i ++) {
+        for (int i = 0; i < arrayToSort.Length; i++) {
 
             // Create Object Ship
             ships.Add(Instantiate(vh.shipPrefab, shipPosition[i], rotation));
@@ -87,7 +86,7 @@ public class VisualHeap : MonoBehaviour
             ships[i].name = "ShipIndex_" + i;
 
             animators.Add(ships[i].GetComponent<Animator>());
-            
+
             animators[i].SetBool("isSurfacing", true);
             yield return new WaitForSeconds(1f);
             animators[i].SetBool("isSurfacing", false);
@@ -141,7 +140,7 @@ public class VisualHeap : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         anim[a].SetBool("isSubmerging", false);
         anim[b].SetBool("isSubmerging", false);
-        
+
         // overwrites current values with the ones from other variable
         // saves values of b in a and changes index
         shipsToSort[a].transform.rotation = rotation;
@@ -275,7 +274,7 @@ public class VisualHeap : MonoBehaviour
         cacheObject.transform.rotation = rotation;
         anim[free] = cacheAnimator;
         shipsToSort[free] = cacheObject;
-        
+
         anim[free].SetBool("isSurfacing", true);
         yield return new WaitForSeconds(1f);
         anim[free].SetBool("isSurfacing", false);
@@ -315,7 +314,7 @@ public class VisualHeap : MonoBehaviour
         vh.ring1.transform.GetChild(1).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(0).gameObject.SetActive(true);
 
-       // DisplayTextOnLowerBoard.setLowerText("Ein Tausch!");
+        // DisplayTextOnLowerBoard.setLowerText("Ein Tausch!");
 
         // loli vanishes again
         vh.loli.GetComponent<Animator>().SetBool("moveDown", true);
@@ -371,14 +370,13 @@ public class VisualHeap : MonoBehaviour
 
     public static IEnumerator destroySortedShips(int last) {
 
-        if (last == 0)
-        {
+        if (last == 0) {
             //FindObjectOfType<AudioManager>().Play("applause");
             CallStatistics.callStatisticAfterVisualization();
         }
 
         // gets destroyed afterwards
         Destroy(shipsToSort[last], 0);
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f);
     }
 }
