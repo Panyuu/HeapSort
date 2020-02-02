@@ -1,0 +1,25 @@
+1. Ungeordnetes Array: 32, 32, 32, 32
+2. Vaterknoten: 32;    Kindknoten_1: 32;    ArrayLänge: 4
+3. Vergleich von Vaterknoten: 32 mit Kindknoten: 32
+4. Vaterknoten: 32 >= Kindknoten: 32.
+5. Kein Tausch hat stattgefunden zwischen Vaterknoten: 32 und Kindknoten: 32.
+6. Vaterknoten: 32;    Kindknoten_1: 32;    Kindknoten_2: 32;    ArrayLänge: 4
+7. Vergleich von Kindknoten_1: 32 mit Kindknoten_2: 32
+8. Kindknoten_1: 32 >= Kindknoten_2: 32
+9. Vergleich von Vaterknoten: 32 mit Kindknoten: 32
+10. Vaterknoten: 32 >= Kindknoten: 32.
+11. Kein Tausch hat stattgefunden zwischen Vaterknoten: 32 und Kindknoten: 32.
+12. Kindknoten_1: 32 >= Kindknoten_2: 32
+13. neuer Vaterknoten: 32
+14. Der jetzt zu betrachtende Vaterknoten: 32
+15. Vaterknoten: 32 >= Kindknoten: 32
+16. 32, 32, 32, 32
+17. neuer Vaterknoten: 32.
+18. Der jetzt zu betrachtende Vaterknoten: 32
+19. Vaterknoten: 32 >= Kindknoten: 32
+20. 32, 32, 32, 32
+21. Der jetzt zu betrachtende Vaterknoten: 32
+22. 32, 32, 32, 32
+23. Der jetzt zu betrachtende Vaterknoten: 32
+24. 32, 32, 32, 32
+25. Geordnetes Array: 32, 32, 32, 32

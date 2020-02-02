@@ -1,0 +1,16 @@
+1. Ungeordnetes Array: 43, 43, 43
+2. Vaterknoten: 43;    Kindknoten_1: 43;    Kindknoten_2: 43;    ArrayLänge: 3
+3. Vergleich von Kindknoten_1: 43 mit Kindknoten_2: 43
+4. Kindknoten_1: 43 >= Kindknoten_2: 43
+5. Vergleich von Vaterknoten: 43 mit Kindknoten: 43
+6. Vaterknoten: 43 >= Kindknoten: 43.
+7. Kein Tausch hat stattgefunden zwischen Vaterknoten: 43 und Kindknoten: 43.
+8. neuer Vaterknoten: 43.
+9. Der jetzt zu betrachtende Vaterknoten: 43
+10. Vaterknoten: 43 >= Kindknoten: 43
+11. 43, 43, 43
+12. Der jetzt zu betrachtende Vaterknoten: 43
+13. 43, 43, 43
+14. Der jetzt zu betrachtende Vaterknoten: 43
+15. 43, 43, 43
+16. Geordnetes Array: 43, 43, 43
