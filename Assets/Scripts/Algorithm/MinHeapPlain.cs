@@ -72,25 +72,23 @@ public class MinHeapPlain : MonoBehaviour {
             // if right child exists and it's smaller than left -> use for comparison with parent
             if (child + 1 < arrayLength) {
                 GetValueForStatistic.Comparison++;
-                if (arrayToSort[child + 1] < arrayToSort[child])
-                {
+                if (arrayToSort[child + 1] < arrayToSort[child]) {
                     child++;
                     GetValueForStatistic.Comparison++;
                 }
-                
+
             }
 
             // if child < parent -> position change
-            if (arrayToSort[parent] <= arrayToSort[child])
-            {
+            if (arrayToSort[parent] <= arrayToSort[child]) {
                 GetValueForStatistic.Comparison++;
                 return;
             }
-            
-                changePosition(parent, child);
-                parent = child;
-                child = parent * 2 + 1;
-            
+
+            changePosition(parent, child);
+            parent = child;
+            child = parent * 2 + 1;
+
         }
     }
 
@@ -100,12 +98,11 @@ public class MinHeapPlain : MonoBehaviour {
 
         while (child + 1 < arrayLength) {
 
-            if (arrayToSort[child + 1] < arrayToSort[child])
-            {
+            if (arrayToSort[child + 1] < arrayToSort[child]) {
                 GetValueForStatistic.Comparison++;
                 child++;
             }
-            
+
             // move up smallest child to it's parents position (free space)
             arrayToSort[parent] = arrayToSort[child];
 
@@ -131,11 +128,10 @@ public class MinHeapPlain : MonoBehaviour {
         while (child > root) {
             parent = (child - 1) / 2;
             GetValueForStatistic.Comparison++;
-            if (arrayToSort[parent] <= arrayToSort[child])
-            {
+            if (arrayToSort[parent] <= arrayToSort[child]) {
                 return;
             }
-            
+
             changePosition(parent, child);
             child = parent;
         }
@@ -143,7 +139,7 @@ public class MinHeapPlain : MonoBehaviour {
 
     // change value of elements at position a and b
     public static void changePosition(int a, int b) {
-        
+
         int help = arrayToSort[a];
         arrayToSort[a] = arrayToSort[b];
         arrayToSort[b] = help;
@@ -163,3 +159,4 @@ public class MinHeapPlain : MonoBehaviour {
     }
 
 }
+

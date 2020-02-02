@@ -16,7 +16,7 @@ public class MinHeap : MonoBehaviour {
      * 5. decrease unsorted array length by one
      * 6. repeat 2.-5. until array is completely sorted (arraylength = 0)
      */
-    
+
     // stores the array
     public static int[] arrayToSort;
     // stores current length of array to be looked at, root element's position (0) and position of empty space in heap
@@ -34,8 +34,7 @@ public class MinHeap : MonoBehaviour {
     // singleton
     public static MinHeap mh;
 
-    public static List<IEnumerator> getAnimQueue()
-    {
+    public static List<IEnumerator> getAnimQueue() {
         return animQueue;
     }
 
@@ -89,14 +88,13 @@ public class MinHeap : MonoBehaviour {
             free = downHeap(root);
 
             // insert cache element, reassure heap property (from bottom up)
-            if(arrayLength != 0)
-            {
+            if (arrayLength != 0) {
                 stindex.Add(indexAni);
                 parameters.Add(free);
                 animQueue.Add(VisualHeap.writeCacheBack(parameters[indexAni++]));
             }
-           
-            
+
+
             upHeap(free, lastLeaf);
 
             stindex.Add(indexAni);
@@ -132,19 +130,16 @@ public class MinHeap : MonoBehaviour {
         int child = parent * 2 + 1;
 
         // while child elements exist
-        while (child < arrayLength)
-        {
+        while (child < arrayLength) {
             // if right child exists and it's smaller than left -> use for comparison with parent
-            if (child + 1 < arrayLength)
-            {
+            if (child + 1 < arrayLength) {
                 stindex.Add(indexAni);
                 ManipulateProtocolTextFile.addParameterToWriteList("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    Kindknoten_2: " + arrayToSort[child + 1] + ";    ArrayLänge: " + arrayLength);
                 protofill("Vaterknoten: " + arrayToSort[parent] + ";    Kindknoten_1: " + arrayToSort[child] + ";    Kindknoten_2: " + arrayToSort[child + 1] + ";    ArrayLänge: " + arrayLength, indexAni);
 
                 ManipulateProtocolTextFile.addParameterToWriteList("Vergleich von Kindknoten_1: " + arrayToSort[child] + " mit Kindknoten_2: " + arrayToSort[child + 1]);
                 protofill("Vergleich von Kindknoten_1: " + arrayToSort[child] + " mit Kindknoten_2: " + arrayToSort[child + 1], indexAni);
-                if (arrayToSort[child + 1] < arrayToSort[child])
-                {
+                if (arrayToSort[child + 1] < arrayToSort[child]) {
                     // put ring around child objects (find larger)
                     parameters.Add(child + 1);
                     parameters.Add(child);
@@ -306,8 +301,7 @@ public class MinHeap : MonoBehaviour {
     }
 
     // change value of elements at position a and b
-    public static void changePosition(int a, int b)
-    {
+    public static void changePosition(int a, int b) {
         // for rings and the compare sign
         stindex.Add(indexAni);
         parameters.Add(a);
@@ -381,26 +375,22 @@ public class MinHeap : MonoBehaviour {
         CallStatistics.callStatisticAfterVisualization();
     }
 
-    public static bool getPlayAnimation()
-    {
+    public static bool getPlayAnimation() {
         return playAnimation;
     }
 
-    public static void setPlayAnimation(bool value)
-    {
+    public static void setPlayAnimation(bool value) {
         playAnimation = value;
     }
 
-    public static void protofill(string content, int index)
-    {
+    public static void protofill(string content, int index) {
         GameObject help = Instantiate(mh.protoText, new Vector2(mh.protoText.transform.localPosition.x, mh.protoText.transform.localPosition.y - 50 * protoCount), Quaternion.identity);
         help.transform.SetParent(mh.textHolder.transform, false);
         help.name = index.ToString();
         help.GetComponent<Text>().text = content;
     }
 
-    public static void protoClick()
-    {
+    public static void protoClick() {
         string name = EventSystem.current.currentSelectedGameObject.name;
         indexAni = int.Parse(name.Split(' ')[0]);
     }
