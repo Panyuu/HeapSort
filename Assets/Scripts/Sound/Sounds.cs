@@ -1,6 +1,8 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 
+// author: Esra Poetter, Leon Portius
+
 [System.Serializable]
 public class Sounds {
 

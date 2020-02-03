@@ -40,7 +40,6 @@ public class MaxHeap : MonoBehaviour {
         return animQueue;
     }
 
-    //public static ButtonManager bm; 
     private void Awake() {
 
         mh = this;

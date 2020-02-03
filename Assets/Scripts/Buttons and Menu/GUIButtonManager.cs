@@ -3,15 +3,11 @@ using UnityEngine.SceneManagement;
 
 
 // author: Ibrahim Kirschstein
-
-
-
 public class GUIButtonManager : MonoBehaviour {
    
     /*
      * holds all functions for Buttons used during the heapSort-Showcase
      */
-   
     
     public GameObject pauseButton;
     public GameObject startButton;
@@ -21,10 +17,7 @@ public class GUIButtonManager : MonoBehaviour {
 
     private bool protoShown = false;
 
-
     public void Update() {
-
-        
 
         if (Input.GetKeyDown("space")) {
             if (pauseButton.activeInHierarchy) {

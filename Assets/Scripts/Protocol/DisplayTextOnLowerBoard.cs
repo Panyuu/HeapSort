@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
-// author: Leon
+// author: Leon Portius
 
 public class DisplayTextOnLowerBoard : MonoBehaviour {
     // singleton

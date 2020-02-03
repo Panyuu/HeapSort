@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 
 // author: Leon Portius
-
 public class GetNumberInput : MonoBehaviour {
 
     public GameObject inputCanvas;
