@@ -2,14 +2,22 @@
 using UnityEngine;
 using TMPro;
 
+
+//author: Ibrahim
 public class ButtonManager : MonoBehaviour {
+
+    // holds all functions for the Input Field Button
+
     public GameObject orientaField;
+    //field to copy to extend the array to sort
     public GameObject parent;
+    //array to parent the created input fields
     public GameObject InputCanvas;
+    //Canvas thats the parent of the input fields
     public static List<TMP_InputField> inputFields;
-
+    //save for the Array
     public float distance;
-
+    //distance between the input fields
     private int fieldCount = 1;
 
     private void Start() {
@@ -17,7 +25,7 @@ public class ButtonManager : MonoBehaviour {
         inputFields = new List<TMP_InputField>();
         inputFields.Add(GameObject.Find("Nr0").gameObject.transform.GetChild(0).GetComponent<TMP_InputField>());
     }
-
+    //ini
 
     public void addField() {
         if (fieldCount < 7) {
@@ -36,7 +44,7 @@ public class ButtonManager : MonoBehaviour {
             fieldCount++;
         }
     }
-
+    //adds input field to extend the to-sort-array
     public void removeField() {
         if (fieldCount > 1) {
             //deletes last element in list and destroys object
@@ -44,4 +52,5 @@ public class ButtonManager : MonoBehaviour {
             Destroy(GameObject.Find("Nr" + --fieldCount));
         }
     }
+    //removes last input field to shorten the to-sort-array
 }
