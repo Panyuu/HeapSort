@@ -102,7 +102,6 @@ public class VisualHeap : MonoBehaviour {
     // changes complete ship object (position, rotation of sail, text on the ship)
     public static IEnumerator ChangeShipPosition(int a, int b, int loliPos, int loliRot) {
 
-        Debug.Log("Parent Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text + " Child Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text);
         // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Tausch der Knoten.");
 
@@ -130,7 +129,6 @@ public class VisualHeap : MonoBehaviour {
         vh.ring1.transform.GetChild(1).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(1).gameObject.SetActive(true);
 
-        Debug.Log("Ships Position Changed");
         // change array ui during visualisation for text switch
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(a, b));
 
@@ -236,8 +234,10 @@ public class VisualHeap : MonoBehaviour {
         // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Der Knoten is sortiert...");
 
-        yield return new WaitForSeconds(1f);
-        anim[lastElement].SetBool("isMovingOutOfScene", false);
+        yield return new WaitForSeconds(5f);
+        if (shipsToSort[lastElement] != null) {
+            anim[lastElement].SetBool("isMovingOutOfScene", false);
+        }
         // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Und fällt weg.");
     }

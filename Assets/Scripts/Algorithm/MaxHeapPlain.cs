@@ -4,6 +4,8 @@
 
 public class MaxHeapPlain : MonoBehaviour {
 
+    // used for statistic purpose (in MaxHeap method to many other method-calls that could falsify the result)
+
     /*
      * algorithm procedure :
      * 1. build max heap (heapify) -> parent element >= child elemets
@@ -74,7 +76,6 @@ public class MaxHeapPlain : MonoBehaviour {
         while (child < arrayLength) {
             // if right child exists and it's larger than left -> use for comparison with parent
             if (child + 1 < arrayLength) {
-                GetValueForStatistic.Comparison++;
 
                 if (arrayToSort[child + 1] > arrayToSort[child]) {
                     child++;
@@ -108,6 +109,7 @@ public class MaxHeapPlain : MonoBehaviour {
 
             // move up largest child to its parents' position (free space)
             arrayToSort[parent] = arrayToSort[child];
+            GetValueForStatistic.Switches++;
 
             // continue with next child (if existant)
             parent = child;
@@ -118,6 +120,8 @@ public class MaxHeapPlain : MonoBehaviour {
         if (child < arrayLength) {
 
             arrayToSort[parent] = arrayToSort[child];
+            GetValueForStatistic.Switches++;
+
             parent = child;
 
         }
