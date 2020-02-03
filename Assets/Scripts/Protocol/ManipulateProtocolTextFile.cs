@@ -2,7 +2,10 @@
 using UnityEngine;
 using System.IO;
 
+// author: Leon Portius
+
 public class ManipulateProtocolTextFile : MonoBehaviour {
+    // singleton
     public static ManipulateProtocolTextFile MPTF;
 
     //use Application.dataPath because on every device accessing the Asset folder can work differently (e.g. laptop, mobile) just to be sure
@@ -70,13 +73,17 @@ public class ManipulateProtocolTextFile : MonoBehaviour {
     // add to the end of the file while leaving everything previously written intact
     public static void appendFile(string filePath) {
         StreamWriter sWriter;
+        // if the file we want to write into doesn't exist yet 
         if (!File.Exists(filePath)) {
+            // make new file
             sWriter = File.CreateText(fullPath);
         }
         else {
+            //write into existing file
             sWriter = new StreamWriter(filePath, append: true);
         }
 
+        // add all lines contained into writeList
         for (int i = 0; i < writeList.Count; i++) {
             sWriter.WriteLine(writeList[i]);
         }
@@ -95,6 +102,7 @@ public class ManipulateProtocolTextFile : MonoBehaviour {
     public static int getLineCountOfFile(string filePath) {
         int lineCount = 0;
         StreamReader sReader = new StreamReader(filePath);
+        // if the end hasn't been reached yet
         while (!sReader.EndOfStream) {
             sReader.ReadLine();
             lineCount++;
@@ -108,7 +116,6 @@ public class ManipulateProtocolTextFile : MonoBehaviour {
     public static void addParameterToWriteList(string lineToAdd) {
         setLineCount(getLineCount() + 1);
         writeList.Add(getLineCount() + ". " + lineToAdd);
-
     }
 
     //print out the whole text file to the console once the heap is finished

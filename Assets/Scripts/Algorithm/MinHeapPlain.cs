@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// author: Tina Kiessling, Leon Portius
+
 public class MinHeapPlain : MonoBehaviour {
 
     /*

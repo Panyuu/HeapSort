@@ -2,12 +2,17 @@
 using TMPro;
 using UnityEngine;
 
+// author: Leon Portius
+
 public class GetValueForStatistic : MonoBehaviour {
+    // singleton
     public static GetValueForStatistic GVFS;
 
+    // serialize fields for easy access of statistics labels
     public TMP_Text labelComparisons, labelSwitches, labelTimeDelta, labelBestCaseJudge;
     public GameObject[] arrBoxes = new GameObject[7];
-    //static List<GameObject> prefabList = new List<GameObject>();
+
+    // testing out generated getter and setters by Visual Studio
     static int comparison = 0;
     static int switches = 0;
     static float startTime = 0;
@@ -22,23 +27,26 @@ public class GetValueForStatistic : MonoBehaviour {
     //static float bestTime = 0;
     static List<int> ownArr = new List<int>();
 
+    // instantiate singleton
     private void Awake() {
         GVFS = this;
     }
 
-    // run time start, finish, delta 
+    // work with run time start, finish, delta 
     public static void makeStatisticsTexts() {
         // write into labels
         GVFS.labelComparisons.text = Comparison.ToString();
         GVFS.labelSwitches.text = Switches.ToString();
         GVFS.labelTimeDelta.text = (EndTime - StartTime).ToString() + " ms";
 
+        // enable boxes and set their dynamic index label
         for (byte i = 0; i < OwnArr.Count; i++) {
             GVFS.arrBoxes[i].SetActive(true);
             GVFS.arrBoxes[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = OwnArr[i].ToString();
 
         }
 
+        // evaluate the given case
         if (Switches <= 1) {
             GVFS.labelBestCaseJudge.text = "BEST CASE!!!";
         }

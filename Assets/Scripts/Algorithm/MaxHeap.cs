@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// author: Tina Kiessling, Leon Portius
+
 public class MaxHeap : MonoBehaviour {
 
     /*
@@ -55,9 +57,9 @@ public class MaxHeap : MonoBehaviour {
         mh.StartCoroutine(startAnimation());
     }
 
-    // starts the algorithm when button was pressed
+    // starts the algorithm when start button was pressed
     public static void startMaxHeapPerButtonPress() {
-
+        // enable parent object of the lower display while aniamtions are running
         DisplayTextOnLowerBoard.activateDisplayParent();
 
         createArray(GetNumberInput.getListForHeap().ToArray());
@@ -65,7 +67,9 @@ public class MaxHeap : MonoBehaviour {
         stindex.Add(-1);
         animQueue.Add(VisualHeap.positionShips(GetNumberInput.getListForHeap().ToArray()));
 
+        // clear the protocol text file for new use
         ManipulateProtocolTextFile.clearTextFile();
+        // add text to protocol text file
         ManipulateProtocolTextFile.addParameterToWriteList("Ungeordnetes Array: " + arrayToString());
         protofill("Ungeordnetes Array: " + arrayToString() + ".", indexAni);
 
@@ -102,6 +106,7 @@ public class MaxHeap : MonoBehaviour {
             ManipulateProtocolTextFile.addParameterToWriteList(arrayToString());
         }
 
+        // add text to protocol
         ManipulateProtocolTextFile.addParameterToWriteList("Geordnetes Array: " + arrayToString());
         protofill("Geordnetes Array: " + arrayToString() + ".", indexAni);
         ManipulateProtocolTextFile.printOutProtocolContent();

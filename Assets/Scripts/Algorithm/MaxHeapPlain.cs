@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// author: Tina Kiessling, Leon Portius
+
 public class MaxHeapPlain : MonoBehaviour {
 
     /*
@@ -20,6 +22,7 @@ public class MaxHeapPlain : MonoBehaviour {
 
     // starts the algorithm when button was pressed
     public static void startMaxHeapPerButtonPress() {
+        // get the start time of the actual algorithm
         GetValueForStatistic.StartTime = System.DateTime.Now.Millisecond;
         createArray(GetNumberInput.getListForHeap().ToArray());
 
@@ -41,8 +44,9 @@ public class MaxHeapPlain : MonoBehaviour {
             upHeap(free, lastLeaf);
         }
 
-        //Debug.Log("Plain: " + arrayToString());
+        // get the end time of the actual algorithm
         GetValueForStatistic.EndTime = System.DateTime.Now.Millisecond;
+        // evaluate collected data for statistic
         GetValueForStatistic.makeStatisticsTexts();
     }
 

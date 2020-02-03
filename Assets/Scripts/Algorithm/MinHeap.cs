@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// author: Tina Kiessling, Leon Portius
+
 public class MinHeap : MonoBehaviour {
 
     /*

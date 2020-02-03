@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// author: Tina Kiessling, Leon Portius
+
 public class VisualHeap : MonoBehaviour {
     // singleton
     public static VisualHeap vh;
@@ -90,6 +92,7 @@ public class VisualHeap : MonoBehaviour {
             animators[i].SetBool("isSurfacing", true);
             yield return new WaitForSeconds(1f);
             animators[i].SetBool("isSurfacing", false);
+            // write text onto lower display
             DisplayTextOnLowerBoard.setLowerText("Positionierung Schiffe!");
         }
         shipsToSort = ships.ToArray();
@@ -100,6 +103,7 @@ public class VisualHeap : MonoBehaviour {
     public static IEnumerator ChangeShipPosition(int a, int b, int loliPos, int loliRot) {
 
         Debug.Log("Parent Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text + " Child Value: " + shipsToSort[a].transform.Find("Value").gameObject.GetComponent<TextMesh>().text);
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Tausch der Knoten.");
 
         // set position to children's position
@@ -127,7 +131,7 @@ public class VisualHeap : MonoBehaviour {
         vh.ring2.transform.GetChild(1).gameObject.SetActive(true);
 
         Debug.Log("Ships Position Changed");
-        // change array ui
+        // change array ui during visualisation for text switch
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(a, b));
 
         // saves all necessary variables from a
@@ -175,7 +179,7 @@ public class VisualHeap : MonoBehaviour {
     public static IEnumerator WriteRootToLast(int root, int lastElement) {
 
         if (lastElement != 0) {
-
+            // write text onto lower display
             DisplayTextOnLowerBoard.setLowerText("Letztes Element in Cache zwischenspeichern.");
             // last element submerges
             anim[lastElement].SetBool("isSubmerging", true);
@@ -188,13 +192,16 @@ public class VisualHeap : MonoBehaviour {
             cacheAnimator = anim[lastElement];
             cacheObject = shipsToSort[lastElement];
 
+            // write text onto lower display
             DisplayTextOnLowerBoard.setLowerText("Root-Element wandert nach unten...");
             // ship from last position now surfacing outside of heap, root element is submerging
             cacheAnimator.SetBool("isSurfacing", true);
             anim[root].SetBool("isSubmerging", true);
             yield return new WaitForSeconds(1.5f);
+            // change text
             ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(ManageArrayUI.prefabList.Count - 1, lastElement));
             yield return new WaitForSeconds(2f);
+            // change text again
             ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(root, lastElement));
             yield return new WaitForSeconds(1.5f);
             anim[root].SetBool("isSubmerging", false);
@@ -226,20 +233,24 @@ public class VisualHeap : MonoBehaviour {
 
         // switch the Array Box sprite to "sorted"
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeSpriteOnceSorted(lastElement));
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Der Knoten is sortiert...");
 
         yield return new WaitForSeconds(1f);
         anim[lastElement].SetBool("isMovingOutOfScene", false);
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Und fällt weg.");
     }
 
     // moves largest child upwards to fill the heap back up
     public static IEnumerator moveUp(int parent, int child) {
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Knoten rücken auf...");
 
         // child submerges
         anim[child].SetBool("isSubmerging", true);
         yield return new WaitForSeconds(1.5f);
+        // switch text in array ui while visualisation is running
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(parent, child));
         yield return new WaitForSeconds(2f);
         anim[child].SetBool("isSubmerging", false);
@@ -259,12 +270,13 @@ public class VisualHeap : MonoBehaviour {
 
     // writes the cache element back to the free space
     public static IEnumerator writeCacheBack(int free) {
-
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Cache Element wieder in Heap einfügen.");
 
         // cache Object is submerging
         cacheAnimator.SetBool("isSubmerging", true);
         yield return new WaitForSeconds(3.5f);
+        // switch text while visualisation is running
         ManageArrayUI.MAUI.StartCoroutine(ManageArrayUI.changeText(free, ManageArrayUI.prefabList.Count - 1));
         yield return new WaitForSeconds(2f);
         cacheAnimator.SetBool("isSubmerging", false);
@@ -294,6 +306,7 @@ public class VisualHeap : MonoBehaviour {
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(2).gameObject.SetActive(true);
 
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Vergleiche...");
 
         // position loli and play animation
@@ -339,6 +352,7 @@ public class VisualHeap : MonoBehaviour {
         vh.ring1.transform.GetChild(2).gameObject.SetActive(true);
         vh.ring2.transform.GetChild(2).gameObject.SetActive(true);
 
+        // write text onto lower display
         DisplayTextOnLowerBoard.setLowerText("Vergleiche...");
 
         // position loli and play animation
