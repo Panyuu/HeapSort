@@ -1,7 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+// author: Ibrahim Kirschstein
+
+
+
 public class GUIButtonManager : MonoBehaviour {
+   
+    /*
+     * holds all functions for Buttons used during the heapSort-Showcase
+     */
+   
+    
     public GameObject pauseButton;
     public GameObject startButton;
     public GameObject protoButton;
@@ -10,7 +21,10 @@ public class GUIButtonManager : MonoBehaviour {
 
     private bool protoShown = false;
 
+
     public void Update() {
+
+        
 
         if (Input.GetKeyDown("space")) {
             if (pauseButton.activeInHierarchy) {
@@ -21,6 +35,7 @@ public class GUIButtonManager : MonoBehaviour {
             }
         }
     }
+    //makes pausing/ unpausing the game with space key possible
     public void animationMaxStop() {
         MaxHeap.setPlayAnimation(false);
 
@@ -29,6 +44,7 @@ public class GUIButtonManager : MonoBehaviour {
         homeButton.SetActive(true);
         pauseButton.SetActive(false);
     }
+    //Pauses Visualization and enables the other buttons
     public void animationMaxStart() {
         if (MaxHeap.startPossible) {
             MaxHeap.playAnimation = true;
@@ -40,7 +56,7 @@ public class GUIButtonManager : MonoBehaviour {
             startButton.SetActive(false);
         }
     }
-
+    //enables Visualization and disables the other buttons
     public void protocolShow() {
         if (protoShown) {
             Proto.SetActive(false);
@@ -51,7 +67,7 @@ public class GUIButtonManager : MonoBehaviour {
             protoShown = true;
         }
     }
-
+    //activates the Protocol_Canvas
     public void returnHome() {
         //reset everything in every class
         MaxHeap.setBackEverything();
@@ -66,4 +82,5 @@ public class GUIButtonManager : MonoBehaviour {
         // load menu-scene
         SceneManager.LoadScene(0);
     }
+    //resets the scene and switches back to the home menu
 }

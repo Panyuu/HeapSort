@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// author: Tina Kiessling, Leon Portius
+// author: Tina Kiessling, Leon Portius, Ibrahim Kirschstein
 
 public class MaxHeap : MonoBehaviour {
 
@@ -372,14 +372,11 @@ public class MaxHeap : MonoBehaviour {
         }
     }
 
-    public static bool getPlayAnimation() {
-        return playAnimation;
-    }
-
+    // setter method for buttons
     public static void setPlayAnimation(bool value) {
         playAnimation = value;
     }
-
+    
     public static void protofill(string content, int index) {
         GameObject help = Instantiate(mh.protoText, new Vector2(mh.protoText.transform.localPosition.x, mh.protoText.transform.localPosition.y - 50 * protoCount), Quaternion.identity);
         help.transform.SetParent(mh.textHolder.transform, false);
